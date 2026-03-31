@@ -4,6 +4,7 @@ import {
   SITE_URL,
   SITE_DESCRIPTION,
   PRIMARY_KEYWORDS,
+  APP_INSTALL_KEYWORDS,
   APP_STORE_URL,
   PLAY_STORE_URL,
   PHONE_NUMBER,
@@ -27,7 +28,7 @@ export function generatePageMetadata({
   image,
 }: MetadataOptions): Metadata {
   const url = `${SITE_URL}${path}`;
-  const allKeywords = [...PRIMARY_KEYWORDS, ...keywords];
+  const allKeywords = [...PRIMARY_KEYWORDS, ...APP_INSTALL_KEYWORDS, ...keywords];
   const fullTitle = `${title} | ${SITE_NAME} — Wholesaler App`;
 
   return {
@@ -81,8 +82,6 @@ export function generatePageMetadata({
 }
 
 // ─── JSON-LD: SoftwareApplication Schema ────────────────────────────────────
-// This schema tells Google this is a downloadable app — enables star ratings,
-// download buttons, and pricing info directly in search results.
 
 export function generateAppSchema() {
   return {
@@ -158,20 +157,58 @@ export function generateOrganizationSchema() {
   };
 }
 
-// ─── JSON-LD: Local Business Page Schema (for /market/[city]/[category]) ────
+// ─── JSON-LD: BreadcrumbList Schema ─────────────────────────────────────────
+
+export function generateBreadcrumbSchema(
+  crumbs: { name: string; url: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((crumb, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: crumb.name,
+      item: crumb.url,
+    })),
+  };
+}
+
+// ─── JSON-LD: FAQPage Schema ────────────────────────────────────────────────
+
+export function generateFAQSchema(
+  faqs: { question: string; answer: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+// ─── JSON-LD: Local Market Page Schema (for /market/[city]/[category]) ──────
 
 export function generateLocalMarketSchema(opts: {
   city: string;
   state: string;
   category: string;
   categoryDescription: string;
+  citySlug: string;
+  categorySlug: string;
 }) {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: `Wholesale ${opts.category} in ${opts.city} | ${SITE_NAME}`,
     description: `Find wholesale ${opts.category.toLowerCase()} dealers and suppliers in ${opts.city}, ${opts.state}. Download the ${SITE_NAME} app to connect with verified wholesalers.`,
-    url: `${SITE_URL}/market/${opts.city.toLowerCase()}/${opts.category.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`,
+    url: `${SITE_URL}/market/${opts.citySlug}/${opts.categorySlug}`,
     isPartOf: {
       "@type": "WebSite",
       name: SITE_NAME,
@@ -181,6 +218,14 @@ export function generateLocalMarketSchema(opts: {
       "@type": "Thing",
       name: `Wholesale ${opts.category} Market in ${opts.city}`,
       description: opts.categoryDescription,
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: `Wholesale in ${opts.city}`, item: `${SITE_URL}/market/${opts.citySlug}` },
+        { "@type": "ListItem", position: 3, name: `${opts.category} in ${opts.city}`, item: `${SITE_URL}/market/${opts.citySlug}/${opts.categorySlug}` },
+      ],
     },
     mainEntity: {
       "@type": "SoftwareApplication",
@@ -197,6 +242,125 @@ export function generateLocalMarketSchema(opts: {
         ratingValue: "4.8",
         ratingCount: "12400",
       },
+    },
+  };
+}
+
+// ─── JSON-LD: City Hub Page Schema ──────────────────────────────────────────
+
+export function generateCityHubSchema(opts: {
+  city: string;
+  state: string;
+  citySlug: string;
+  description: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `Wholesale Market in ${opts.city} | ${SITE_NAME}`,
+    description: opts.description,
+    url: `${SITE_URL}/market/${opts.citySlug}`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: `Wholesale in ${opts.city}`, item: `${SITE_URL}/market/${opts.citySlug}` },
+      ],
+    },
+    about: {
+      "@type": "Place",
+      name: opts.city,
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: opts.state,
+        addressCountry: "IN",
+      },
+    },
+    mainEntity: {
+      "@type": "SoftwareApplication",
+      name: `${SITE_NAME} — Wholesale Marketplace`,
+      operatingSystem: "Android, iOS",
+      applicationCategory: "BusinessApplication",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+      aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", ratingCount: "12400" },
+    },
+  };
+}
+
+// ─── JSON-LD: Category Hub Page Schema ──────────────────────────────────────
+
+export function generateCategoryHubSchema(opts: {
+  category: string;
+  categorySlug: string;
+  description: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `Wholesale ${opts.category} in India | ${SITE_NAME}`,
+    description: opts.description,
+    url: `${SITE_URL}/market/category/${opts.categorySlug}`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: `Wholesale ${opts.category}`, item: `${SITE_URL}/market/category/${opts.categorySlug}` },
+      ],
+    },
+    mainEntity: {
+      "@type": "SoftwareApplication",
+      name: `${SITE_NAME} — Wholesale Marketplace`,
+      operatingSystem: "Android, iOS",
+      applicationCategory: "BusinessApplication",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+      aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", ratingCount: "12400" },
+    },
+  };
+}
+
+// ─── JSON-LD: Festival Page Schema ──────────────────────────────────────────
+
+export function generateFestivalPageSchema(opts: {
+  festival: string;
+  festivalSlug: string;
+  description: string;
+  season: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `${opts.festival} Wholesale Deals | ${SITE_NAME}`,
+    description: opts.description,
+    url: `${SITE_URL}/market/festival/${opts.festivalSlug}`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: `${opts.festival} Wholesale`, item: `${SITE_URL}/market/festival/${opts.festivalSlug}` },
+      ],
+    },
+    mainEntity: {
+      "@type": "SoftwareApplication",
+      name: `${SITE_NAME} — Wholesale Marketplace`,
+      operatingSystem: "Android, iOS",
+      applicationCategory: "BusinessApplication",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+      aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", ratingCount: "12400" },
     },
   };
 }

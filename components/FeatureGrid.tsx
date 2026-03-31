@@ -17,25 +17,28 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   analytics: <BarChart3 className="h-6 w-6" />,
 };
 
-const ICON_COLORS: Record<string, { bg: string; text: string; hoverBg: string }> = {
-  verified:    { bg: "bg-[#dcfce7]", text: "text-[#16a34a]", hoverBg: "group-hover:bg-[#16a34a]" },
-  realtime:    { bg: "bg-[#dbeafe]", text: "text-[#2563eb]", hoverBg: "group-hover:bg-[#2563eb]" },
-  secure:      { bg: "bg-[#fef3c7]", text: "text-[#d97706]", hoverBg: "group-hover:bg-[#d97706]" },
-  logistics:   { bg: "bg-[#ede9fe]", text: "text-[#7c3aed]", hoverBg: "group-hover:bg-[#7c3aed]" },
-  negotiation: { bg: "bg-[#fce7f3]", text: "text-[#db2777]", hoverBg: "group-hover:bg-[#db2777]" },
-  analytics:   { bg: "bg-[#cffafe]", text: "text-[#0891b2]", hoverBg: "group-hover:bg-[#0891b2]" },
+const ICON_COLORS: Record<string, { gradient: string; glow: string }> = {
+  verified:    { gradient: "from-[#10b981] to-[#34d399]", glow: "rgba(16, 185, 129, 0.15)" },
+  realtime:    { gradient: "from-[#6366f1] to-[#818cf8]", glow: "rgba(99, 102, 241, 0.15)" },
+  secure:      { gradient: "from-[#f59e0b] to-[#fbbf24]", glow: "rgba(245, 158, 11, 0.15)" },
+  logistics:   { gradient: "from-[#8b5cf6] to-[#a78bfa]", glow: "rgba(139, 92, 246, 0.15)" },
+  negotiation: { gradient: "from-[#ec4899] to-[#f472b6]", glow: "rgba(236, 72, 153, 0.15)" },
+  analytics:   { gradient: "from-[#06b6d4] to-[#22d3ee]", glow: "rgba(6, 182, 212, 0.15)" },
 };
 
 export default function FeatureGrid() {
   return (
-    <section id="features" className="py-24 bg-white">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section id="features" className="py-24 bg-white relative">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 dot-pattern opacity-40 pointer-events-none" />
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="mx-auto max-w-2xl text-center animate-fade-in-up">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#2563eb]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#6366f1]/15 bg-[#6366f1]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#6366f1]">
             Why Lotwaala
-          </p>
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#0f172a] sm:text-4xl">
+          </div>
+          <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-[#0f172a] sm:text-4xl">
             Everything a Wholesaler Needs,{" "}
             <span className="gradient-text-primary">in One App</span>
           </h2>
@@ -52,19 +55,31 @@ export default function FeatureGrid() {
             return (
               <div
                 key={feature.id}
-                className={`group rounded-2xl border border-[#e2e8f0] bg-white p-7 transition-all duration-300 hover:border-[#2563eb]/20 hover:shadow-xl hover:-translate-y-1.5 animate-fade-in-up delay-${i * 100}`}
+                className={`group relative rounded-2xl bg-white p-7 transition-all duration-500 hover:-translate-y-2 animate-fade-in-up delay-${i * 100}`}
+                style={{
+                  border: '1px solid rgba(0,0,0,0.04)',
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)',
+                }}
               >
+                {/* Hover glow effect */}
                 <div
-                  className={`flex h-14 w-14 items-center justify-center rounded-2xl ${colors.bg} ${colors.text} ${colors.hoverBg} group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:scale-110`}
-                >
-                  {ICON_MAP[feature.id]}
+                  className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{ boxShadow: `0 8px 40px ${colors.glow}, 0 0 0 1px rgba(99,102,241,0.08)` }}
+                />
+
+                <div className="relative">
+                  <div
+                    className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${colors.gradient} text-white shadow-md transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg`}
+                  >
+                    {ICON_MAP[feature.id]}
+                  </div>
+                  <h3 className="mt-5 text-lg font-bold text-[#0f172a]">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-[#64748b]">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-[#0f172a]">
-                  {feature.title}
-                </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-[#64748b]">
-                  {feature.description}
-                </p>
               </div>
             );
           })}

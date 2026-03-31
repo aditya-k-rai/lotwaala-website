@@ -22,15 +22,16 @@ const SCREENSHOTS = [
 export default function PhoneMockup() {
   return (
     <div className="relative animate-float">
-      {/* Glow behind phone */}
-      <div className="absolute -inset-16 rounded-full bg-[#2563eb]/10 blur-[100px] animate-blob" />
+      {/* Multi-layer glow behind phone */}
+      <div className="absolute -inset-16 rounded-full bg-[#6366f1]/12 blur-[100px] animate-blob" />
+      <div className="absolute -inset-20 rounded-full bg-[#a855f7]/6 blur-[120px] animate-blob delay-400" />
 
       {/* Phone frame */}
       <div className="relative w-[280px] rounded-[48px] phone-frame p-[14px] sm:w-[300px]">
         {/* Side button details */}
-        <div className="absolute -right-[2px] top-28 h-12 w-[3px] rounded-l bg-[#334155]" />
-        <div className="absolute -right-[2px] top-44 h-12 w-[3px] rounded-l bg-[#334155]" />
-        <div className="absolute -left-[2px] top-36 h-16 w-[3px] rounded-r bg-[#334155]" />
+        <div className="absolute -right-[2px] top-28 h-12 w-[3px] rounded-l bg-[#2a2a4a]" />
+        <div className="absolute -right-[2px] top-44 h-12 w-[3px] rounded-l bg-[#2a2a4a]" />
+        <div className="absolute -left-[2px] top-36 h-16 w-[3px] rounded-r bg-[#2a2a4a]" />
 
         {/* Dynamic Island */}
         <div className="absolute left-1/2 top-[14px] z-20 h-[28px] w-[90px] -translate-x-1/2 rounded-full bg-black">
@@ -42,7 +43,6 @@ export default function PhoneMockup() {
 
         {/* Screen with slideshow */}
         <div className="relative overflow-hidden rounded-[36px] bg-[#f0f0f0]" style={{ aspectRatio: "9/19.5" }}>
-          {/* Screenshot slides — stacked absolutely, animated */}
           {SCREENSHOTS.map((screenshot, i) => (
             <div
               key={screenshot.src}
@@ -60,11 +60,11 @@ export default function PhoneMockup() {
             </div>
           ))}
 
-          {/* Bottom gradient fade for status bar blend */}
+          {/* Bottom gradient fade */}
           <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-8 bg-gradient-to-t from-black/10 to-transparent" />
         </div>
 
-        {/* Dot indicators at bottom of phone */}
+        {/* Dot indicators */}
         <div className="absolute bottom-[22px] left-1/2 z-20 flex -translate-x-1/2 gap-1.5">
           {SCREENSHOTS.map((_, i) => (
             <div
@@ -79,6 +79,7 @@ export default function PhoneMockup() {
       {/* Reflection / shine effect on frame */}
       <div className="pointer-events-none absolute inset-0 rounded-[48px]">
         <div className="absolute left-3 top-0 h-full w-[1px] bg-gradient-to-b from-white/20 via-white/5 to-transparent" />
+        <div className="absolute right-6 top-8 h-1/3 w-[1px] bg-gradient-to-b from-white/10 to-transparent" />
       </div>
     </div>
   );

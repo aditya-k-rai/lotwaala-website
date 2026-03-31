@@ -1,16 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SITE_NAME, CATEGORIES, CITIES } from "@/lib/constants";
+import { SITE_NAME, CATEGORIES, CITIES, FESTIVALS } from "@/lib/constants";
 
 const DEVELOPER_URL = "https://aditya-k-rai.github.io/P-Website/";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#e2e8f0] bg-[#f8fafc]">
+    <footer className="border-t border-[#e2e8f0] bg-[#fafbff]">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        {/* ── Main Grid — 5 columns ── */}
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
-          <div>
+          <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5">
               <Image
                 src="/logo.png"
@@ -29,36 +30,17 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Markets by Category */}
+          {/* Popular Wholesale Markets — City Hub Links */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#94a3b8]">
-              Wholesale Markets
-            </h4>
-            <ul className="mt-4 space-y-2.5">
-              {CATEGORIES.slice(0, 6).map((cat) => (
-                <li key={cat.slug}>
-                  <Link
-                    href={`/market/delhi/${cat.slug}`}
-                    className="text-sm text-[#64748b] transition-colors hover:text-[#2563eb]"
-                  >
-                    Wholesale {cat.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Markets by City */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#94a3b8]">
+            <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               Top Cities
             </h4>
             <ul className="mt-4 space-y-2.5">
-              {CITIES.slice(0, 6).map((city) => (
+              {CITIES.slice(0, 8).map((city) => (
                 <li key={city.slug}>
                   <Link
-                    href={`/market/${city.slug}/electronics`}
-                    className="text-sm text-[#64748b] transition-colors hover:text-[#2563eb]"
+                    href={`/market/${city.slug}`}
+                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
                   >
                     Wholesale in {city.name}
                   </Link>
@@ -67,26 +49,93 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Wholesale Categories — Category Hub Links */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#94a3b8]">
+            <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+              Wholesale Categories
+            </h4>
+            <ul className="mt-4 space-y-2.5">
+              {CATEGORIES.slice(0, 8).map((cat) => (
+                <li key={cat.slug}>
+                  <Link
+                    href={`/market/category/${cat.slug}`}
+                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
+                  >
+                    Wholesale {cat.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Festival Deals */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+              Festival Deals
+            </h4>
+            <ul className="mt-4 space-y-2.5">
+              {FESTIVALS.map((fest) => (
+                <li key={fest.slug}>
+                  <Link
+                    href={`/market/festival/${fest.slug}`}
+                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
+                  >
+                    {fest.name} Wholesale
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Company Links */}
+            <h4 className="mt-8 text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               Company
             </h4>
             <ul className="mt-4 space-y-2.5">
-              {[
-                "About",
-                "Blog",
-                "Careers",
-                "Contact",
-                "Privacy Policy",
-                "Terms of Service",
-              ].map((item) => (
-                <li key={item}>
+              {["About", "Blog", "Contact", "Privacy Policy", "Terms of Service"].map(
+                (item) => (
+                  <li key={item}>
+                    <Link
+                      href="#"
+                      className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                )
+              )}
+            </ul>
+          </div>
+
+          {/* More Cities — Remaining cities */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+              More Cities
+            </h4>
+            <ul className="mt-4 space-y-2.5">
+              {CITIES.slice(8).map((city) => (
+                <li key={city.slug}>
                   <Link
-                    href="#"
-                    className="text-sm text-[#64748b] transition-colors hover:text-[#2563eb]"
+                    href={`/market/${city.slug}`}
+                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
                   >
-                    {item}
+                    Wholesale in {city.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* More Categories */}
+            <h4 className="mt-8 text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+              More Categories
+            </h4>
+            <ul className="mt-4 space-y-2.5">
+              {CATEGORIES.slice(8).map((cat) => (
+                <li key={cat.slug}>
+                  <Link
+                    href={`/market/category/${cat.slug}`}
+                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
+                  >
+                    Wholesale {cat.name}
                   </Link>
                 </li>
               ))}
@@ -106,9 +155,9 @@ export default function Footer() {
       </div>
 
       {/* Developer credit bar */}
-      <div className="bg-[#0a0a0a] py-3">
+      <div className="gradient-dark py-3">
         <div className="mx-auto flex max-w-6xl items-center justify-center gap-2.5 px-4">
-          <span className="text-xs text-[#6b7280]">Developed by</span>
+          <span className="text-xs text-white/30">Developed by</span>
           <a
             href={DEVELOPER_URL}
             target="_blank"
@@ -120,9 +169,9 @@ export default function Footer() {
               alt="Aditya Rai"
               width={24}
               height={24}
-              className="h-6 w-6 rounded-full object-cover"
+              className="h-6 w-6 rounded-full object-cover ring-1 ring-white/10"
             />
-            <span className="text-sm font-bold text-[#f59e0b]">
+            <span className="text-sm font-bold text-[#fbbf24]">
               Aditya Rai
             </span>
           </a>

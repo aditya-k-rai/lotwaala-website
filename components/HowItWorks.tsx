@@ -8,21 +8,23 @@ const STEP_ICONS = [
 ];
 
 const STEP_COLORS = [
-  { ring: "border-[#2563eb]/20", bg: "bg-[#eff6ff]", text: "text-[#2563eb]", badge: "from-[#2563eb] to-[#3b82f6]" },
-  { ring: "border-[#7c3aed]/20", bg: "bg-[#f5f3ff]", text: "text-[#7c3aed]", badge: "from-[#7c3aed] to-[#8b5cf6]" },
-  { ring: "border-[#059669]/20", bg: "bg-[#ecfdf5]", text: "text-[#059669]", badge: "from-[#059669] to-[#10b981]" },
+  { gradient: "from-[#6366f1] to-[#818cf8]", ring: "border-[#6366f1]/20", bg: "bg-[#6366f1]/5", badge: "from-[#6366f1] to-[#818cf8]" },
+  { gradient: "from-[#8b5cf6] to-[#a78bfa]", ring: "border-[#8b5cf6]/20", bg: "bg-[#8b5cf6]/5", badge: "from-[#8b5cf6] to-[#a78bfa]" },
+  { gradient: "from-[#10b981] to-[#34d399]", ring: "border-[#10b981]/20", bg: "bg-[#10b981]/5", badge: "from-[#10b981] to-[#34d399]" },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 bg-[#f8fafc]">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="py-24 bg-[#fafbff] relative">
+      <div className="absolute inset-0 dot-pattern opacity-30 pointer-events-none" />
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center animate-fade-in-up">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#2563eb]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#6366f1]/15 bg-[#6366f1]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#6366f1]">
             Get Started
-          </p>
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#0f172a] sm:text-4xl">
+          </div>
+          <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-[#0f172a] sm:text-4xl">
             Three Steps to Your First{" "}
             <span className="gradient-text-primary">Wholesale Deal</span>
           </h2>
@@ -37,21 +39,23 @@ export default function HowItWorks() {
                 key={step.step}
                 className={`relative text-center animate-fade-in-up delay-${(i + 1) * 200}`}
               >
-                {/* Connector line — dashed, between cards */}
+                {/* Connector line */}
                 {i < HOW_IT_WORKS_STEPS.length - 1 && (
                   <div className="absolute right-0 top-12 hidden h-px w-full translate-x-1/2 md:block">
-                    <div className="h-full w-full border-t-2 border-dashed border-[#e2e8f0]" />
+                    <div className="h-full w-full border-t-2 border-dashed border-[#6366f1]/15" />
                   </div>
                 )}
 
                 {/* Icon circle */}
                 <div
-                  className={`relative mx-auto flex h-24 w-24 items-center justify-center rounded-full border-2 ${colors.ring} ${colors.bg} ${colors.text} transition-all duration-500 hover:scale-110 hover:shadow-lg`}
+                  className={`relative mx-auto flex h-24 w-24 items-center justify-center rounded-full border-2 ${colors.ring} ${colors.bg} transition-all duration-500 hover:scale-110 group`}
                 >
-                  {STEP_ICONS[i]}
+                  <div className={`flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br ${colors.gradient} text-white shadow-md transition-all duration-500 group-hover:shadow-lg`}>
+                    {STEP_ICONS[i]}
+                  </div>
                   {/* Step number badge */}
                   <span
-                    className={`absolute -right-1 -top-1 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br ${colors.badge} text-sm font-bold text-white shadow-md`}
+                    className={`absolute -right-1 -top-1 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br ${colors.badge} text-sm font-bold text-white shadow-md ring-4 ring-[#fafbff]`}
                   >
                     {step.step}
                   </span>
