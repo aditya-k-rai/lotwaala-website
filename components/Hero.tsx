@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { ArrowRight, Star, Sparkles, Zap } from "lucide-react";
-import { APP_STORE_URL, PLAY_STORE_URL, STATS } from "@/lib/constants";
+import { PHONE_NUMBER, PLAY_STORE_URL, STATS } from "@/lib/constants";
 import PhoneMockup from "./PhoneMockup";
+
+const IOS_WHATSAPP_HREF = `https://wa.me/91${PHONE_NUMBER}?text=${encodeURIComponent(
+  "Hi! I'm interested in the Lotwaala iOS app. Please let me know when it's available."
+)}`;
 
 export default function Hero() {
   return (
@@ -61,13 +65,20 @@ export default function Hero() {
                 Download for Android
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5" />
               </Link>
-              <Link
-                href={APP_STORE_URL}
+              <a
+                href={IOS_WHATSAPP_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/25 hover:-translate-y-1 sm:w-auto"
               >
                 Download for iOS
-              </Link>
+              </a>
             </div>
+
+            {/* iOS WhatsApp redirect note */}
+            <p className="mt-3 text-xs text-white/40 lg:text-left text-center animate-fade-in-up delay-350">
+              iOS app coming soon — tap above to message us on WhatsApp ({PHONE_NUMBER}) and we&apos;ll notify you the moment it&apos;s live.
+            </p>
 
             {/* Trust line */}
             <p className="mt-6 text-sm text-white/30 animate-fade-in-up delay-400">
