@@ -1,14 +1,14 @@
 import { PHONE_NUMBER } from "@/lib/constants";
 
-export default function WhatsAppButton() {
-  const message = encodeURIComponent(
-    "Hi! I'm interested in buying wholesale products on the Lotwaala app."
-  );
-  const href = `https://wa.me/91${PHONE_NUMBER}?text=${message}`;
+const WHATSAPP_MESSAGE = encodeURIComponent(
+  "Hi! I'm interested in buying wholesale products on the Lotwaala app."
+);
+const WHATSAPP_HREF = `https://wa.me/91${PHONE_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
+export default function WhatsAppButton() {
   return (
     <a
-      href={href}
+      href={WHATSAPP_HREF}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
