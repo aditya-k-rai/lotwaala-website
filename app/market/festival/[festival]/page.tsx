@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Download, ArrowRight, Star, CalendarDays, Sparkles } from "lucide-react";
+import TrackedLink from "@/components/TrackedLink";
 import {
   generatePageMetadata,
   generateFestivalPageSchema,
@@ -123,20 +123,32 @@ export default async function FestivalPage({ params }: PageProps) {
 
             {/* CTA */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
+              <TrackedLink
                 href={PLAY_STORE_URL}
+                eventName="app_download_click"
+                eventParams={{
+                  store: "play_store",
+                  source: "festival_page",
+                  festival_slug: fest.slug,
+                }}
                 className="group inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-md)] bg-white px-6 py-3.5 text-base font-bold text-dark shadow-lg transition-all hover:shadow-xl sm:w-auto"
               >
                 <Download className="h-5 w-5" />
                 Download {SITE_NAME} App
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
+              </TrackedLink>
+              <TrackedLink
                 href={APP_STORE_URL}
+                eventName="app_download_click"
+                eventParams={{
+                  store: "app_store",
+                  source: "festival_page",
+                  festival_slug: fest.slug,
+                }}
                 className="inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-md)] border border-white/15 bg-white/5 px-6 py-3.5 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto"
               >
                 Also on iOS
-              </Link>
+              </TrackedLink>
             </div>
 
             {/* Rating */}
@@ -167,9 +179,15 @@ export default async function FestivalPage({ params }: PageProps) {
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {relatedCats.map((cat) => (
-                <Link
+                <TrackedLink
                   key={cat.slug}
                   href={`/market/category/${cat.slug}`}
+                  eventName="category_click"
+                  eventParams={{
+                    category_slug: cat.slug,
+                    festival_slug: fest.slug,
+                    source: "festival_page_categories",
+                  }}
                   className="group rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:border-primary/20 hover:shadow-xl hover:-translate-y-1"
                 >
                   <h3 className="text-lg font-bold text-text group-hover:text-primary transition-colors">
@@ -183,7 +201,7 @@ export default async function FestivalPage({ params }: PageProps) {
                     <span>Browse suppliers</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </div>
-                </Link>
+                </TrackedLink>
               ))}
             </div>
           </div>
@@ -240,13 +258,19 @@ export default async function FestivalPage({ params }: PageProps) {
             </h2>
             <div className="mt-5 flex flex-wrap gap-2">
               {topCities.map((city) => (
-                <Link
+                <TrackedLink
                   key={city.slug}
                   href={`/market/${city.slug}`}
+                  eventName="city_click"
+                  eventParams={{
+                    to_city: city.slug,
+                    festival_slug: fest.slug,
+                    source: "festival_page_cities",
+                  }}
                   className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text transition-all hover:border-primary/30 hover:text-primary hover:shadow-sm"
                 >
                   {fest.name} wholesale in {city.name}
-                </Link>
+                </TrackedLink>
               ))}
             </div>
 
@@ -256,13 +280,18 @@ export default async function FestivalPage({ params }: PageProps) {
             </h2>
             <div className="mt-5 flex flex-wrap gap-2">
               {FESTIVALS.filter((f) => f.slug !== festival).map((f) => (
-                <Link
+                <TrackedLink
                   key={f.slug}
                   href={`/market/festival/${f.slug}`}
+                  eventName="festival_click"
+                  eventParams={{
+                    festival_slug: f.slug,
+                    source: "festival_page_other_festivals",
+                  }}
                   className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text transition-all hover:border-primary/30 hover:text-primary hover:shadow-sm"
                 >
                   {f.name} Wholesale Deals
-                </Link>
+                </TrackedLink>
               ))}
             </div>
           </div>
@@ -285,13 +314,20 @@ export default async function FestivalPage({ params }: PageProps) {
               Download {SITE_NAME} free and find the best bulk prices for{" "}
               {fest.name} products — every year.
             </p>
-            <Link
+            <TrackedLink
               href={PLAY_STORE_URL}
+              eventName="app_download_click"
+              eventParams={{
+                store: "play_store",
+                source: "festival_page",
+                placement: "final_cta",
+                festival_slug: fest.slug,
+              }}
               className="mt-8 inline-flex items-center gap-2.5 rounded-[var(--radius-md)] bg-white px-8 py-4 text-base font-bold text-dark shadow-lg transition-all hover:shadow-xl"
             >
               <Download className="h-5 w-5" />
               Download Now — Free
-            </Link>
+            </TrackedLink>
           </div>
         </section>
       </main>

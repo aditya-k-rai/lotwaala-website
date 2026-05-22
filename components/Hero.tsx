@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight, Star, Sparkles, Zap } from "lucide-react";
 import { PHONE_NUMBER, PLAY_STORE_URL, STATS } from "@/lib/constants";
+import { trackAppDownload, trackWhatsAppClick } from "@/lib/analytics-events";
 import PhoneMockup from "./PhoneMockup";
 
 const IOS_WHATSAPP_HREF = `https://wa.me/91${PHONE_NUMBER}?text=${encodeURIComponent(
@@ -59,6 +62,7 @@ export default function Hero() {
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start animate-fade-in-up delay-300">
               <Link
                 href={PLAY_STORE_URL}
+                onClick={() => trackAppDownload("play_store", "hero")}
                 className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full gradient-primary px-8 py-4 text-base font-bold text-white shadow-lg transition-all duration-300 hover:shadow-[0_0_32px_rgba(99,102,241,0.5)] hover:-translate-y-1 sm:w-auto"
               >
                 <Zap className="h-5 w-5 transition-transform group-hover:rotate-12" />
@@ -69,9 +73,25 @@ export default function Hero() {
                 href={IOS_WHATSAPP_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/25 hover:-translate-y-1 sm:w-auto"
+                aria-label="Download for iOS — message us on WhatsApp"
+                onClick={() => trackWhatsAppClick("hero_ios_notify")}
+                className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/25 hover:-translate-y-1 sm:w-auto"
               >
-                Download for iOS
+                <svg
+                  viewBox="0 0 32 32"
+                  fill="currentColor"
+                  className="h-5 w-5 text-[#25D366] transition-transform group-hover:scale-110"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d="M16.004 2.667A13.22 13.22 0 0 0 2.788 15.883a13.1 13.1 0 0 0 1.776 6.59L2.667 29.333l7.073-1.854a13.24 13.24 0 0 0 6.264 1.588h.005A13.22 13.22 0 0 0 29.333 15.89 13.22 13.22 0 0 0 16.004 2.667Zm6.027 16.173c-.33-.166-1.953-.964-2.256-1.074-.303-.113-.524-.166-.744.166s-.854 1.074-1.047 1.294c-.193.22-.386.248-.716.083a9.03 9.03 0 0 1-2.656-1.64 9.96 9.96 0 0 1-1.837-2.29c-.193-.33-.02-.508.145-.672.148-.148.33-.386.496-.58.166-.193.22-.33.33-.55.11-.22.056-.413-.028-.58-.083-.166-.744-1.793-1.02-2.456-.268-.644-.54-.557-.744-.567-.193-.01-.413-.01-.634-.01a1.22 1.22 0 0 0-.882.413c-.303.33-1.157 1.13-1.157 2.756s1.185 3.197 1.35 3.417c.166.22 2.332 3.56 5.65 4.994.79.34 1.406.544 1.886.696.793.252 1.514.216 2.084.131.636-.095 1.953-.798 2.228-1.568.276-.77.276-1.43.193-1.568-.083-.138-.303-.22-.634-.386Z" />
+                </svg>
+                <span className="flex flex-col items-start leading-tight">
+                  <span>Download for iOS</span>
+                  <span className="text-[10px] font-medium uppercase tracking-wide text-[#25D366]/90">
+                    Notify me via WhatsApp
+                  </span>
+                </span>
               </a>
             </div>
 

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import TrackedLink from "./TrackedLink";
 import {
   ShieldCheck,
   Cpu,
@@ -72,9 +72,11 @@ export default function CategoryBrowser() {
           {CATEGORIES.map((cat, i) => {
             const gradient = CATEGORY_GRADIENTS[cat.slug] ?? "from-[#64748b] to-[#94a3b8]";
             return (
-              <Link
+              <TrackedLink
                 key={cat.slug}
                 href={`/market/category/${cat.slug}`}
+                eventName="category_click"
+                eventParams={{ category_slug: cat.slug, source: "home_grid" }}
                 className={`group relative rounded-2xl bg-white p-6 transition-all duration-500 hover:-translate-y-2 animate-fade-in-up delay-${Math.min(i * 100, 800)}`}
                 style={{
                   border: '1px solid rgba(0,0,0,0.04)',
@@ -106,7 +108,7 @@ export default function CategoryBrowser() {
                     <ArrowRight className="h-3.5 w-3.5" />
                   </div>
                 </div>
-              </Link>
+              </TrackedLink>
             );
           })}
         </div>

@@ -1,4 +1,7 @@
+"use client";
+
 import { PHONE_NUMBER } from "@/lib/constants";
+import { trackWhatsAppClick } from "@/lib/analytics-events";
 
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hi! I'm interested in buying wholesale products on the Lotwaala app."
@@ -12,6 +15,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
+      onClick={() => trackWhatsAppClick("floating_button")}
       className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-[0_4px_20px_rgba(37,211,102,0.3)] transition-all duration-300 hover:scale-110 hover:shadow-[0_6px_30px_rgba(37,211,102,0.4)] animate-fade-in-up delay-800"
     >
       <svg

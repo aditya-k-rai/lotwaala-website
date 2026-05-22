@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Download, Menu, X } from "lucide-react";
 import { SITE_NAME, PLAY_STORE_URL } from "@/lib/constants";
+import { trackAppDownload, trackNavClick } from "@/lib/analytics-events";
 
 const NAV_LINKS = [
   { href: "#features", label: "Features", color: "#ff007f" }, // Vivid pink
@@ -39,8 +40,13 @@ export default function Navbar() {
     }
   }, [isMobileMenuOpen]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    label?: string
+  ) => {
     setIsMobileMenuOpen(false);
+    if (label) trackNavClick(label, href);
 
     if (href.startsWith("#")) {
       e.preventDefault();
@@ -76,7 +82,7 @@ export default function Navbar() {
           <Link
             href="/"
             className="flex items-center gap-2.5 animate-fade-in-down"
-            onClick={(e) => handleNavClick(e, "/")}
+            onClick={(e) => handleNavClick(e, "/", "Logo")}
           >
             <Image
               src="/logo.png"
@@ -97,7 +103,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
+                onClick={(e) => handleNavClick(e, link.href, link.label)}
                 className="nav-link-codepen text-sm font-semibold text-white/70"
                 style={{ "--clr": link.color } as React.CSSProperties}
               >
@@ -110,6 +116,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3 animate-fade-in-down delay-200">
             <Link
               href={PLAY_STORE_URL}
+              onClick={() => trackAppDownload("play_store", "navbar")}
               className="group inline-flex items-center gap-1.5 sm:gap-2 rounded-full gradient-primary px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-bold text-white shadow-md transition-all duration-300 hover:shadow-[0_0_24px_rgba(99,102,241,0.4)] hover:-translate-y-0.5"
             >
               <Download className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:scale-110" />
@@ -142,7 +149,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
+                onClick={(e) => handleNavClick(e, link.href, link.label)}
                 className="text-lg font-bold text-white/80 p-3 rounded-2xl border border-white/5 transition-all w-full flex items-center justify-between"
                 style={{ backgroundColor: `${link.color}15`, borderLeft: `4px solid ${link.color}` } as React.CSSProperties}
               >

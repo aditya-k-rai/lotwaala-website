@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Download, ArrowRight, Star, MapPin } from "lucide-react";
+import TrackedLink from "@/components/TrackedLink";
 import {
   generatePageMetadata,
   generateCityHubSchema,
@@ -129,20 +129,36 @@ export default async function CityHubPage({ params }: PageProps) {
 
             {/* CTA */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
+              <TrackedLink
                 href={PLAY_STORE_URL}
+                eventName="app_download_click"
+                eventParams={{
+                  store: "play_store",
+                  source: "city_page",
+                  city_slug: cit.slug,
+                  city_name: cit.name,
+                  state: cit.state,
+                }}
                 className="group inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-md)] bg-white px-6 py-3.5 text-base font-bold text-dark shadow-lg transition-all hover:shadow-xl sm:w-auto"
               >
                 <Download className="h-5 w-5" />
                 Download {SITE_NAME} App
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
+              </TrackedLink>
+              <TrackedLink
                 href={APP_STORE_URL}
+                eventName="app_download_click"
+                eventParams={{
+                  store: "app_store",
+                  source: "city_page",
+                  city_slug: cit.slug,
+                  city_name: cit.name,
+                  state: cit.state,
+                }}
                 className="inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-md)] border border-white/15 bg-white/5 px-6 py-3.5 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto"
               >
                 Also on iOS
-              </Link>
+              </TrackedLink>
             </div>
 
             {/* Rating */}
@@ -174,9 +190,15 @@ export default async function CityHubPage({ params }: PageProps) {
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {CATEGORIES.map((cat) => (
-                <Link
+                <TrackedLink
                   key={cat.slug}
                   href={`/market/${city}/${cat.slug}`}
+                  eventName="category_click"
+                  eventParams={{
+                    category_slug: cat.slug,
+                    city_slug: cit.slug,
+                    source: "city_hub_grid",
+                  }}
                   className="group rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:border-primary/20 hover:shadow-xl hover:-translate-y-1"
                 >
                   <h3 className="text-base font-bold text-text group-hover:text-primary transition-colors">
@@ -189,7 +211,7 @@ export default async function CityHubPage({ params }: PageProps) {
                     <span>View suppliers</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </div>
-                </Link>
+                </TrackedLink>
               ))}
             </div>
           </div>
@@ -232,13 +254,15 @@ export default async function CityHubPage({ params }: PageProps) {
             </h2>
             <div className="mt-5 flex flex-wrap gap-2">
               {CITIES.filter((c) => c.slug !== city).map((c) => (
-                <Link
+                <TrackedLink
                   key={c.slug}
                   href={`/market/${c.slug}`}
+                  eventName="city_click"
+                  eventParams={{ to_city: c.slug, from_city: cit.slug }}
                   className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text transition-all hover:border-primary/30 hover:text-primary hover:shadow-sm"
                 >
                   Wholesale in {c.name}
-                </Link>
+                </TrackedLink>
               ))}
             </div>
           </div>
@@ -261,13 +285,22 @@ export default async function CityHubPage({ params }: PageProps) {
               Download {SITE_NAME} free and start browsing wholesale suppliers
               in {cit.name} now.
             </p>
-            <Link
+            <TrackedLink
               href={PLAY_STORE_URL}
+              eventName="app_download_click"
+              eventParams={{
+                store: "play_store",
+                source: "city_page",
+                placement: "final_cta",
+                city_slug: cit.slug,
+                city_name: cit.name,
+                state: cit.state,
+              }}
               className="mt-8 inline-flex items-center gap-2.5 rounded-[var(--radius-md)] bg-white px-8 py-4 text-base font-bold text-dark shadow-lg transition-all hover:shadow-xl"
             >
               <Download className="h-5 w-5" />
               Download Now — Free
-            </Link>
+            </TrackedLink>
           </div>
         </section>
       </main>

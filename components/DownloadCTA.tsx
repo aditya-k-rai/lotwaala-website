@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
 import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/constants";
+import { trackAppDownload } from "@/lib/analytics-events";
 
 export default function DownloadCTA() {
   return (
@@ -78,6 +81,7 @@ export default function DownloadCTA() {
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in-up delay-400">
           <Link
             href={PLAY_STORE_URL}
+            onClick={() => trackAppDownload("play_store", "download_cta")}
             className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4 text-base font-bold text-[#0f172a] shadow-xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:-translate-y-1 sm:w-auto"
           >
             <Zap className="h-5 w-5 text-[#6366f1] transition-transform group-hover:rotate-12" />
@@ -86,6 +90,7 @@ export default function DownloadCTA() {
           </Link>
           <Link
             href={APP_STORE_URL}
+            onClick={() => trackAppDownload("app_store", "download_cta")}
             className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/25 hover:-translate-y-1 sm:w-auto"
           >
             Download for iOS

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Download, ArrowRight, Star, MapPin } from "lucide-react";
+import TrackedLink from "@/components/TrackedLink";
 import {
   generatePageMetadata,
   generateCategoryHubSchema,
@@ -124,20 +124,32 @@ export default async function CategoryHubPage({ params }: PageProps) {
 
             {/* CTA */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
+              <TrackedLink
                 href={PLAY_STORE_URL}
+                eventName="app_download_click"
+                eventParams={{
+                  store: "play_store",
+                  source: "category_page",
+                  category_slug: cat.slug,
+                }}
                 className="group inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-md)] bg-white px-6 py-3.5 text-base font-bold text-dark shadow-lg transition-all hover:shadow-xl sm:w-auto"
               >
                 <Download className="h-5 w-5" />
                 Download {SITE_NAME} App
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
+              </TrackedLink>
+              <TrackedLink
                 href={APP_STORE_URL}
+                eventName="app_download_click"
+                eventParams={{
+                  store: "app_store",
+                  source: "category_page",
+                  category_slug: cat.slug,
+                }}
                 className="inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-md)] border border-white/15 bg-white/5 px-6 py-3.5 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto"
               >
                 Also on iOS
-              </Link>
+              </TrackedLink>
             </div>
 
             {/* Rating */}
@@ -198,9 +210,15 @@ export default async function CategoryHubPage({ params }: PageProps) {
               {sortedCities.map((city) => {
                 const seoData = CITY_SEO_DATA[city.slug];
                 return (
-                  <Link
+                  <TrackedLink
                     key={city.slug}
                     href={`/market/${city.slug}/${category}`}
+                    eventName="city_click"
+                    eventParams={{
+                      to_city: city.slug,
+                      category_slug: cat.slug,
+                      source: "category_page_city_grid",
+                    }}
                     className="group rounded-2xl border border-border bg-surface p-5 transition-all duration-300 hover:border-primary/20 hover:shadow-xl hover:-translate-y-1"
                   >
                     <div className="flex items-start justify-between">
@@ -220,7 +238,7 @@ export default async function CategoryHubPage({ params }: PageProps) {
                         {seoData.strength} business activity
                       </p>
                     )}
-                  </Link>
+                  </TrackedLink>
                 );
               })}
             </div>
@@ -264,13 +282,18 @@ export default async function CategoryHubPage({ params }: PageProps) {
             </h2>
             <div className="mt-5 flex flex-wrap gap-2">
               {CATEGORIES.filter((c) => c.slug !== category).map((c) => (
-                <Link
+                <TrackedLink
                   key={c.slug}
                   href={`/market/category/${c.slug}`}
+                  eventName="category_click"
+                  eventParams={{
+                    category_slug: c.slug,
+                    source: "category_page_other_categories",
+                  }}
                   className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text transition-all hover:border-primary/30 hover:text-primary hover:shadow-sm"
                 >
                   Wholesale {c.name}
-                </Link>
+                </TrackedLink>
               ))}
             </div>
           </div>
@@ -293,13 +316,20 @@ export default async function CategoryHubPage({ params }: PageProps) {
               Download {SITE_NAME} free and start browsing wholesale{" "}
               {cat.name.toLowerCase()} suppliers across India.
             </p>
-            <Link
+            <TrackedLink
               href={PLAY_STORE_URL}
+              eventName="app_download_click"
+              eventParams={{
+                store: "play_store",
+                source: "category_page",
+                placement: "final_cta",
+                category_slug: cat.slug,
+              }}
               className="mt-8 inline-flex items-center gap-2.5 rounded-[var(--radius-md)] bg-white px-8 py-4 text-base font-bold text-dark shadow-lg transition-all hover:shadow-xl"
             >
               <Download className="h-5 w-5" />
               Download Now — Free
-            </Link>
+            </TrackedLink>
           </div>
         </section>
       </main>
