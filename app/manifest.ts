@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Lotwaala — Wholesale Products Online India | #1 Wholesale Marketplace",
     short_name: "Lotwaala",
     description:
-      "Buy wholesale products online from verified wholesalers — India's #1 wholesale products marketplace app, serving all of India with hubs in 50+ major cities. Download free.",
+      "Buy wholesale products online from verified wholesalers — India's #1 wholesale products marketplace app, serving all of India with hubs in 120+ cities in India. Download free.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

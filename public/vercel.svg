@@ -1,1 +1,13 @@
-<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Lotwaala Logo</title>
+  <desc id="desc">Lotwaala company logo.</desc>
+  <rect width="512" height="512" rx="64" fill="#ffffff"/>
+  <path d="M151 70h111c79 0 143 64 143 143v111H151V70Z" fill="#facc15"/>
+  <path d="M262 70c79 0 143 64 143 143v111H292c-42-43-65-86-70-129-5-44 8-86 40-125Z" fill="#7ac143"/>
+  <path d="M151 222c38-58 112-83 180-60 50 17 87 57 101 107-20 30-43 51-69 65H151V222Z" fill="#ef2b24"/>
+  <path d="M235 161c40-18 89-18 131 1 21 35 27 73 18 114-19 25-41 44-66 58-38-30-65-67-80-111-7-22-8-42-3-62Z" fill="#236b91"/>
+  <path d="M151 222c50 16 80 47 91 92 9 35 1 72-21 110h-46c-13 0-24-11-24-24V222Z" fill="#f59b85"/>
+  <path d="M221 424c88-10 151-44 184-101v101H221Z" fill="#b51d2a"/>
+  <path d="M151 424c121 0 209-34 254-101v51c-43 36-100 54-171 54h-59c-13 0-24-11-24-24Z" fill="#ffffff"/>
+  <text x="256" y="492" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800" fill="#063a59">Lotwaala</text>
+</svg>

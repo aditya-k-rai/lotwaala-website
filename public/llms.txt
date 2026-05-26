@@ -1,0 +1,40 @@
+# Lotwaala
+
+Lotwaala is an India-focused wholesale products marketplace app for retailers,
+resellers, small businesses, wholesalers, and distributors. It helps buyers
+discover verified wholesale suppliers by city and category.
+
+## Core Pages
+
+- Homepage: https://lotwaala.com/
+- About: https://lotwaala.com/about
+- Contact: https://lotwaala.com/contact
+- Privacy Policy: https://lotwaala.com/privacy
+- Terms of Service: https://lotwaala.com/terms
+- Editorial Policy: https://lotwaala.com/editorial-policy
+
+## Wholesale Location Hubs
+
+- Delhi: https://lotwaala.com/market/delhi
+- Mumbai: https://lotwaala.com/market/mumbai
+- Bangalore: https://lotwaala.com/market/bangalore
+- Chennai: https://lotwaala.com/market/chennai
+- Hyderabad: https://lotwaala.com/market/hyderabad
+- Pune: https://lotwaala.com/market/pune
+- Surat: https://lotwaala.com/market/surat
+- Kolkata: https://lotwaala.com/market/kolkata
+- Ahmedabad: https://lotwaala.com/market/ahmedabad
+- Jaipur: https://lotwaala.com/market/jaipur
+
+## Wholesale Category Hubs
+
+- Electronics: https://lotwaala.com/market/category/electronics
+- Clothing and Apparel: https://lotwaala.com/market/category/clothing
+- Footwear: https://lotwaala.com/market/category/footwear
+- FMCG and Grocery: https://lotwaala.com/market/category/fmcg
+- Textiles and Fabrics: https://lotwaala.com/market/category/textiles
+- Jewellery and Accessories: https://lotwaala.com/market/category/jewellery
+
+## Sitemap
+
+- https://lotwaala.com/sitemap.xml

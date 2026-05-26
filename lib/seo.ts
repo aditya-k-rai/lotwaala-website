@@ -21,6 +21,8 @@ interface MetadataOptions {
   image?: string;
 }
 
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
+
 export function generatePageMetadata({
   title,
   description,
@@ -29,16 +31,17 @@ export function generatePageMetadata({
   image,
 }: MetadataOptions): Metadata {
   const url = `${SITE_URL}${path}`;
-  const allKeywords = [
+  const allKeywords = Array.from(new Set([
     ...WHOLESALE_PRODUCTS_KEYWORDS,
     ...PRIMARY_KEYWORDS,
     ...APP_INSTALL_KEYWORDS,
     ...keywords,
-  ];
-  const fullTitle = `${title} | ${SITE_NAME} — Wholesale Products App`;
+  ]));
+  const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+  const socialImage = image ?? DEFAULT_OG_IMAGE;
 
   return {
-    title: fullTitle,
+    title: { absolute: fullTitle },
     description,
     keywords: allKeywords.join(", "),
     authors: [{ name: SITE_NAME }],
@@ -54,15 +57,13 @@ export function generatePageMetadata({
       title: fullTitle,
       description,
       siteName: SITE_NAME,
-      images: image
-        ? [{ url: image, width: 1200, height: 630, alt: title }]
-        : [],
+      images: [{ url: socialImage, width: 1200, height: 630, alt: `${SITE_NAME} wholesale marketplace app` }],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: image ? [image] : [],
+      images: [socialImage],
     },
     robots: {
       index: true,
@@ -188,6 +189,8 @@ export function generateFAQSchema(
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    datePublished: new Date().toISOString().split('T')[0],
+    dateModified: new Date().toISOString().split('T')[0],
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,

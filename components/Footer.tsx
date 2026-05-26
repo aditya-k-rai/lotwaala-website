@@ -27,16 +27,19 @@ export default function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-[#64748b]">
               India&apos;s #1 wholesale products marketplace, serving all of
               India. Buy wholesale products online from 10,000+ verified
-              wholesalers — with hubs in 50+ major cities and delivery
+              wholesalers — with hubs in 120+ cities in India and delivery
               pan-India.
+            </p>
+            <p className="mt-3 text-xs leading-relaxed text-[#64748b]">
+              Lotwaala Wholesale Marketplace Pvt. Ltd., New Delhi, India 110001
             </p>
           </div>
 
           {/* Popular Wholesale Markets — City Hub Links */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               Top Cities
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-2.5">
               {CITIES.slice(0, 8).map((city) => (
                 <li key={city.slug}>
@@ -53,9 +56,9 @@ export default function Footer() {
 
           {/* Wholesale Categories — Category Hub Links */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               Wholesale Categories
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-2.5">
               {CATEGORIES.slice(0, 8).map((cat) => (
                 <li key={cat.slug}>
@@ -72,9 +75,9 @@ export default function Footer() {
 
           {/* Festival Deals */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               Festival Deals
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-2.5">
               {FESTIVALS.map((fest) => (
                 <li key={fest.slug}>
@@ -89,30 +92,34 @@ export default function Footer() {
             </ul>
 
             {/* Company Links */}
-            <h4 className="mt-8 text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+            <h3 className="mt-8 text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               Company
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-2.5">
-              {["About", "Blog", "Contact", "Privacy Policy", "Terms of Service"].map(
-                (item) => (
-                  <li key={item}>
-                    <Link
-                      href="#"
-                      className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                )
-              )}
+              {[
+                { label: "About", href: "/about" },
+                { label: "Contact", href: "/contact" },
+                { label: "Privacy Policy", href: "/privacy" },
+                { label: "Terms of Service", href: "/terms" },
+                { label: "Editorial Policy", href: "/editorial-policy" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* More Cities — Remaining cities */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               More Cities
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-2.5">
               {CITIES.slice(8).map((city) => (
                 <li key={city.slug}>
@@ -127,9 +134,9 @@ export default function Footer() {
             </ul>
 
             {/* More Categories */}
-            <h4 className="mt-8 text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+            <h3 className="mt-8 text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               More Categories
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-2.5">
               {CATEGORIES.slice(8).map((cat) => (
                 <li key={cat.slug}>
@@ -152,6 +159,9 @@ export default function Footer() {
           </p>
           <p className="text-sm text-[#94a3b8]">
             India&apos;s #1 Wholesale Products App &amp; Wholesale Marketplace
+          </p>
+          <p className="text-sm text-[#94a3b8]">
+            Last updated May 26, 2026
           </p>
         </div>
       </div>

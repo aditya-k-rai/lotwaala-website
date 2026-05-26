@@ -45,8 +45,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const targetKw = seoData?.targetKeyword ?? `wholesale market ${cit.name}`;
 
   return generatePageMetadata({
-    title: `Wholesale Products in ${cit.name} — Buy Wholesale Online | Bulk Suppliers & Dealers`,
-    description: `Buy wholesale products online in ${cit.name}, ${cit.state}. Browse verified wholesalers and bulk suppliers for ${CATEGORIES.slice(0, 4).map(c => c.name.toLowerCase()).join(", ")} & more on the ${SITE_NAME} wholesale products app. 1,00,000+ wholesale products at factory prices. Download free.`,
+    title: `Wholesale Products in ${cit.name}`,
+    description: `Buy wholesale products in ${cit.name} from verified suppliers. Find bulk dealers for ${CATEGORIES.slice(0, 3).map(c => c.name.toLowerCase()).join(", ")} and more on the free ${SITE_NAME} app.`,
     path: `/market/${city}`,
     keywords: [
       targetKw,
@@ -72,6 +72,7 @@ export default async function CityHubPage({ params }: PageProps) {
   if (!cit) notFound();
 
   const seoData = CITY_SEO_DATA[city];
+  const targetKw = seoData?.targetKeyword ?? `wholesale market ${cit.name}`;
   const faqs = generateCityFAQs(cit.name, cit.state);
 
   return (
@@ -90,7 +91,7 @@ export default async function CityHubPage({ params }: PageProps) {
 
       <Navbar />
 
-      <main>
+      <main id="main-content">
         {/* ── Hero ── */}
         <section className="relative overflow-hidden gradient-dark py-20 text-white sm:py-28">
           {/* Glow */}
@@ -218,6 +219,36 @@ export default async function CityHubPage({ params }: PageProps) {
         </section>
 
         {/* ── Why use Lotwaala in this city ── */}
+        <section className="py-16 bg-white">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
+              Best Wholesale Search Terms for {cit.name}
+            </h2>
+            <p className="mt-3 max-w-3xl leading-relaxed text-text-secondary">
+              This page is optimized for local wholesale buyer intent in{" "}
+              {cit.name}, including searches for verified suppliers, bulk
+              dealers, wholesale market prices, and app-based sourcing.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                targetKw,
+                `wholesale products in ${cit.name}`,
+                `wholesale suppliers ${cit.name}`,
+                `bulk dealers ${cit.name}`,
+                `buy wholesale products ${cit.name}`,
+                `${cit.name} wholesale marketplace`,
+              ].map((keyword) => (
+                <div
+                  key={keyword}
+                  className="rounded-lg border border-border bg-bg-subtle px-4 py-3 text-sm font-semibold text-text"
+                >
+                  {keyword}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="py-20 bg-bg-subtle">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-extrabold text-text sm:text-3xl">

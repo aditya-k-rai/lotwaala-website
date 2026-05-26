@@ -43,19 +43,14 @@ export default function Hero() {
             {/* Headline */}
             <h1 className="mt-8 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem] animate-fade-in-up delay-100">
               Buy{" "}
-              <span className="gradient-text-light">Wholesale Products</span>{" "}
-              Online —
+              <span className="gradient-text-light">Wholesale Products Online</span>{" "}
+              in India
               <br />
-              India&apos;s #1 Wholesale Marketplace.
+              From 120+ Cities in India — Free App
             </h1>
 
             <p className="mt-6 text-lg leading-relaxed text-white/50 sm:text-xl lg:max-w-lg animate-fade-in-up delay-200">
-              The <strong className="text-white/80">wholesale products app</strong>{" "}
-              that serves <strong className="text-white/80">all of India</strong> —
-              connecting retailers with 1,00,000+ wholesale products from
-              verified wholesalers in 50+ major cities, with pan-India delivery.
-              Browse bulk inventory, negotiate prices, and close deals — all
-              from your phone.
+              India&apos;s #1 <strong className="text-white/80">wholesale products marketplace app</strong>. Connect with verified wholesalers in <strong className="text-white/80">Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Pune, Kolkata, Ahmedabad, Surat, Jaipur</strong> and 110+ more cities in India. Browse <strong className="text-white/80">100,000+ bulk inventory items</strong>, negotiate wholesale prices, and close deals — all from your phone. Free download for Android & iOS. Pan-India delivery guaranteed.
             </p>
 
             {/* Download buttons */}
@@ -94,11 +89,6 @@ export default function Hero() {
                 </span>
               </a>
             </div>
-
-            {/* iOS WhatsApp redirect note */}
-            <p className="mt-3 text-xs text-white/40 lg:text-left text-center animate-fade-in-up delay-350">
-              iOS app coming soon — tap above to message us on WhatsApp ({PHONE_NUMBER}) and we&apos;ll notify you the moment it&apos;s live.
-            </p>
 
             {/* Trust line */}
             <p className="mt-6 text-sm text-white/30 animate-fade-in-up delay-400">

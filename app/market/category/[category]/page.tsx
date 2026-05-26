@@ -42,8 +42,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!cat) return {};
 
   return generatePageMetadata({
-    title: `Wholesale ${cat.name} Products Online India — Buy Bulk ${cat.name} at Wholesale Prices`,
-    description: `Buy wholesale ${cat.name.toLowerCase()} products online anywhere in India. Browse bulk ${cat.name.toLowerCase()} from verified wholesalers with hubs in 50+ major cities and pan-India delivery. ${cat.description}. 1,00,000+ wholesale products at factory prices. Download the ${SITE_NAME} wholesale products app free.`,
+    title: `Wholesale ${cat.name} Products India`,
+    description: `Buy wholesale ${cat.name.toLowerCase()} products from verified suppliers across 120+ cities in India. Browse bulk inventory and source through the free ${SITE_NAME} app.`,
     path: `/market/category/${category}`,
     keywords: [
       ...cat.keywords,
@@ -90,7 +90,7 @@ export default async function CategoryHubPage({ params }: PageProps) {
 
       <Navbar />
 
-      <main>
+      <main id="main-content">
         {/* ── Hero ── */}
         <section className="relative overflow-hidden gradient-dark py-20 text-white sm:py-28">
           <div className="pointer-events-none absolute inset-0">
@@ -117,7 +117,7 @@ export default async function CategoryHubPage({ params }: PageProps) {
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">
               Lotwaala serves all of India. Connect with verified{" "}
               {cat.name.toLowerCase()} wholesalers through dedicated market hubs
-              in 50+ major cities, with pan-India delivery to every state.
+              in 120+ cities in India, with pan-India delivery to every state.
               Browse {cat.description.toLowerCase()} — all on the {SITE_NAME}{" "}
               wholesaler app. Download free and find the best bulk deals.
             </p>
@@ -186,7 +186,7 @@ export default async function CategoryHubPage({ params }: PageProps) {
                 {cat.name.toLowerCase()} listings with real-time inventory, chat
                 directly with wholesalers, negotiate bulk pricing, and get
                 doorstep delivery — all from your phone. Lotwaala operates
-                pan-India: 50+ major wholesale hubs from Delhi&apos;s Chandni
+                pan-India: 120+ wholesale hubs in India from Delhi&apos;s Chandni
                 Chowk to Mumbai&apos;s Crawford Market, Surat&apos;s textile
                 mandis to Kochi&apos;s spice bazaars, plus delivery to every
                 state, district, and town across India.

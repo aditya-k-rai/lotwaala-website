@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!fest) return {};
 
   return generatePageMetadata({
-    title: `${fest.name} Wholesale Deals — Bulk ${fest.name} Products in India`,
-    description: `${fest.description} Shop wholesale ${fest.name} products on ${SITE_NAME} — India's #1 wholesale marketplace app. Connect with verified suppliers for bulk ${fest.name} deals. Download free.`,
+    title: `${fest.name} Wholesale Deals India`,
+    description: `Buy ${fest.name} wholesale products from verified suppliers in India. Compare bulk deals for festive stock on the free ${SITE_NAME} app.`,
     path: `/market/festival/${festival}`,
     keywords: [
       ...fest.keywords,
@@ -83,7 +83,7 @@ export default async function FestivalPage({ params }: PageProps) {
 
       <Navbar />
 
-      <main>
+      <main id="main-content">
         {/* ── Hero ── */}
         <section className="relative overflow-hidden gradient-dark py-20 text-white sm:py-28">
           <div className="pointer-events-none absolute inset-0">

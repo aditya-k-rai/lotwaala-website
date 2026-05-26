@@ -39,7 +39,7 @@ export default function MarketExplorer() {
           </h2>
           <p className="mt-4 text-lg text-white/50">
             Lotwaala operates pan-India. Browse verified wholesalers in
-            India&apos;s top wholesale hubs — these are our 50+ major city
+            India&apos;s top wholesale hubs — these are part of our 120+ city
             markets, with delivery available to every state and town across
             India.
           </p>
@@ -96,7 +96,7 @@ export default function MarketExplorer() {
         <div className="mt-10 text-center">
           <p className="text-sm text-white/30">
             Serving <strong className="text-white/60">all of India</strong> with
-            dedicated hubs in <strong className="text-white/60">50+ major cities</strong>,{" "}
+            dedicated hubs in <strong className="text-white/60">120+ cities in India</strong>,{" "}
             <strong className="text-white/60">1,00,000+ wholesale products</strong>{" "}
             from <strong className="text-white/60">10,000+ verified wholesalers</strong>
           </p>

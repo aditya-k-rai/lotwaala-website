@@ -53,8 +53,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!cit || !cat) return {};
 
   return generatePageMetadata({
-    title: `Wholesale ${cat.name} Products in ${cit.name} — Buy Online at Bulk Prices | ${SITE_NAME}`,
-    description: `Buy wholesale ${cat.name.toLowerCase()} products in ${cit.name}, ${cit.state} online. Download the ${SITE_NAME} wholesale products app to connect with verified ${cat.name.toLowerCase()} wholesalers in ${cit.name}. Browse bulk inventory, factory-price wholesale products, negotiate, and close deals instantly.`,
+    title: `Wholesale ${cat.name} in ${cit.name}`,
+    description: `Buy wholesale ${cat.name.toLowerCase()} in ${cit.name} from verified bulk suppliers. Compare inventory, negotiate prices, and source through the free ${SITE_NAME} app.`,
     path: `/market/${city}/${category}`,
     keywords: [
       ...cat.keywords,
@@ -130,7 +130,7 @@ export default async function MarketCityCategory({ params }: PageProps) {
 
       <Navbar />
 
-      <main>
+      <main id="main-content">
         {/* ── Hero ── */}
         <section className="relative overflow-hidden gradient-dark py-20 text-white sm:py-28">
           {/* Glow */}

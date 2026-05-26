@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   generatePageMetadata,
   generateAppSchema,
@@ -6,7 +7,7 @@ import {
   generateOrganizationSchema,
   generateFAQSchema,
 } from "@/lib/seo";
-import { SITE_NAME, CATEGORIES, CITIES } from "@/lib/constants";
+import { SITE_NAME, SITE_URL, CATEGORIES, CITIES, CITY_SEO_DATA } from "@/lib/constants";
 import JsonLd from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -23,10 +24,11 @@ import Footer from "@/components/Footer";
 // ─── SEO Metadata ────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Wholesale Products Online India — Buy 1,00,000+ Wholesale Products on Lotwaala",
+  title: "Wholesale Products Online India",
   description:
-    "Buy wholesale products online in India on Lotwaala — the #1 wholesale products app serving all of India. Browse 1,00,000+ wholesale products from 10,000+ verified wholesalers, with dedicated hubs in 50+ major cities and pan-India delivery. Best prices on wholesale goods, bulk inventory, and B2B wholesale supplies. Download free on Android & iOS.",
+    "Buy wholesale products online from verified suppliers in Delhi, Mumbai, Bangalore and 120+ cities in India. Browse bulk inventory on the free Lotwaala app.",
   path: "/",
+  image: `${SITE_URL}/og-image.svg`,
   keywords: [
     "wholesale products",
     "wholesale products online",
@@ -37,24 +39,15 @@ export const metadata: Metadata = generatePageMetadata({
     "wholesale products marketplace",
     "wholesale products for resale",
     "wholesale products suppliers",
-    "wholesale products distributors India",
-    "wholesale products dealers India",
-    "wholesale products for small business",
-    "cheap wholesale products India",
-    "wholesale goods online",
-    "wholesale marketplace app",
-    "wholesaler app download",
-    "B2B wholesale app India",
+    "wholesale market Delhi",
+    "wholesale market Mumbai",
+    "wholesale market Bangalore",
+    "wholesale dealers India",
     "bulk inventory app",
+    "B2B wholesale platform",
     "wholesale supplier app",
-    "dead stock marketplace India",
-    "garment suppliers India",
-    "buy bulk goods India",
-    "bulk buying app India",
-    "B2B bulk trading app",
-    "wholesale market app",
-    "online bulk suppliers",
-    "buy in bulk India",
+    "wholesale marketplace app",
+    "online bulk suppliers India",
   ],
 });
 
@@ -63,7 +56,7 @@ export const metadata: Metadata = generatePageMetadata({
 const HOME_FAQS = [
   {
     question: "What is Lotwaala — India's wholesale products app?",
-    answer: `${SITE_NAME} is India's #1 wholesale products marketplace app, serving buyers and sellers all across India. It lets you buy wholesale products online from verified wholesalers — with dedicated market hubs in 50+ major cities and pan-India delivery to every state. Browse 1,00,000+ wholesale products with real-time inventory, negotiate bulk pricing, and close deals — all from your phone. Download free on Android and iOS.`,
+    answer: `${SITE_NAME} is India's #1 wholesale products marketplace app, serving buyers and sellers all across India. It lets you buy wholesale products online from verified wholesalers — with dedicated market hubs in 120+ cities in India and pan-India delivery to every state. Browse 1,00,000+ wholesale products with real-time inventory, negotiate bulk pricing, and close deals — all from your phone. Download free on Android and iOS.`,
   },
   {
     question: "How to buy wholesale products online in India?",
@@ -83,7 +76,7 @@ const HOME_FAQS = [
   },
   {
     question: "Does Lotwaala work all across India?",
-    answer: `Yes — ${SITE_NAME} is a pan-India wholesale products app. Buyers and sellers can use it from anywhere in India, and we deliver wholesale orders to every state and town nationwide. We maintain dedicated market hubs in 50+ major cities including Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, Surat, Jaipur, Lucknow, Indore, Chandigarh, Patna, Bhopal, Nagpur, Agra, Varanasi, Meerut, Ghaziabad, Noida, Amritsar, Gurgaon, Vadodara, Thane, Visakhapatnam, Madurai, Kochi, Guwahati, Bhubaneswar and more — and our Tier-2/Tier-3 town coverage is expanding rapidly.`,
+    answer: `Yes — ${SITE_NAME} is a pan-India wholesale products app. Buyers and sellers can use it from anywhere in India, and we deliver wholesale orders to every state and town nationwide. We maintain dedicated market hubs in 120+ cities in India including Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, Surat, Jaipur, Lucknow, Indore, Chandigarh, Patna, Bhopal, Nagpur, Agra, Varanasi, Meerut, Ghaziabad, Noida, Amritsar, Gurgaon, Vadodara, Thane, Visakhapatnam, Madurai, Kochi, Guwahati, Bhubaneswar and more — and our Tier-2/Tier-3 town coverage is expanding rapidly.`,
   },
   {
     question: "Can I buy wholesale products for resale or small business on Lotwaala?",
@@ -91,7 +84,7 @@ const HOME_FAQS = [
   },
   {
     question: "How is Lotwaala different from IndiaMART or other B2B platforms?",
-    answer: `${SITE_NAME} is purpose-built for wholesale products buying and selling, serving all of India. Unlike general B2B platforms, we focus exclusively on wholesale with features like real-time inventory, in-app price negotiation, escrow-protected payments, and integrated pan-India logistics with hubs in 50+ major cities. Every wholesale products supplier is KYC-verified with real buyer reviews.`,
+    answer: `${SITE_NAME} is purpose-built for wholesale products buying and selling, serving all of India. Unlike general B2B platforms, we focus exclusively on wholesale with features like real-time inventory, in-app price negotiation, escrow-protected payments, and integrated pan-India logistics with hubs in 120+ cities in India. Every wholesale products supplier is KYC-verified with real buyer reviews.`,
   },
 ];
 
@@ -110,6 +103,15 @@ const WHOLESALE_PRODUCTS_SEARCHES = [
   })),
 ];
 
+const TOP_LOCATION_KEYWORDS = CITIES
+  .filter((city) => CITY_SEO_DATA[city.slug])
+  .sort((a, b) => {
+    const volA = CITY_SEO_DATA[a.slug]?.searchVolume ?? 0;
+    const volB = CITY_SEO_DATA[b.slug]?.searchVolume ?? 0;
+    return volB - volA;
+  })
+  .slice(0, 8);
+
 // ─── Home Page — App Showcase ────────────────────────────────────────────────
 
 export default function Home() {
@@ -123,13 +125,57 @@ export default function Home() {
 
       <Navbar />
 
-      <main>
+      <main id="main-content">
         <Hero />
 
         {/* Divider */}
         <div className="section-divider" />
 
         <FeatureGrid />
+        <section className="bg-white py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
+                Best Wholesale Keywords by Location
+              </h2>
+              <p className="mt-4 leading-relaxed text-text-secondary">
+                Lotwaala targets high-intent wholesale searches such as
+                wholesale products online, wholesale market near me, bulk
+                suppliers, wholesale dealers, and buy wholesale products for
+                resale. Each city page pairs local buyer intent with verified
+                supplier discovery, category pages, and app download actions.
+              </p>
+              <p className="mt-4 leading-relaxed text-text-secondary">
+                The strongest location clusters from the audit are Delhi,
+                Mumbai, Bangalore, Chennai, Hyderabad, Pune, Surat, Kolkata,
+                Ahmedabad, and Jaipur. These pages are linked from the homepage
+                and sitemap so search engines can crawl every wholesale market
+                landing page quickly.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {TOP_LOCATION_KEYWORDS.map((city) => {
+                const seoData = CITY_SEO_DATA[city.slug];
+                return (
+                  <Link
+                    key={city.slug}
+                    href={`/market/${city.slug}`}
+                    className="rounded-lg border border-border bg-bg-subtle p-4 transition-all hover:border-primary/30 hover:bg-white hover:shadow-sm"
+                  >
+                    <h3 className="text-sm font-bold text-text">
+                      {seoData.targetKeyword}
+                    </h3>
+                    <p className="mt-2 text-xs leading-relaxed text-text-secondary">
+                      {city.name}, {city.state} - {seoData.searchVolume.toLocaleString()}+
+                      monthly searches
+                    </p>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
         <MarketExplorer />
         <CategoryBrowser />
         <AppShowcase />
