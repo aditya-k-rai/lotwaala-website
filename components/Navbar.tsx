@@ -8,9 +8,9 @@ import { SITE_NAME, PLAY_STORE_URL } from "@/lib/constants";
 import { trackAppDownload, trackNavClick } from "@/lib/analytics-events";
 
 const NAV_LINKS = [
-  { href: "#features", label: "Features", color: "#ff007f" }, // Vivid pink
-  { href: "#how-it-works", label: "How It Works", color: "#7928ca" }, // Vibrant purple
-  { href: "/market/delhi/electronics", label: "Markets", color: "#00f0ff" }, // Electric cyan
+  { href: "/#features", label: "Features", color: "#ff007f" }, // Vivid pink
+  { href: "/#how-it-works", label: "How It Works", color: "#7928ca" }, // Vibrant purple
+  { href: "/#markets", label: "Markets", color: "#00f0ff" }, // Electric cyan
 ];
 
 export default function Navbar() {
@@ -48,14 +48,16 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
     if (label) trackNavClick(label, href);
 
-    if (href.startsWith("#")) {
+    const hash = href.startsWith("/#") ? href.replace("/", "") : href;
+
+    if (hash.startsWith("#") && window.location.pathname === "/") {
       e.preventDefault();
       setTimeout(() => {
-        const id = href.replace("#", "");
+        const id = hash.replace("#", "");
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
-          window.history.pushState(null, "", href);
+          window.history.pushState(null, "", hash);
         }
       }, 50);
     }
