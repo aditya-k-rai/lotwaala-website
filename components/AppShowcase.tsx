@@ -22,9 +22,9 @@ const SCREENSHOTS = [
   },
   {
     src: "/screenshots/orders.png",
-    alt: "Lotwaala Orders — Manage wholesale orders and track delivery status",
+    alt: "Lotwaala Orders — Manage wholesale orders and track transportation status",
     label: "Order Management",
-    description: "Manage orders from placement to delivery with real-time updates",
+    description: "Manage orders and supported delivery partner updates",
   },
 ];
 

@@ -230,7 +230,7 @@ export default async function FestivalPage({ params }: PageProps) {
                 <li>
                   <strong>Compare suppliers</strong> — Use the {SITE_NAME} app
                   to browse listings from multiple verified wholesalers. Compare
-                  prices, MOQs, and delivery timelines.
+                  prices, MOQs, and delivery partner availability.
                 </li>
                 <li>
                   <strong>Negotiate in bulk</strong> — Chat directly with
@@ -244,7 +244,7 @@ export default async function FestivalPage({ params }: PageProps) {
                 </li>
                 <li>
                   <strong>Track your orders</strong> — Use the {SITE_NAME}{" "}
-                  dashboard to track orders, delivery status, and manage your{" "}
+                  dashboard to track orders, transportation status, and manage your{" "}
                   {fest.name} inventory in real-time.
                 </li>
               </ol>

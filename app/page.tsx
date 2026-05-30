@@ -62,11 +62,11 @@ export const metadata: Metadata = generatePageMetadata({
 const HOME_FAQS = [
   {
     question: "What is Lotwaala — India's wholesale products app?",
-    answer: `${SITE_NAME} is India's #1 wholesale products marketplace app, serving buyers and sellers all across India. It lets you buy wholesale products online from verified wholesalers — with dedicated market hubs in 120+ cities in India and pan-India delivery to every state. Browse 1,00,000+ wholesale products with real-time inventory, negotiate bulk pricing, and close deals — all from your phone. Download free on Android and iOS.`,
+    answer: `${SITE_NAME} is India's #1 wholesale products marketplace app, serving buyers and sellers all across India. It lets you buy wholesale products online from verified wholesalers — with dedicated market hubs in 120+ cities in India and delivery support through our Big-Ship tie-up plus other major delivery partners. Browse 1,00,000+ wholesale products with real-time inventory, negotiate bulk pricing, and close deals — all from your phone. Download free on Android and iOS.`,
   },
   {
     question: "How to buy wholesale products online in India?",
-    answer: `Buying wholesale products online in India is easy with ${SITE_NAME}. Download the free app, sign up as a buyer in 60 seconds, search wholesale products by category or city, compare prices from multiple wholesalers, negotiate via in-app chat, and pay securely. Get doorstep delivery of wholesale products anywhere in India.`,
+    answer: `Buying wholesale products online in India is easy with ${SITE_NAME}. Download the free app, sign up as a buyer in 60 seconds, search wholesale products by category or city, compare prices from multiple wholesalers, negotiate via in-app chat, and pay securely. Delivery is supported in-app through Big-Ship and other major delivery partners for wholesale transportation.`,
   },
   {
     question: "Is Lotwaala free for wholesale products buyers and suppliers?",
@@ -82,7 +82,7 @@ const HOME_FAQS = [
   },
   {
     question: "Does Lotwaala work all across India?",
-    answer: `Yes — ${SITE_NAME} is a pan-India wholesale products app. Buyers and sellers can use it from anywhere in India, and we deliver wholesale orders to every state and town nationwide. We maintain dedicated market hubs in 120+ cities in India including Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, Surat, Jaipur, Lucknow, Indore, Chandigarh, Patna, Bhopal, Nagpur, Agra, Varanasi, Meerut, Ghaziabad, Noida, Amritsar, Gurgaon, Vadodara, Thane, Visakhapatnam, Madurai, Kochi, Guwahati, Bhubaneswar and more — and our Tier-2/Tier-3 town coverage is expanding rapidly.`,
+    answer: `Yes — ${SITE_NAME} is a pan-India wholesale products app. Buyers and sellers can use it from anywhere in India, and delivery support is available in-app through our Big-Ship tie-up and other major delivery partners. We maintain dedicated market hubs in 120+ cities in India including Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, Surat, Jaipur, Lucknow, Indore, Chandigarh, Patna, Bhopal, Nagpur, Agra, Varanasi, Meerut, Ghaziabad, Noida, Amritsar, Gurgaon, Vadodara, Thane, Visakhapatnam, Madurai, Kochi, Guwahati, Bhubaneswar and more — and our Tier-2/Tier-3 town coverage is expanding rapidly.`,
   },
   {
     question: "Can I buy wholesale products for resale or small business on Lotwaala?",
@@ -90,7 +90,7 @@ const HOME_FAQS = [
   },
   {
     question: "How is Lotwaala different from IndiaMART or other B2B platforms?",
-    answer: `${SITE_NAME} is purpose-built for wholesale products buying and selling, serving all of India. Unlike general B2B platforms, we focus exclusively on wholesale with features like real-time inventory, in-app price negotiation, escrow-protected payments, and integrated pan-India logistics with hubs in 120+ cities in India. Every wholesale products supplier is KYC-verified with real buyer reviews.`,
+    answer: `${SITE_NAME} is purpose-built for wholesale products buying and selling, serving all of India. Unlike general B2B platforms, we focus exclusively on wholesale with features like real-time inventory, in-app price negotiation, escrow-protected payments, and delivery support through Big-Ship plus other major delivery partners. Every wholesale products supplier is KYC-verified with real buyer reviews.`,
   },
 ];
 

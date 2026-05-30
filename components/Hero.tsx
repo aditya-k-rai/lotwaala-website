@@ -46,7 +46,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-6 text-lg leading-relaxed text-white/50 sm:text-xl lg:max-w-lg animate-fade-in-up delay-200">
-              India&apos;s #1 <strong className="text-white/80">wholesale products marketplace app</strong>. Connect with verified wholesalers in <strong className="text-white/80">Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Pune, Kolkata, Ahmedabad, Surat, Jaipur</strong> and 110+ more cities in India. Browse <strong className="text-white/80">100,000+ bulk inventory items</strong>, negotiate wholesale prices, and close deals — all from your phone. Free download for Android & iOS. Pan-India delivery guaranteed.
+              India&apos;s #1 <strong className="text-white/80">wholesale products marketplace app</strong>. Connect with verified wholesalers in <strong className="text-white/80">Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Pune, Kolkata, Ahmedabad, Surat, Jaipur</strong> and 110+ more cities in India. Browse <strong className="text-white/80">100,000+ bulk inventory items</strong>, negotiate wholesale prices, and close deals — all from your phone. Delivery is supported in-app through our Big-Ship tie-up and other major delivery partners for transportation across India.
             </p>
 
             {/* Download buttons */}

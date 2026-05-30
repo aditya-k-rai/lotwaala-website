@@ -139,8 +139,10 @@ export default async function CategoryHubPage({ params }: PageProps) {
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">
               Lotwaala serves all of India. Connect with verified{" "}
               {cat.name.toLowerCase()} wholesale products suppliers through
-              dedicated market hubs in 120+ cities in India, with pan-India
-              delivery to every state. Browse {cat.description.toLowerCase()} -
+              dedicated market hubs in 120+ cities in India, with delivery
+              support through Big-Ship and other major delivery partners.
+              Browse{" "}
+              {cat.description.toLowerCase()} -
               all on the {SITE_NAME} wholesaler app. Download free and find the
               best bulk deals.
             </p>
@@ -210,12 +212,13 @@ export default async function CategoryHubPage({ params }: PageProps) {
                 With {SITE_NAME}, you can browse thousands of{" "}
                 wholesale {cat.name.toLowerCase()} products listings with
                 real-time inventory, chat directly with wholesalers, negotiate
-                bulk pricing, and get doorstep delivery - all from your phone.
+                bulk pricing, and use supported delivery partner transportation
+                - all from your phone.
                 Lotwaala operates
                 pan-India: 120+ wholesale hubs in India from Delhi&apos;s Chandni
                 Chowk to Mumbai&apos;s Crawford Market, Surat&apos;s textile
-                mandis to Kochi&apos;s spice bazaars, plus delivery to every
-                state, district, and town across India.
+                mandis to Kochi&apos;s spice bazaars, plus delivery support through
+                Big-Ship and other major delivery partners.
               </p>
             </div>
           </div>

@@ -111,7 +111,7 @@ export default function AboutPage() {
               "Verified Sellers: All wholesalers are thoroughly vetted",
               "Real-Time Inventory: Live stock availability for all products",
               "Secure Payments: Industry-standard encryption and security",
-              "Built-In Logistics: Hassle-free shipping across India",
+              "Built-In Logistics: Big-Ship and major delivery partner support across India",
               "Price Negotiation: Direct negotiation with suppliers",
               "Market Insights: Real-time market trends and pricing data",
               "24/7 Support: Dedicated customer support in English & Hindi",

@@ -12,7 +12,7 @@ const SCREENSHOTS = [
   },
   {
     src: "/screenshots/orders.png",
-    alt: "Lotwaala App — Order management and delivery tracking",
+    alt: "Lotwaala App — Order management and delivery partner transportation tracking",
   },
   {
     src: "/screenshots/splash.png",

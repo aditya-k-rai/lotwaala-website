@@ -40,8 +40,8 @@ export default function MarketExplorer() {
           <p className="mt-4 text-lg text-white/50">
             Lotwaala operates pan-India. Browse verified wholesalers in
             India&apos;s top wholesale hubs - these are part of our 120+ city
-            markets, with delivery available to every state and town across
-            India.
+            markets, with delivery support available through our Big-Ship tie-up
+            and other major delivery partners.
           </p>
         </div>
 

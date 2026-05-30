@@ -204,7 +204,7 @@ export default function ContactPage() {
               },
               {
                 q: "What are your delivery timelines?",
-                a: "Delivery timeframes depend on the seller and product location. Most orders within metro cities are delivered within 3-7 days.",
+                a: "Delivery timeframes depend on the seller, product location, and partner availability. The app supports delivery coordination through Big-Ship and other major delivery partners.",
               },
               {
                 q: "Is my payment secure?",

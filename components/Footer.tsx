@@ -27,8 +27,9 @@ export default function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-[#64748b]">
               India&apos;s #1 wholesale products marketplace, serving all of
               India. Buy wholesale products online from 10,000+ verified
-              wholesalers - with hubs in 120+ cities in India and delivery
-              pan-India.
+              wholesalers - with hubs in 120+ cities in India and in-app
+              delivery support through Big-Ship and other major delivery
+              partners.
             </p>
             <p className="mt-3 text-xs leading-relaxed text-[#64748b]">
               Lotwaala Wholesale Marketplace Pvt. Ltd., New Delhi, India 110001

@@ -367,7 +367,7 @@ export const APP_FEATURES = [
   {
     id: "logistics",
     title: "Built-In Logistics",
-    description: "Pan-India shipping to every state, with hubs in 120+ cities in India. Wholesale products delivered to your doorstep anywhere in India.",
+    description: "Delivery is supported in-app through our Big-Ship tie-up and other major delivery partners for wholesale transportation across India.",
   },
   {
     id: "negotiation",
@@ -397,7 +397,7 @@ export const HOW_IT_WORKS_STEPS = [
   {
     step: 3,
     title: "Close the Deal",
-    description: "Negotiate pricing, pay securely through the app, and get doorstep delivery.",
+    description: "Negotiate pricing, pay securely through the app, and use supported delivery partner transportation.",
   },
 ] as const;
 
@@ -420,7 +420,7 @@ export function generateMarketFAQs(cityName: string, categoryName: string) {
     },
     {
       question: `How to buy wholesale ${categoryName.toLowerCase()} products in ${cityName}?`,
-      answer: `Buying wholesale ${categoryName.toLowerCase()} products in ${cityName} is easy with Lotwaala. Simply download the app, search for "Wholesale ${categoryName} Products in ${cityName}", browse listings with live inventory, negotiate prices via chat, and place your order with secure payment and doorstep delivery.`,
+      answer: `Buying wholesale ${categoryName.toLowerCase()} products in ${cityName} is easy with Lotwaala. Simply download the app, search for "Wholesale ${categoryName} Products in ${cityName}", browse listings with live inventory, negotiate prices via chat, and place your order with secure payment plus delivery support through Big-Ship and other major delivery partners.`,
     },
     {
       question: `Is Lotwaala free to use for ${categoryName.toLowerCase()} wholesale in ${cityName}?`,
@@ -462,11 +462,11 @@ export function generateCategoryFAQs(categoryName: string) {
   return [
     {
       question: `Where can I find wholesale ${categoryName.toLowerCase()} products suppliers in India?`,
-      answer: `Lotwaala serves all of India and connects you with verified wholesale ${categoryName.toLowerCase()} products suppliers in 120+ cities in India including Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, Jaipur, Surat, Lucknow, Indore, Agra, Varanasi, Kochi, Guwahati, Visakhapatnam and many more - with pan-India delivery to every state and Tier-2/Tier-3 town. Download the free app to browse 1,00,000+ wholesale products with real-time inventory.`,
+      answer: `Lotwaala serves all of India and connects you with verified wholesale ${categoryName.toLowerCase()} products suppliers in 120+ cities in India including Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, Jaipur, Surat, Lucknow, Indore, Agra, Varanasi, Kochi, Guwahati, Visakhapatnam and many more - with in-app delivery support through our Big-Ship tie-up and other major delivery partners. Download the free app to browse 1,00,000+ wholesale products with real-time inventory.`,
     },
     {
       question: `How to buy wholesale ${categoryName.toLowerCase()} products online in India?`,
-      answer: `With the Lotwaala app, buying wholesale ${categoryName.toLowerCase()} products in bulk is simple. Search by city or browse all listings, compare prices from multiple wholesalers, negotiate via in-app chat, and pay securely with doorstep delivery across India.`,
+      answer: `With the Lotwaala app, buying wholesale ${categoryName.toLowerCase()} products in bulk is simple. Search by city or browse all listings, compare prices from multiple wholesalers, negotiate via in-app chat, and pay securely with delivery support through Big-Ship and other major delivery partners across India.`,
     },
     {
       question: `What are the best cities for wholesale ${categoryName.toLowerCase()} products in India?`,

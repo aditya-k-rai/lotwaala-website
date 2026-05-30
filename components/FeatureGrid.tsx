@@ -44,7 +44,7 @@ export default function FeatureGrid() {
           </h2>
           <p className="mt-4 text-lg text-[#475569]">
             Built for India&apos;s wholesale marketplace — from verified sellers
-            to doorstep logistics.
+            to Big-Ship and major delivery partner support.
           </p>
         </div>
 
