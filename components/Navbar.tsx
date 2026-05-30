@@ -91,7 +91,7 @@ export default function Navbar() {
               alt="Lotwaala Logo"
               width={40}
               height={40}
-              className="h-8 w-8 rounded-lg bg-white object-contain sm:h-10 sm:w-10 sm:rounded-xl"
+              className="h-8 w-8 rounded-[20%] bg-white object-contain sm:h-10 sm:w-10"
               preload
             />
             <span className="text-lg font-extrabold tracking-tight text-white sm:text-xl">
