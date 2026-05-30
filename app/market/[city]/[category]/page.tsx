@@ -16,7 +16,7 @@ import {
   SITE_NAME,
   SITE_URL,
   PLAY_STORE_URL,
-  APP_STORE_URL,
+  IOS_APP_INTEREST_URL,
   APP_FEATURES,
   generateMarketFAQs,
 } from "@/lib/constants";
@@ -53,13 +53,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!cit || !cat) return {};
 
   return generatePageMetadata({
-    title: `Wholesale ${cat.name} in ${cit.name}`,
-    description: `Buy wholesale ${cat.name.toLowerCase()} in ${cit.name} from verified bulk suppliers. Compare inventory, negotiate prices, and source through the free ${SITE_NAME} app.`,
+    title: `Wholesale ${cat.name} Products in ${cit.name} - ${cit.name} Wholesale Market`,
+    description: `Buy wholesale ${cat.name.toLowerCase()} products in ${cit.name} from verified bulk suppliers. Explore the ${cit.name} wholesale market, compare inventory, negotiate prices, and source through the free ${SITE_NAME} app.`,
     path: `/market/${city}/${category}`,
     keywords: [
       ...cat.keywords,
+      `wholesale ${cat.name.toLowerCase()} products in ${cit.name}`,
       `wholesale ${cat.name.toLowerCase()} products ${cit.name}`,
       `wholesale ${cat.name.toLowerCase()} ${cit.name}`,
+      `${cit.name} wholesale ${cat.name.toLowerCase()} market`,
+      `wholesale market in ${cit.name} for ${cat.name.toLowerCase()}`,
       `buy wholesale ${cat.name.toLowerCase()} ${cit.name}`,
       `${cat.name.toLowerCase()} wholesaler ${cit.name}`,
       `${cat.name.toLowerCase()} wholesale products ${cit.name}`,
@@ -88,19 +91,20 @@ export default async function MarketCityCategory({ params }: PageProps) {
 
   // Popular searches for this page
   const popularSearches = [
-    { label: `Wholesale ${cat.name} ${cit.name}`, href: `/market/${city}/${category}` },
-    { label: `Bulk ${cat.name.toLowerCase()} suppliers ${cit.name}`, href: `/market/${city}/${category}` },
-    { label: `Wholesale market in ${cit.name}`, href: `/market/${city}` },
+    { label: `Wholesale ${cat.name} Products in ${cit.name}`, href: `/market/${city}/${category}` },
+    { label: `${cit.name} Wholesale ${cat.name} Market`, href: `/market/${city}/${category}` },
+    { label: `Bulk ${cat.name.toLowerCase()} suppliers in ${cit.name}`, href: `/market/${city}/${category}` },
+    { label: `Wholesale Market in ${cit.name}`, href: `/market/${city}` },
     ...CATEGORIES.filter((c) => c.slug !== category)
       .slice(0, 4)
       .map((c) => ({
-        label: `Wholesale ${c.name} in ${cit.name}`,
+        label: `Wholesale ${c.name} Products in ${cit.name}`,
         href: `/market/${city}/${c.slug}`,
       })),
     ...CITIES.filter((c) => c.slug !== city)
       .slice(0, 3)
       .map((c) => ({
-        label: `${cat.name} in ${c.name}`,
+        label: `Wholesale ${cat.name} Products in ${c.name}`,
         href: `/market/${c.slug}/${category}`,
       })),
   ];
@@ -161,14 +165,15 @@ export default async function MarketCityCategory({ params }: PageProps) {
 
             {/* H1 — keyword-rich */}
             <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-              Wholesale {cat.name} Products in {cit.name}
+              Wholesale {cat.name} Products in {cit.name} Wholesale Market
             </h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">
               Buy wholesale {cat.name.toLowerCase()} products in {cit.name} from
               verified wholesalers and bulk suppliers. The {SITE_NAME} wholesale
               products app gives you access to thousands of bulk{" "}
-              {cat.name.toLowerCase()} listings — {cat.description.toLowerCase()}.
-              Download free and source wholesale products at factory prices.
+              {cat.name.toLowerCase()} listings in the {cit.name} wholesale
+              market - {cat.description.toLowerCase()}. Download free and
+              source wholesale products at factory prices.
             </p>
 
             {/* CTA */}
@@ -191,10 +196,12 @@ export default async function MarketCityCategory({ params }: PageProps) {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </TrackedLink>
               <TrackedLink
-                href={APP_STORE_URL}
+                href={IOS_APP_INTEREST_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 eventName="app_download_click"
                 eventParams={{
-                  store: "app_store",
+                  store: "app_store_interest",
                   source: "city_category_page",
                   city_slug: cit.slug,
                   city_name: cit.name,
@@ -203,7 +210,7 @@ export default async function MarketCityCategory({ params }: PageProps) {
                 }}
                 className="inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-md)] border border-white/15 bg-white/5 px-6 py-3.5 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto"
               >
-                Also on iOS
+                iOS availability
               </TrackedLink>
             </div>
 
@@ -226,7 +233,7 @@ export default async function MarketCityCategory({ params }: PageProps) {
         <section className="py-20 bg-bg">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
-              About the Wholesale {cat.name} Products Market in {cit.name}
+              About Wholesale {cat.name} Products in {cit.name}
             </h2>
             <div className="mt-6 max-w-3xl space-y-4 text-text-secondary leading-relaxed">
               <p>
@@ -242,7 +249,7 @@ export default async function MarketCityCategory({ params }: PageProps) {
                 {SITE_NAME} solves this by connecting you directly with
                 KYC-verified {cat.name.toLowerCase()} suppliers in {cit.name}.
                 Browse live inventory for {cat.description.toLowerCase()},
-                compare prices from multiple sellers, and negotiate bulk deals —
+                compare prices from multiple sellers, and negotiate bulk deals -
                 all from the {SITE_NAME} app.
               </p>
               <p>
@@ -250,7 +257,7 @@ export default async function MarketCityCategory({ params }: PageProps) {
                 {cat.name.toLowerCase()} or a business looking for bulk{" "}
                 {cat.name.toLowerCase()} suppliers in {cit.name}, {SITE_NAME}{" "}
                 offers the largest selection of verified wholesale listings.
-                Download the app today — it&apos;s free, with no subscription fees.
+                Download the app today - it&apos;s free, with no subscription fees.
               </p>
             </div>
           </div>
@@ -260,7 +267,7 @@ export default async function MarketCityCategory({ params }: PageProps) {
         <section className="py-20 bg-bg-subtle">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
-              Why Use {SITE_NAME} for {cat.name} in {cit.name}?
+              Why Use {SITE_NAME} for Wholesale {cat.name} Products in {cit.name}?
             </h2>
             <p className="mt-3 max-w-2xl text-text-secondary">
               {SITE_NAME} is the easiest way to find verified{" "}
@@ -305,7 +312,7 @@ export default async function MarketCityCategory({ params }: PageProps) {
                   }}
                   className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text transition-all hover:border-primary/30 hover:text-primary hover:shadow-sm"
                 >
-                  {c.name} in {cit.name}
+                  Wholesale {c.name} Products in {cit.name}
                 </TrackedLink>
               ))}
             </div>
@@ -327,7 +334,7 @@ export default async function MarketCityCategory({ params }: PageProps) {
                   }}
                   className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text transition-all hover:border-primary/30 hover:text-primary hover:shadow-sm"
                 >
-                  {cat.name} in {c.name}
+                  Wholesale {cat.name} Products in {c.name}
                 </TrackedLink>
               ))}
             </div>

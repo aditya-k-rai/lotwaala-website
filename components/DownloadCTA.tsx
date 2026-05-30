@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
-import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/constants";
+import { IOS_APP_INTEREST_URL, PLAY_STORE_URL } from "@/lib/constants";
+import { CTA_PREVIEW_IMAGE_SIZES, TINY_BLUR_DATA_URL } from "@/lib/image";
 import { trackAppDownload } from "@/lib/analytics-events";
 
 export default function DownloadCTA() {
@@ -72,6 +73,9 @@ export default function DownloadCTA() {
                 width={120}
                 height={240}
                 className="h-auto w-full object-cover object-top"
+                sizes={CTA_PREVIEW_IMAGE_SIZES}
+                placeholder="blur"
+                blurDataURL={TINY_BLUR_DATA_URL}
               />
             </div>
           ))}
@@ -88,13 +92,15 @@ export default function DownloadCTA() {
             Download for Android
             <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5" />
           </Link>
-          <Link
-            href={APP_STORE_URL}
+          <a
+            href={IOS_APP_INTEREST_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => trackAppDownload("app_store", "download_cta")}
             className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/25 hover:-translate-y-1 sm:w-auto"
           >
-            Download for iOS
-          </Link>
+            iOS availability
+          </a>
         </div>
 
         <p className="mt-8 text-sm text-white/25 animate-fade-in-up delay-500">

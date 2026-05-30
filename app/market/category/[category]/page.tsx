@@ -5,6 +5,7 @@ import TrackedLink from "@/components/TrackedLink";
 import {
   generatePageMetadata,
   generateCategoryHubSchema,
+  generateCategoryCityItemListSchema,
   generateAppSchema,
   generateFAQSchema,
 } from "@/lib/seo";
@@ -14,7 +15,7 @@ import {
   CITY_SEO_DATA,
   SITE_NAME,
   PLAY_STORE_URL,
-  APP_STORE_URL,
+  IOS_APP_INTEREST_URL,
   APP_FEATURES,
   generateCategoryFAQs,
 } from "@/lib/constants";
@@ -23,6 +24,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import FAQSection from "@/components/FAQSection";
+import PopularSearches from "@/components/PopularSearches";
 
 // ─── Generate all category params at build time ──────────────────────────────
 
@@ -42,17 +44,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!cat) return {};
 
   return generatePageMetadata({
-    title: `Wholesale ${cat.name} Products India`,
-    description: `Buy wholesale ${cat.name.toLowerCase()} products from verified suppliers across 120+ cities in India. Browse bulk inventory and source through the free ${SITE_NAME} app.`,
+    title: `Wholesale ${cat.name} Products in India - Bulk Suppliers`,
+    description: `Buy wholesale ${cat.name.toLowerCase()} products in India from verified bulk suppliers. Browse ${cat.name.toLowerCase()} wholesale markets by city and source through the free ${SITE_NAME} app.`,
     path: `/market/category/${category}`,
     keywords: [
       ...cat.keywords,
       `wholesale ${cat.name.toLowerCase()} products`,
       `wholesale ${cat.name.toLowerCase()} products online`,
+      `wholesale ${cat.name.toLowerCase()} products India`,
+      `best wholesale ${cat.name.toLowerCase()} products`,
       `buy wholesale ${cat.name.toLowerCase()} products`,
       `wholesale ${cat.name.toLowerCase()} India`,
       `bulk ${cat.name.toLowerCase()} suppliers`,
       `${cat.name.toLowerCase()} wholesale market`,
+      `${cat.name.toLowerCase()} wholesale suppliers India`,
+      `${cat.name.toLowerCase()} bulk suppliers India`,
       `buy ${cat.name.toLowerCase()} in bulk`,
       `${cat.name.toLowerCase()} wholesale products for resale`,
     ],
@@ -74,6 +80,16 @@ export default async function CategoryHubPage({ params }: PageProps) {
     const volB = CITY_SEO_DATA[b.slug]?.searchVolume ?? 0;
     return volB - volA;
   });
+  const popularSearches = [
+    { label: `Wholesale ${cat.name} Products`, href: `/market/category/${category}` },
+    { label: `Wholesale ${cat.name} Products in India`, href: `/market/category/${category}` },
+    { label: `Buy ${cat.name} in Bulk`, href: `/market/category/${category}` },
+    { label: `${cat.name} Wholesale Suppliers India`, href: `/market/category/${category}` },
+    ...sortedCities.slice(0, 8).map((city) => ({
+      label: `Wholesale ${cat.name} Products in ${city.name}`,
+      href: `/market/${city.slug}/${category}`,
+    })),
+  ];
 
   return (
     <>
@@ -82,7 +98,13 @@ export default async function CategoryHubPage({ params }: PageProps) {
         data={generateCategoryHubSchema({
           category: cat.name,
           categorySlug: category,
-          description: `Find wholesale ${cat.name.toLowerCase()} suppliers across India. ${cat.description}.`,
+          description: `Find wholesale ${cat.name.toLowerCase()} products and suppliers across India. ${cat.description}.`,
+        })}
+      />
+      <JsonLd
+        data={generateCategoryCityItemListSchema({
+          category: cat.name,
+          categorySlug: category,
         })}
       />
       <JsonLd data={generateAppSchema()} />
@@ -112,14 +134,15 @@ export default async function CategoryHubPage({ params }: PageProps) {
 
             {/* H1 */}
             <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-              Wholesale {cat.name} Products in India — Buy Online in Bulk
+              Wholesale {cat.name} Products in India - Buy Online in Bulk
             </h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">
               Lotwaala serves all of India. Connect with verified{" "}
-              {cat.name.toLowerCase()} wholesalers through dedicated market hubs
-              in 120+ cities in India, with pan-India delivery to every state.
-              Browse {cat.description.toLowerCase()} — all on the {SITE_NAME}{" "}
-              wholesaler app. Download free and find the best bulk deals.
+              {cat.name.toLowerCase()} wholesale products suppliers through
+              dedicated market hubs in 120+ cities in India, with pan-India
+              delivery to every state. Browse {cat.description.toLowerCase()} -
+              all on the {SITE_NAME} wholesaler app. Download free and find the
+              best bulk deals.
             </p>
 
             {/* CTA */}
@@ -139,16 +162,18 @@ export default async function CategoryHubPage({ params }: PageProps) {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </TrackedLink>
               <TrackedLink
-                href={APP_STORE_URL}
+                href={IOS_APP_INTEREST_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 eventName="app_download_click"
                 eventParams={{
-                  store: "app_store",
+                  store: "app_store_interest",
                   source: "category_page",
                   category_slug: cat.slug,
                 }}
                 className="inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-md)] border border-white/15 bg-white/5 px-6 py-3.5 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto"
               >
-                Also on iOS
+                iOS availability
               </TrackedLink>
             </div>
 
@@ -171,7 +196,7 @@ export default async function CategoryHubPage({ params }: PageProps) {
         <section className="py-20 bg-bg">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
-              About Wholesale {cat.name} on {SITE_NAME}
+              About Wholesale {cat.name} Products on {SITE_NAME}
             </h2>
             <div className="mt-6 max-w-3xl space-y-4 text-text-secondary leading-relaxed">
               <p>
@@ -183,9 +208,10 @@ export default async function CategoryHubPage({ params }: PageProps) {
               </p>
               <p>
                 With {SITE_NAME}, you can browse thousands of{" "}
-                {cat.name.toLowerCase()} listings with real-time inventory, chat
-                directly with wholesalers, negotiate bulk pricing, and get
-                doorstep delivery — all from your phone. Lotwaala operates
+                wholesale {cat.name.toLowerCase()} products listings with
+                real-time inventory, chat directly with wholesalers, negotiate
+                bulk pricing, and get doorstep delivery - all from your phone.
+                Lotwaala operates
                 pan-India: 120+ wholesale hubs in India from Delhi&apos;s Chandni
                 Chowk to Mumbai&apos;s Crawford Market, Surat&apos;s textile
                 mandis to Kochi&apos;s spice bazaars, plus delivery to every
@@ -199,11 +225,12 @@ export default async function CategoryHubPage({ params }: PageProps) {
         <section className="py-20 bg-bg-subtle">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
-              Find Wholesale {cat.name} by City
+              Find Wholesale {cat.name} Products by City
             </h2>
             <p className="mt-3 max-w-2xl text-text-secondary">
-              Browse {cat.name.toLowerCase()} wholesalers in India&apos;s top
-              wholesale markets. Select a city to see verified suppliers.
+              Browse wholesale {cat.name.toLowerCase()} products in India&apos;s
+              top wholesale markets. Select a city to see verified suppliers and
+              bulk dealers for this category.
             </p>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -228,7 +255,7 @@ export default async function CategoryHubPage({ params }: PageProps) {
                           <span>{city.state}</span>
                         </div>
                         <h3 className="mt-1 text-base font-bold text-text group-hover:text-primary transition-colors">
-                          {cat.name} in {city.name}
+                          Wholesale {cat.name} Products in {city.name}
                         </h3>
                       </div>
                       <ArrowRight className="h-4 w-4 text-text-tertiary transition-all group-hover:text-primary group-hover:translate-x-1" />
@@ -249,11 +276,12 @@ export default async function CategoryHubPage({ params }: PageProps) {
         <section className="py-20 bg-bg">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
-              Why Buy Wholesale {cat.name} on {SITE_NAME}?
+              Why Buy Wholesale {cat.name} Products on {SITE_NAME}?
             </h2>
             <p className="mt-3 max-w-2xl text-text-secondary">
-              {SITE_NAME} is the best app for sourcing {cat.name.toLowerCase()}{" "}
-              in bulk. Here&apos;s why thousands of buyers trust us:
+              {SITE_NAME} is the best app for sourcing wholesale{" "}
+              {cat.name.toLowerCase()} products in bulk. Here&apos;s why
+              thousands of buyers trust us:
             </p>
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -292,17 +320,22 @@ export default async function CategoryHubPage({ params }: PageProps) {
                   }}
                   className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text transition-all hover:border-primary/30 hover:text-primary hover:shadow-sm"
                 >
-                  Wholesale {c.name}
+                  Wholesale {c.name} Products
                 </TrackedLink>
               ))}
             </div>
           </div>
         </section>
 
+        <PopularSearches
+          title={`Popular Wholesale ${cat.name} Product Searches`}
+          searches={popularSearches}
+        />
+
         {/* ── FAQ ── */}
         <FAQSection
-          title={`Wholesale ${cat.name} in India — FAQ`}
-          subtitle={`Common questions about buying ${cat.name.toLowerCase()} wholesale`}
+          title={`Wholesale ${cat.name} Products in India — FAQ`}
+          subtitle={`Common questions about buying wholesale ${cat.name.toLowerCase()} products`}
           faqs={faqs}
         />
 

@@ -62,8 +62,8 @@ export default function CategoryBrowser() {
             <span className="gradient-text-primary">12 Categories</span>
           </h2>
           <p className="mt-4 text-lg text-[#475569]">
-            From electronics to textiles — find bulk suppliers for every product
-            category on Lotwaala.
+            From electronics to textiles, find wholesale products and bulk
+            suppliers for every category on Lotwaala.
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export default function CategoryBrowser() {
 
                   {/* Content */}
                   <h3 className="mt-4 text-base font-bold text-[#0f172a]">
-                    {cat.name}
+                    Wholesale {cat.name} Products
                   </h3>
                   <p className="mt-1.5 text-sm text-[#64748b] leading-relaxed">
                     {cat.description}
@@ -104,7 +104,7 @@ export default function CategoryBrowser() {
 
                   {/* Link */}
                   <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-[#6366f1] opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
-                    <span>Browse wholesale</span>
+                    <span>Browse wholesale products</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </div>
                 </div>

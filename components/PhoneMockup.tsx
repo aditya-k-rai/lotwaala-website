@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { PHONE_SCREEN_SIZES, TINY_BLUR_DATA_URL } from "@/lib/image";
 
 const SCREENSHOTS = [
   {
@@ -54,8 +55,10 @@ export default function PhoneMockup() {
                 alt={screenshot.alt}
                 fill
                 className="object-cover object-top"
-                priority={i === 0}
-                sizes="300px"
+                preload={i === 0}
+                sizes={PHONE_SCREEN_SIZES}
+                placeholder="blur"
+                blurDataURL={TINY_BLUR_DATA_URL}
               />
             </div>
           ))}

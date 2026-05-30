@@ -1,13 +1,16 @@
 import type { MetadataRoute } from "next";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Lotwaala — Wholesale Products Online India | #1 Wholesale Marketplace",
-    short_name: "Lotwaala",
-    description:
-      "Buy wholesale products online from verified wholesalers — India's #1 wholesale products marketplace app, serving all of India with hubs in 120+ cities in India. Download free.",
+    name: `${SITE_NAME} - Wholesale Products Online India`,
+    short_name: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    id: "/",
     start_url: "/",
     display: "standalone",
+    lang: "en-IN",
+    dir: "ltr",
     background_color: "#ffffff",
     theme_color: "#2563eb",
     orientation: "portrait-primary",

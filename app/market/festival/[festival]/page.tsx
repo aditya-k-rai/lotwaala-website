@@ -14,7 +14,7 @@ import {
   FESTIVALS,
   SITE_NAME,
   PLAY_STORE_URL,
-  APP_STORE_URL,
+  IOS_APP_INTEREST_URL,
   generateFestivalFAQs,
 } from "@/lib/constants";
 import JsonLd from "@/components/JsonLd";
@@ -138,16 +138,18 @@ export default async function FestivalPage({ params }: PageProps) {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </TrackedLink>
               <TrackedLink
-                href={APP_STORE_URL}
+                href={IOS_APP_INTEREST_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 eventName="app_download_click"
                 eventParams={{
-                  store: "app_store",
+                  store: "app_store_interest",
                   source: "festival_page",
                   festival_slug: fest.slug,
                 }}
                 className="inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-md)] border border-white/15 bg-white/5 px-6 py-3.5 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto"
               >
-                Also on iOS
+                iOS availability
               </TrackedLink>
             </div>
 

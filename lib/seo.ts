@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import {
   SITE_NAME,
   SITE_URL,
+  SITE_LOCALE,
+  SITE_LAST_MODIFIED,
   SITE_DESCRIPTION,
   PRIMARY_KEYWORDS,
   APP_INSTALL_KEYWORDS,
@@ -9,6 +11,8 @@ import {
   APP_STORE_URL,
   PLAY_STORE_URL,
   PHONE_NUMBER,
+  CATEGORIES,
+  CITIES,
 } from "./constants";
 
 // ─── Dynamic Metadata Generator ─────────────────────────────────────────────
@@ -22,6 +26,11 @@ interface MetadataOptions {
 }
 
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
+const DEFAULT_APP_SCREENSHOTS = [
+  `${SITE_URL}/screenshots/explore.png`,
+  `${SITE_URL}/screenshots/dashboard.png`,
+  `${SITE_URL}/screenshots/orders.png`,
+];
 
 export function generatePageMetadata({
   title,
@@ -47,12 +56,19 @@ export function generatePageMetadata({
     authors: [{ name: SITE_NAME }],
     creator: SITE_NAME,
     publisher: SITE_NAME,
-    applicationName: `${SITE_NAME} — Wholesale Products App`,
+    applicationName: `${SITE_NAME} - Wholesale Products App`,
     metadataBase: new URL(SITE_URL),
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: {
+        "en-IN": url,
+      },
+    },
+    category: "business",
+    classification: "B2B wholesale marketplace",
     openGraph: {
       type: "website",
-      locale: "en_IN",
+      locale: SITE_LOCALE,
       url,
       title: fullTitle,
       description,
@@ -79,7 +95,7 @@ export function generatePageMetadata({
     appleWebApp: {
       capable: true,
       statusBarStyle: "black-translucent",
-      title: `${SITE_NAME} — Wholesale Products App`,
+      title: `${SITE_NAME} - Wholesale Products App`,
     },
     other: {
       "mobile-web-app-capable": "yes",
@@ -94,13 +110,18 @@ export function generateAppSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: `${SITE_NAME} — Wholesale Marketplace`,
+    name: `${SITE_NAME} - Wholesale Marketplace`,
+    alternateName: `${SITE_NAME} Wholesale App`,
     operatingSystem: "Android, iOS",
     applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Wholesale marketplace",
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     downloadUrl: PLAY_STORE_URL,
-    installUrl: APP_STORE_URL,
+    ...(APP_STORE_URL.startsWith("http") ? { installUrl: APP_STORE_URL } : {}),
+    isAccessibleForFree: true,
+    inLanguage: "en-IN",
+    dateModified: SITE_LAST_MODIFIED,
     offers: {
       "@type": "Offer",
       price: "0",
@@ -113,7 +134,7 @@ export function generateAppSchema() {
       bestRating: "5",
       worstRating: "1",
     },
-    screenshot: `${SITE_URL}/screenshots/app-home.png`,
+    screenshot: DEFAULT_APP_SCREENSHOTS,
     featureList:
       "Verified Sellers, Real-Time Inventory, Secure Payments, Built-In Logistics, Price Negotiation, Market Insights",
     author: {
@@ -121,10 +142,15 @@ export function generateAppSchema() {
       name: SITE_NAME,
       url: SITE_URL,
     },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
   };
 }
 
-// ─── JSON-LD: WebSite Schema (enables site-wide search box in SERP) ────────
+// ─── JSON-LD: WebSite Schema ───────────────────────────────────────────────
 
 export function generateWebsiteSchema() {
   return {
@@ -133,14 +159,105 @@ export function generateWebsiteSchema() {
     name: SITE_NAME,
     url: SITE_URL,
     description: SITE_DESCRIPTION,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
+    inLanguage: "en-IN",
+    dateModified: SITE_LAST_MODIFIED,
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
     },
+  };
+}
+
+export function generateWholesaleProductsItemListSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Wholesale Products Online in India | ${SITE_NAME}`,
+    description:
+      "Browse wholesale products across India's most searched bulk buying categories, including electronics, clothing, footwear, FMCG, textiles, cosmetics, furniture, and jewellery.",
+    url: SITE_URL,
+    inLanguage: "en-IN",
+    dateModified: SITE_LAST_MODIFIED,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    numberOfItems: CATEGORIES.length,
+    itemListElement: CATEGORIES.map((category, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${SITE_URL}/market/category/${category.slug}`,
+      name: `Wholesale ${category.name} Products`,
+      description: `Buy ${category.name.toLowerCase()} wholesale products online from verified bulk suppliers in India.`,
+    })),
+  };
+}
+
+export function generateWholesaleMarketItemListSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Wholesale Market Pages in India | ${SITE_NAME}`,
+    description:
+      "Browse city-wise wholesale market pages for Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Surat, Kolkata, Ahmedabad, Jaipur, and more Indian wholesale hubs.",
+    url: SITE_URL,
+    inLanguage: "en-IN",
+    dateModified: SITE_LAST_MODIFIED,
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    numberOfItems: CITIES.length,
+    itemListElement: CITIES.map((city, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${SITE_URL}/market/${city.slug}`,
+      name: `Wholesale Market in ${city.name}`,
+      description: `Explore wholesale products, bulk suppliers, and verified dealers in the ${city.name} wholesale market.`,
+    })),
+  };
+}
+
+export function generateCityCategoryItemListSchema(opts: {
+  city: string;
+  citySlug: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Wholesale Market in ${opts.city} - Product Categories`,
+    description: `Browse wholesale products in ${opts.city} by category, including electronics, clothing, footwear, FMCG, textiles, cosmetics, furniture, and more.`,
+    url: `${SITE_URL}/market/${opts.citySlug}`,
+    inLanguage: "en-IN",
+    dateModified: SITE_LAST_MODIFIED,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    numberOfItems: CATEGORIES.length,
+    itemListElement: CATEGORIES.map((category, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${SITE_URL}/market/${opts.citySlug}/${category.slug}`,
+      name: `Wholesale ${category.name} Products in ${opts.city}`,
+      description: `Find wholesale ${category.name.toLowerCase()} products in ${opts.city} from verified bulk suppliers.`,
+    })),
+  };
+}
+
+export function generateCategoryCityItemListSchema(opts: {
+  category: string;
+  categorySlug: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Wholesale ${opts.category} Products by City`,
+    description: `Browse wholesale ${opts.category.toLowerCase()} products in India's top wholesale markets and cities.`,
+    url: `${SITE_URL}/market/category/${opts.categorySlug}`,
+    inLanguage: "en-IN",
+    dateModified: SITE_LAST_MODIFIED,
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    numberOfItems: CITIES.length,
+    itemListElement: CITIES.map((city, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${SITE_URL}/market/${city.slug}/${opts.categorySlug}`,
+      name: `Wholesale ${opts.category} Products in ${city.name}`,
+      description: `Source wholesale ${opts.category.toLowerCase()} products in ${city.name}, ${city.state}.`,
+    })),
   };
 }
 
@@ -154,13 +271,20 @@ export function generateOrganizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/logo.png`,
     description: SITE_DESCRIPTION,
+    foundingLocation: {
+      "@type": "Place",
+      name: "New Delhi, India",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "India",
+    },
     contactPoint: {
       "@type": "ContactPoint",
       telephone: `+91-${PHONE_NUMBER}`,
       contactType: "customer support",
       availableLanguage: ["English", "Hindi"],
     },
-    sameAs: [],
   };
 }
 
@@ -189,8 +313,9 @@ export function generateFAQSchema(
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    datePublished: new Date().toISOString().split('T')[0],
-    dateModified: new Date().toISOString().split('T')[0],
+    inLanguage: "en-IN",
+    datePublished: SITE_LAST_MODIFIED,
+    dateModified: SITE_LAST_MODIFIED,
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -214,10 +339,12 @@ export function generateLocalMarketSchema(opts: {
 }) {
   return {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: `Wholesale ${opts.category} in ${opts.city} | ${SITE_NAME}`,
-    description: `Find wholesale ${opts.category.toLowerCase()} dealers and suppliers in ${opts.city}, ${opts.state}. Download the ${SITE_NAME} app to connect with verified wholesalers.`,
+    "@type": "CollectionPage",
+    name: `Wholesale ${opts.category} Products in ${opts.city} | ${SITE_NAME}`,
+    description: `Find wholesale ${opts.category.toLowerCase()} products, dealers, and suppliers in the ${opts.city} wholesale market. Download the ${SITE_NAME} app to connect with verified wholesalers.`,
     url: `${SITE_URL}/market/${opts.citySlug}/${opts.categorySlug}`,
+    inLanguage: "en-IN",
+    dateModified: SITE_LAST_MODIFIED,
     isPartOf: {
       "@type": "WebSite",
       name: SITE_NAME,
@@ -225,7 +352,7 @@ export function generateLocalMarketSchema(opts: {
     },
     about: {
       "@type": "Thing",
-      name: `Wholesale ${opts.category} Market in ${opts.city}`,
+      name: `Wholesale ${opts.category} Products Market in ${opts.city}`,
       description: opts.categoryDescription,
     },
     breadcrumb: {
@@ -238,7 +365,7 @@ export function generateLocalMarketSchema(opts: {
     },
     mainEntity: {
       "@type": "SoftwareApplication",
-      name: `${SITE_NAME} — Wholesale Marketplace`,
+      name: `${SITE_NAME} - Wholesale Marketplace`,
       operatingSystem: "Android, iOS",
       applicationCategory: "BusinessApplication",
       offers: {
@@ -265,10 +392,12 @@ export function generateCityHubSchema(opts: {
 }) {
   return {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "CollectionPage",
     name: `Wholesale Market in ${opts.city} | ${SITE_NAME}`,
     description: opts.description,
     url: `${SITE_URL}/market/${opts.citySlug}`,
+    inLanguage: "en-IN",
+    dateModified: SITE_LAST_MODIFIED,
     isPartOf: {
       "@type": "WebSite",
       name: SITE_NAME,
@@ -292,7 +421,7 @@ export function generateCityHubSchema(opts: {
     },
     mainEntity: {
       "@type": "SoftwareApplication",
-      name: `${SITE_NAME} — Wholesale Marketplace`,
+      name: `${SITE_NAME} - Wholesale Marketplace`,
       operatingSystem: "Android, iOS",
       applicationCategory: "BusinessApplication",
       offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
@@ -310,10 +439,12 @@ export function generateCategoryHubSchema(opts: {
 }) {
   return {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: `Wholesale ${opts.category} in India | ${SITE_NAME}`,
+    "@type": "CollectionPage",
+    name: `Wholesale ${opts.category} Products in India | ${SITE_NAME}`,
     description: opts.description,
     url: `${SITE_URL}/market/category/${opts.categorySlug}`,
+    inLanguage: "en-IN",
+    dateModified: SITE_LAST_MODIFIED,
     isPartOf: {
       "@type": "WebSite",
       name: SITE_NAME,
@@ -328,7 +459,7 @@ export function generateCategoryHubSchema(opts: {
     },
     mainEntity: {
       "@type": "SoftwareApplication",
-      name: `${SITE_NAME} — Wholesale Marketplace`,
+      name: `${SITE_NAME} - Wholesale Marketplace`,
       operatingSystem: "Android, iOS",
       applicationCategory: "BusinessApplication",
       offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
@@ -351,6 +482,8 @@ export function generateFestivalPageSchema(opts: {
     name: `${opts.festival} Wholesale Deals | ${SITE_NAME}`,
     description: opts.description,
     url: `${SITE_URL}/market/festival/${opts.festivalSlug}`,
+    inLanguage: "en-IN",
+    dateModified: SITE_LAST_MODIFIED,
     isPartOf: {
       "@type": "WebSite",
       name: SITE_NAME,
@@ -365,7 +498,7 @@ export function generateFestivalPageSchema(opts: {
     },
     mainEntity: {
       "@type": "SoftwareApplication",
-      name: `${SITE_NAME} — Wholesale Marketplace`,
+      name: `${SITE_NAME} - Wholesale Marketplace`,
       operatingSystem: "Android, iOS",
       applicationCategory: "BusinessApplication",
       offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },

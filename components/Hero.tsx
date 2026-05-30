@@ -2,13 +2,9 @@
 
 import Link from "next/link";
 import { ArrowRight, Star, Sparkles, Zap } from "lucide-react";
-import { PHONE_NUMBER, PLAY_STORE_URL, STATS } from "@/lib/constants";
+import { IOS_APP_INTEREST_URL, PLAY_STORE_URL, STATS } from "@/lib/constants";
 import { trackAppDownload, trackWhatsAppClick } from "@/lib/analytics-events";
 import PhoneMockup from "./PhoneMockup";
-
-const IOS_WHATSAPP_HREF = `https://wa.me/91${PHONE_NUMBER}?text=${encodeURIComponent(
-  "Hi! I'm interested in the Lotwaala iOS app. Please let me know when it's available."
-)}`;
 
 export default function Hero() {
   return (
@@ -65,7 +61,7 @@ export default function Hero() {
                 <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5" />
               </Link>
               <a
-                href={IOS_WHATSAPP_HREF}
+                href={IOS_APP_INTEREST_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Download for iOS — message us on WhatsApp"

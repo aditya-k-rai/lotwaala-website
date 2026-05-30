@@ -6,6 +6,8 @@ import {
   generateWebsiteSchema,
   generateOrganizationSchema,
   generateFAQSchema,
+  generateWholesaleProductsItemListSchema,
+  generateWholesaleMarketItemListSchema,
 } from "@/lib/seo";
 import { SITE_NAME, SITE_URL, CATEGORIES, CITIES, CITY_SEO_DATA } from "@/lib/constants";
 import JsonLd from "@/components/JsonLd";
@@ -24,9 +26,9 @@ import Footer from "@/components/Footer";
 // ─── SEO Metadata ────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Wholesale Products Online India",
+  title: "Wholesale Products Online India - Buy Bulk Products",
   description:
-    "Buy wholesale products online from verified suppliers in Delhi, Mumbai, Bangalore and 120+ cities in India. Browse bulk inventory on the free Lotwaala app.",
+    "Buy wholesale products online from verified bulk suppliers in India. Find electronics, clothing, FMCG, footwear, textiles and more across 120+ cities on Lotwaala.",
   path: "/",
   image: `${SITE_URL}/og-image.svg`,
   keywords: [
@@ -39,6 +41,10 @@ export const metadata: Metadata = generatePageMetadata({
     "wholesale products marketplace",
     "wholesale products for resale",
     "wholesale products suppliers",
+    "buy bulk products India",
+    "bulk products for resale",
+    "wholesale products categories",
+    "wholesale products suppliers India",
     "wholesale market Delhi",
     "wholesale market Mumbai",
     "wholesale market Bangalore",
@@ -98,12 +104,12 @@ const WHOLESALE_PRODUCTS_SEARCHES = [
     href: `/market/category/${c.slug}`,
   })),
   ...CITIES.slice(0, 18).map((c) => ({
-    label: `Wholesale Products in ${c.name}`,
+    label: `Wholesale Market in ${c.name}`,
     href: `/market/${c.slug}`,
   })),
 ];
 
-const TOP_LOCATION_KEYWORDS = CITIES
+const TOP_LOCATION_PRODUCTS = CITIES
   .filter((city) => CITY_SEO_DATA[city.slug])
   .sort((a, b) => {
     const volA = CITY_SEO_DATA[a.slug]?.searchVolume ?? 0;
@@ -121,6 +127,8 @@ export default function Home() {
       <JsonLd data={generateAppSchema()} />
       <JsonLd data={generateWebsiteSchema()} />
       <JsonLd data={generateOrganizationSchema()} />
+      <JsonLd data={generateWholesaleProductsItemListSchema()} />
+      <JsonLd data={generateWholesaleMarketItemListSchema()} />
       <JsonLd data={generateFAQSchema(HOME_FAQS)} />
 
       <Navbar />
@@ -136,26 +144,25 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
-                Best Wholesale Keywords by Location
+                Best Wholesale Markets and Products by Location
               </h2>
               <p className="mt-4 leading-relaxed text-text-secondary">
-                Lotwaala targets high-intent wholesale searches such as
-                wholesale products online, wholesale market near me, bulk
-                suppliers, wholesale dealers, and buy wholesale products for
-                resale. Each city page pairs local buyer intent with verified
-                supplier discovery, category pages, and app download actions.
+                Find wholesale products online by city, category, and resale
+                demand. Lotwaala connects buyers with verified bulk suppliers
+                for electronics, clothing, footwear, FMCG, textiles, cosmetics,
+                furniture, and more across India.
               </p>
               <p className="mt-4 leading-relaxed text-text-secondary">
-                The strongest location clusters from the audit are Delhi,
-                Mumbai, Bangalore, Chennai, Hyderabad, Pune, Surat, Kolkata,
-                Ahmedabad, and Jaipur. These pages are linked from the homepage
-                and sitemap so search engines can crawl every wholesale market
-                landing page quickly.
+                Explore wholesale market pages for Delhi, Mumbai, Bangalore,
+                Chennai, Hyderabad, Pune, Surat, Kolkata, Ahmedabad, and
+                Jaipur. Each location page links to product category pages so
+                search engines can crawl the full wholesale products marketplace
+                quickly.
               </p>
             </div>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {TOP_LOCATION_KEYWORDS.map((city) => {
+              {TOP_LOCATION_PRODUCTS.map((city) => {
                 const seoData = CITY_SEO_DATA[city.slug];
                 return (
                   <Link
@@ -164,11 +171,11 @@ export default function Home() {
                     className="rounded-lg border border-border bg-bg-subtle p-4 transition-all hover:border-primary/30 hover:bg-white hover:shadow-sm"
                   >
                     <h3 className="text-sm font-bold text-text">
-                      {seoData.targetKeyword}
+                      Wholesale Market in {city.name}
                     </h3>
                     <p className="mt-2 text-xs leading-relaxed text-text-secondary">
-                      {city.name}, {city.state} - {seoData.searchVolume.toLocaleString()}+
-                      monthly searches
+                      {seoData.targetKeyword} - {seoData.searchVolume.toLocaleString()}+
+                      monthly buyer searches
                     </p>
                   </Link>
                 );

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { APP_SHOWCASE_IMAGE_SIZES, TINY_BLUR_DATA_URL } from "@/lib/image";
 
 const SCREENSHOTS = [
   {
@@ -68,6 +69,9 @@ export default function AppShowcase() {
                     width={200}
                     height={430}
                     className="h-auto w-full object-cover object-top"
+                    sizes={APP_SHOWCASE_IMAGE_SIZES}
+                    placeholder="blur"
+                    blurDataURL={TINY_BLUR_DATA_URL}
                   />
                 </div>
 

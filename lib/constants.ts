@@ -2,14 +2,19 @@
 
 export const SITE_NAME = "Lotwaala";
 export const SITE_URL = "https://lotwaala.com";
+export const SITE_LOCALE = "en_IN";
+export const SITE_LAST_MODIFIED = "2026-05-26";
 export const SITE_TAGLINE =
-  "Buy Wholesale Products Online — Your Entire Wholesale Market, Now in Your Pocket.";
+  "Buy Wholesale Products Online - Your Entire Wholesale Market, Now in Your Pocket.";
 export const SITE_DESCRIPTION =
   "Buy wholesale products online in India's #1 wholesale app. Connect with verified wholesalers in 120+ cities in India. Download free for Android & iOS.";
 
-export const APP_STORE_URL = "#"; // Replace with real App Store link when available
-export const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.lotwallaim.app";
 export const PHONE_NUMBER = "9266402725";
+export const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.lotwallaim.app";
+export const APP_STORE_URL = ""; // Replace with the real App Store link when available.
+export const IOS_APP_INTEREST_URL = `https://wa.me/91${PHONE_NUMBER}?text=${encodeURIComponent(
+  "Hi! I'm interested in the Lotwaala iOS app. Please let me know when it's available."
+)}`;
 
 // ─── Primary Keywords ────────────────────────────────────────────────────────
 
@@ -402,7 +407,7 @@ export const STATS = [
   { value: "1,00,000+", label: "Wholesale Products" },
   { value: "10,000+", label: "Verified Wholesalers" },
   { value: "Pan-India", label: "120+ Cities in India" },
-  { value: "4.8★", label: "App Store Rating" },
+  { value: "4.8/5", label: "App Store Rating" },
 ] as const;
 
 // ─── FAQ Generators ──────────────────────────────────────────────────────────
@@ -410,12 +415,12 @@ export const STATS = [
 export function generateMarketFAQs(cityName: string, categoryName: string) {
   return [
     {
-      question: `Where can I find wholesale ${categoryName.toLowerCase()} in ${cityName}?`,
-      answer: `You can find verified wholesale ${categoryName.toLowerCase()} suppliers in ${cityName} on the Lotwaala app. Download the app for free on Android or iOS to browse thousands of bulk ${categoryName.toLowerCase()} listings from verified wholesalers in ${cityName}.`,
+      question: `Where can I find wholesale ${categoryName.toLowerCase()} products in ${cityName}?`,
+      answer: `You can find verified wholesale ${categoryName.toLowerCase()} products suppliers in ${cityName} on the Lotwaala app. Download the app for free on Android or iOS to browse thousands of bulk ${categoryName.toLowerCase()} listings from verified wholesalers in the ${cityName} wholesale market.`,
     },
     {
-      question: `How to buy bulk ${categoryName.toLowerCase()} in ${cityName}?`,
-      answer: `Buying bulk ${categoryName.toLowerCase()} in ${cityName} is easy with Lotwaala. Simply download the app, search for "${categoryName} in ${cityName}", browse listings with live inventory, negotiate prices via chat, and place your order with secure payment and doorstep delivery.`,
+      question: `How to buy wholesale ${categoryName.toLowerCase()} products in ${cityName}?`,
+      answer: `Buying wholesale ${categoryName.toLowerCase()} products in ${cityName} is easy with Lotwaala. Simply download the app, search for "Wholesale ${categoryName} Products in ${cityName}", browse listings with live inventory, negotiate prices via chat, and place your order with secure payment and doorstep delivery.`,
     },
     {
       question: `Is Lotwaala free to use for ${categoryName.toLowerCase()} wholesale in ${cityName}?`,
@@ -435,8 +440,12 @@ export function generateMarketFAQs(cityName: string, categoryName: string) {
 export function generateCityFAQs(cityName: string, state: string) {
   return [
     {
+      question: `Where is the best wholesale market in ${cityName}?`,
+      answer: `Lotwaala helps buyers explore the wholesale market in ${cityName}, ${state} online. Instead of visiting multiple physical markets, you can browse verified wholesale products suppliers, compare categories, and connect with bulk dealers through the free Lotwaala app.`,
+    },
+    {
       question: `How to find wholesalers in ${cityName}?`,
-      answer: `Lotwaala is the easiest way to find verified wholesalers in ${cityName}, ${state}. Download the free app to browse wholesale suppliers across 12+ categories including electronics, clothing, textiles, FMCG, and more — all in ${cityName}.`,
+      answer: `Lotwaala is the easiest way to find verified wholesalers in ${cityName}, ${state}. Download the free app to browse wholesale products suppliers across 12+ categories including electronics, clothing, textiles, FMCG, and more - all in ${cityName}.`,
     },
     {
       question: `What wholesale categories are available in ${cityName} on Lotwaala?`,
@@ -452,16 +461,16 @@ export function generateCityFAQs(cityName: string, state: string) {
 export function generateCategoryFAQs(categoryName: string) {
   return [
     {
-      question: `Where can I find wholesale ${categoryName.toLowerCase()} suppliers in India?`,
-      answer: `Lotwaala serves all of India and connects you with verified ${categoryName.toLowerCase()} wholesalers in 120+ cities in India including Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, Jaipur, Surat, Lucknow, Indore, Agra, Varanasi, Kochi, Guwahati, Visakhapatnam and many more — with pan-India delivery to every state and Tier-2/Tier-3 town. Download the free app to browse 1,00,000+ wholesale products with real-time inventory.`,
+      question: `Where can I find wholesale ${categoryName.toLowerCase()} products suppliers in India?`,
+      answer: `Lotwaala serves all of India and connects you with verified wholesale ${categoryName.toLowerCase()} products suppliers in 120+ cities in India including Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, Jaipur, Surat, Lucknow, Indore, Agra, Varanasi, Kochi, Guwahati, Visakhapatnam and many more - with pan-India delivery to every state and Tier-2/Tier-3 town. Download the free app to browse 1,00,000+ wholesale products with real-time inventory.`,
     },
     {
-      question: `How to buy ${categoryName.toLowerCase()} in bulk online in India?`,
-      answer: `With the Lotwaala app, buying ${categoryName.toLowerCase()} in bulk is simple. Search by city or browse all listings, compare prices from multiple wholesalers, negotiate via in-app chat, and pay securely with doorstep delivery across India.`,
+      question: `How to buy wholesale ${categoryName.toLowerCase()} products online in India?`,
+      answer: `With the Lotwaala app, buying wholesale ${categoryName.toLowerCase()} products in bulk is simple. Search by city or browse all listings, compare prices from multiple wholesalers, negotiate via in-app chat, and pay securely with doorstep delivery across India.`,
     },
     {
-      question: `What are the best cities for wholesale ${categoryName.toLowerCase()} in India?`,
-      answer: `The top cities for wholesale ${categoryName.toLowerCase()} on Lotwaala include Delhi, Mumbai, Bangalore, Surat, Ahmedabad, and Chennai. Each city has verified local wholesalers offering competitive bulk pricing for ${categoryName.toLowerCase()}.`,
+      question: `What are the best cities for wholesale ${categoryName.toLowerCase()} products in India?`,
+      answer: `The top cities for wholesale ${categoryName.toLowerCase()} products on Lotwaala include Delhi, Mumbai, Bangalore, Surat, Ahmedabad, and Chennai. Each city has verified local wholesalers offering competitive bulk pricing for ${categoryName.toLowerCase()}.`,
     },
   ];
 }

@@ -5,6 +5,7 @@ import TrackedLink from "@/components/TrackedLink";
 import {
   generatePageMetadata,
   generateCityHubSchema,
+  generateCityCategoryItemListSchema,
   generateAppSchema,
   generateFAQSchema,
 } from "@/lib/seo";
@@ -14,7 +15,7 @@ import {
   CITY_SEO_DATA,
   SITE_NAME,
   PLAY_STORE_URL,
-  APP_STORE_URL,
+  IOS_APP_INTEREST_URL,
   APP_FEATURES,
   generateCityFAQs,
 } from "@/lib/constants";
@@ -23,6 +24,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import FAQSection from "@/components/FAQSection";
+import PopularSearches from "@/components/PopularSearches";
 
 // ─── Generate all city params at build time ──────────────────────────────────
 
@@ -45,11 +47,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const targetKw = seoData?.targetKeyword ?? `wholesale market ${cit.name}`;
 
   return generatePageMetadata({
-    title: `Wholesale Products in ${cit.name}`,
-    description: `Buy wholesale products in ${cit.name} from verified suppliers. Find bulk dealers for ${CATEGORIES.slice(0, 3).map(c => c.name.toLowerCase()).join(", ")} and more on the free ${SITE_NAME} app.`,
+    title: `Wholesale Market in ${cit.name} - Wholesale Products Online`,
+    description: `Explore the wholesale market in ${cit.name} for verified bulk suppliers. Buy wholesale products in ${cit.name} across electronics, clothing, footwear, FMCG and more on the free ${SITE_NAME} app.`,
     path: `/market/${city}`,
     keywords: [
       targetKw,
+      `wholesale market in ${cit.name}`,
+      `${cit.name} wholesale market`,
+      `best wholesale market in ${cit.name}`,
+      `online wholesale market ${cit.name}`,
+      `wholesale market near me ${cit.name}`,
       `wholesale products ${cit.name}`,
       `wholesale products in ${cit.name}`,
       `buy wholesale products ${cit.name}`,
@@ -74,6 +81,16 @@ export default async function CityHubPage({ params }: PageProps) {
   const seoData = CITY_SEO_DATA[city];
   const targetKw = seoData?.targetKeyword ?? `wholesale market ${cit.name}`;
   const faqs = generateCityFAQs(cit.name, cit.state);
+  const popularSearches = [
+    { label: `Wholesale Market in ${cit.name}`, href: `/market/${city}` },
+    { label: `${cit.name} Wholesale Market`, href: `/market/${city}` },
+    { label: `Wholesale Products in ${cit.name}`, href: `/market/${city}` },
+    { label: `Bulk Suppliers in ${cit.name}`, href: `/market/${city}` },
+    ...CATEGORIES.slice(0, 8).map((cat) => ({
+      label: `Wholesale ${cat.name} Products in ${cit.name}`,
+      href: `/market/${city}/${cat.slug}`,
+    })),
+  ];
 
   return (
     <>
@@ -84,6 +101,12 @@ export default async function CityHubPage({ params }: PageProps) {
           state: cit.state,
           citySlug: city,
           description: seoData?.description ?? `Find wholesale suppliers in ${cit.name} on Lotwaala.`,
+        })}
+      />
+      <JsonLd
+        data={generateCityCategoryItemListSchema({
+          city: cit.name,
+          citySlug: city,
         })}
       />
       <JsonLd data={generateAppSchema()} />
@@ -121,11 +144,14 @@ export default async function CityHubPage({ params }: PageProps) {
 
             {/* H1 */}
             <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-              Wholesale Products in {cit.name} — Buy Online at Bulk Prices
+              Wholesale Market in {cit.name} - Buy Wholesale Products Online
             </h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">
               {seoData?.description ??
                 `Connect with verified wholesale suppliers and bulk dealers in ${cit.name}. The ${SITE_NAME} app gives you access to thousands of wholesale listings across every category. Download free and start dealing.`}
+              {" "}Browse wholesale products in {cit.name} by category, compare
+              bulk prices, and connect with verified suppliers from the{" "}
+              {SITE_NAME} app.
             </p>
 
             {/* CTA */}
@@ -147,10 +173,12 @@ export default async function CityHubPage({ params }: PageProps) {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </TrackedLink>
               <TrackedLink
-                href={APP_STORE_URL}
+                href={IOS_APP_INTEREST_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 eventName="app_download_click"
                 eventParams={{
-                  store: "app_store",
+                  store: "app_store_interest",
                   source: "city_page",
                   city_slug: cit.slug,
                   city_name: cit.name,
@@ -158,7 +186,7 @@ export default async function CityHubPage({ params }: PageProps) {
                 }}
                 className="inline-flex items-center justify-center gap-2.5 rounded-[var(--radius-md)] border border-white/15 bg-white/5 px-6 py-3.5 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10 sm:w-auto"
               >
-                Also on iOS
+                iOS availability
               </TrackedLink>
             </div>
 
@@ -181,11 +209,12 @@ export default async function CityHubPage({ params }: PageProps) {
         <section className="py-20 bg-bg">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
-              Browse Wholesale Products by Category in {cit.name}
+              Wholesale Products in {cit.name} by Category
             </h2>
             <p className="mt-3 max-w-2xl text-text-secondary">
-              Explore all wholesale product categories available in {cit.name}.
-              Each category connects you with verified suppliers on the{" "}
+              Explore the {cit.name} wholesale market by product category. Each
+              page targets high-intent searches for wholesale products in{" "}
+              {cit.name} and connects buyers with verified suppliers on the{" "}
               {SITE_NAME} app.
             </p>
 
@@ -203,7 +232,7 @@ export default async function CityHubPage({ params }: PageProps) {
                   className="group rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:border-primary/20 hover:shadow-xl hover:-translate-y-1"
                 >
                   <h3 className="text-base font-bold text-text group-hover:text-primary transition-colors">
-                    {cat.name} in {cit.name}
+                    Wholesale {cat.name} Products in {cit.name}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-text-secondary">
                     {cat.description}
@@ -222,7 +251,7 @@ export default async function CityHubPage({ params }: PageProps) {
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
-              Best Wholesale Search Terms for {cit.name}
+              Best Wholesale Market Search Terms for {cit.name}
             </h2>
             <p className="mt-3 max-w-3xl leading-relaxed text-text-secondary">
               This page is optimized for local wholesale buyer intent in{" "}
@@ -231,12 +260,11 @@ export default async function CityHubPage({ params }: PageProps) {
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {[
+                `wholesale market in ${cit.name}`,
+                `${cit.name} wholesale market`,
                 targetKw,
                 `wholesale products in ${cit.name}`,
                 `wholesale suppliers ${cit.name}`,
-                `bulk dealers ${cit.name}`,
-                `buy wholesale products ${cit.name}`,
-                `${cit.name} wholesale marketplace`,
               ].map((keyword) => (
                 <div
                   key={keyword}
@@ -252,7 +280,7 @@ export default async function CityHubPage({ params }: PageProps) {
         <section className="py-20 bg-bg-subtle">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-extrabold text-text sm:text-3xl">
-              Why Use {SITE_NAME} for Wholesale in {cit.name}?
+              Why Use {SITE_NAME} for the Wholesale Market in {cit.name}?
             </h2>
             <p className="mt-3 max-w-2xl text-text-secondary">
               {SITE_NAME} makes it easy to source wholesale products in{" "}
@@ -292,12 +320,17 @@ export default async function CityHubPage({ params }: PageProps) {
                   eventParams={{ to_city: c.slug, from_city: cit.slug }}
                   className="rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text transition-all hover:border-primary/30 hover:text-primary hover:shadow-sm"
                 >
-                  Wholesale in {c.name}
+                  Wholesale Market in {c.name}
                 </TrackedLink>
               ))}
             </div>
           </div>
         </section>
+
+        <PopularSearches
+          title={`Popular Wholesale Market Searches in ${cit.name}`}
+          searches={popularSearches}
+        />
 
         {/* ── FAQ ── */}
         <FAQSection

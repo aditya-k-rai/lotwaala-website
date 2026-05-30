@@ -27,7 +27,7 @@ export default function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-[#64748b]">
               India&apos;s #1 wholesale products marketplace, serving all of
               India. Buy wholesale products online from 10,000+ verified
-              wholesalers — with hubs in 120+ cities in India and delivery
+              wholesalers - with hubs in 120+ cities in India and delivery
               pan-India.
             </p>
             <p className="mt-3 text-xs leading-relaxed text-[#64748b]">
@@ -47,7 +47,7 @@ export default function Footer() {
                     href={`/market/${city.slug}`}
                     className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
                   >
-                    Wholesale in {city.name}
+                    Wholesale Market in {city.name}
                   </Link>
                 </li>
               ))}
@@ -66,7 +66,7 @@ export default function Footer() {
                     href={`/market/category/${cat.slug}`}
                     className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
                   >
-                    Wholesale {cat.name}
+                    Wholesale {cat.name} Products
                   </Link>
                 </li>
               ))}
@@ -127,7 +127,7 @@ export default function Footer() {
                     href={`/market/${city.slug}`}
                     className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
                   >
-                    Wholesale in {city.name}
+                    Wholesale Market in {city.name}
                   </Link>
                 </li>
               ))}
@@ -144,7 +144,7 @@ export default function Footer() {
                     href={`/market/category/${cat.slug}`}
                     className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
                   >
-                    Wholesale {cat.name}
+                    Wholesale {cat.name} Products
                   </Link>
                 </li>
               ))}
@@ -177,7 +177,7 @@ export default function Footer() {
             className="inline-flex items-center gap-2 transition-opacity hover:opacity-80"
           >
             <Image
-              src="/alr-logo.png"
+              src="/alr-logo-96.png"
               alt="Aditya Rai"
               width={24}
               height={24}

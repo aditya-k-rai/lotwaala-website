@@ -34,12 +34,12 @@ export default function MarketExplorer() {
             Explore Markets
           </div>
           <h2 className="mt-6 text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Wholesale Markets Across{" "}
+            Wholesale Market Pages Across{" "}
             <span className="gradient-text-light">India</span>
           </h2>
           <p className="mt-4 text-lg text-white/50">
             Lotwaala operates pan-India. Browse verified wholesalers in
-            India&apos;s top wholesale hubs — these are part of our 120+ city
+            India&apos;s top wholesale hubs - these are part of our 120+ city
             markets, with delivery available to every state and town across
             India.
           </p>
@@ -69,7 +69,7 @@ export default function MarketExplorer() {
                       <span>{city.state}</span>
                     </div>
                     <h3 className="mt-1.5 text-lg font-bold text-white group-hover:text-[#a5b4fc] transition-colors">
-                      {city.name}
+                      Wholesale Market in {city.name}
                     </h3>
                   </div>
                   <ArrowRight className="h-4 w-4 text-white/20 transition-all duration-300 group-hover:text-[#818cf8] group-hover:translate-x-1" />
