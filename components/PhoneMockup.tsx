@@ -78,12 +78,6 @@ export default function PhoneMockup() {
           ))}
         </div>
       </div>
-
-      {/* Reflection / shine effect on frame */}
-      <div className="pointer-events-none absolute inset-0 rounded-[48px]">
-        <div className="absolute left-3 top-0 h-full w-[1px] bg-gradient-to-b from-white/20 via-white/5 to-transparent" />
-        <div className="absolute right-6 top-8 h-1/3 w-[1px] bg-gradient-to-b from-white/10 to-transparent" />
-      </div>
     </div>
   );
 }
