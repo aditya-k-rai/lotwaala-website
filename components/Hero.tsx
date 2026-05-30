@@ -54,11 +54,11 @@ export default function Hero() {
               <Link
                 href={PLAY_STORE_URL}
                 onClick={() => trackAppDownload("play_store", "hero")}
-                className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full gradient-primary px-8 py-4 text-base font-bold text-white shadow-lg transition-all duration-300 hover:shadow-[0_0_32px_rgba(99,102,241,0.5)] hover:-translate-y-1 sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full gradient-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg transition-all duration-300 hover:shadow-[0_0_24px_rgba(99,102,241,0.45)] hover:-translate-y-0.5 sm:w-auto sm:px-6"
               >
-                <Zap className="h-5 w-5 transition-transform group-hover:rotate-12" />
+                <Zap className="h-4 w-4 transition-transform group-hover:rotate-12" />
                 Download for Android
-                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5" />
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <a
                 href={IOS_APP_INTEREST_URL}
@@ -66,12 +66,12 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 aria-label="Download for iOS — message us on WhatsApp"
                 onClick={() => trackWhatsAppClick("hero_ios_notify")}
-                className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/25 hover:-translate-y-1 sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/25 hover:-translate-y-0.5 sm:w-auto sm:px-6"
               >
                 <svg
                   viewBox="0 0 32 32"
                   fill="currentColor"
-                  className="h-5 w-5 text-[#25D366] transition-transform group-hover:scale-110"
+                  className="h-4 w-4 text-[#25D366] transition-transform group-hover:scale-110"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
                 >
@@ -79,7 +79,7 @@ export default function Hero() {
                 </svg>
                 <span className="flex flex-col items-start leading-tight">
                   <span>Download for iOS</span>
-                  <span className="text-[10px] font-medium uppercase tracking-wide text-[#25D366]/90">
+                  <span className="text-[9px] font-medium uppercase tracking-wide text-[#25D366]/90">
                     Notify me via WhatsApp
                   </span>
                 </span>
