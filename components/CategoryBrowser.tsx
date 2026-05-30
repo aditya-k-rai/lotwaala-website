@@ -59,7 +59,9 @@ export default function CategoryBrowser() {
           </div>
           <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-[#0f172a] sm:text-4xl">
             Wholesale Products Across{" "}
-            <span className="gradient-text-primary">12 Categories</span>
+            <span className="whitespace-nowrap gradient-text-primary">
+              All Categories
+            </span>
           </h2>
           <p className="mt-4 text-lg text-[#475569]">
             From electronics to textiles, find wholesale products and bulk
