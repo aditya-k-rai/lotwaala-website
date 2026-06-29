@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { SITE_NAME, CATEGORIES, CITIES, FESTIVALS } from "@/lib/constants";
 
-const DEVELOPER_URL = "https://aditya-k-rai.github.io/P-Website/";
+const DEVELOPER_PORTFOLIO = "https://aditya-k-rai.github.io/P-Website/";
+const DEVELOPER_LINKEDIN = "https://www.linkedin.com/in/aditya-k-rai/";
 
 export default function Footer() {
   return (
@@ -100,6 +101,7 @@ export default function Footer() {
               {[
                 { label: "About", href: "/about" },
                 { label: "Contact", href: "/contact" },
+                { label: "Developer", href: "/developer" },
                 { label: "Privacy Policy", href: "/privacy" },
                 { label: "Terms of Service", href: "/terms" },
                 { label: "Editorial Policy", href: "/editorial-policy" },
@@ -167,26 +169,54 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Developer credit bar */}
-      <div className="gradient-dark py-3">
-        <div className="mx-auto flex max-w-6xl items-center justify-center gap-2.5 px-4">
-          <span className="text-xs text-white/30">Developed by</span>
-          <a
-            href={DEVELOPER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 transition-opacity hover:opacity-80"
+      {/* Developer Credit Bar */}
+      <div className="bg-[#080e18] border-t border-white/5 py-2.5 px-4">
+        <div className="flex items-center justify-center gap-2 font-[family-name:var(--font-inter)]">
+          <span className="text-white/40 text-[11px] sm:text-xs">Developed &amp; Marketed by</span>
+          <Link
+            href="/developer"
+            className="flex-shrink-0 rounded-full hover:scale-110 transition-transform duration-300"
+            title="Aditya Kumar Rai — Developer"
           >
             <Image
-              src="/alr-logo-96.png"
-              alt="Aditya Rai"
-              width={24}
-              height={24}
-              className="h-6 w-6 rounded-full object-cover ring-1 ring-white/10"
+              src="/Developer Aditya Kumar Rai Image .gif"
+              alt="Aditya Kumar Rai"
+              width={34}
+              height={34}
+              className="h-[34px] w-[34px] rounded-full object-cover border-2 border-[#fbbf24] shadow-[0_0_8px_rgba(251,191,36,0.3)]"
+              unoptimized
             />
-            <span className="text-sm font-bold text-[#fbbf24]">
-              Aditya Rai
-            </span>
+          </Link>
+          <Link
+            href="/developer"
+            className="text-white/80 hover:text-[#fbbf24] transition-colors duration-300 text-[11px] sm:text-xs font-semibold tracking-wide"
+            title="Visit Developer Page"
+          >
+            Aditya Kumar Rai
+          </Link>
+          <span className="text-white/20">|</span>
+          <a
+            href={DEVELOPER_LINKEDIN}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Aditya Kumar Rai on LinkedIn"
+            className="text-white/40 hover:text-[#0A66C2] transition-colors duration-300"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </a>
+          <a
+            href={DEVELOPER_PORTFOLIO}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Aditya Kumar Rai Portfolio"
+            className="text-white/40 hover:text-[#6366f1] transition-colors duration-300"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
           </a>
         </div>
       </div>

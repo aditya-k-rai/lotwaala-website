@@ -381,6 +381,20 @@ body {
 .animate-slide-up-reveal { animation: slide-up-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .animate-text-shimmer    { background-size: 200% auto; animation: text-shimmer 4s linear infinite; }
 
+/* ── Developer page — photo ring animations ── */
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes ring-pulse {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+
+.animate-ring-spin  { animation: ring-spin 6s linear infinite; will-change: transform; }
+.animate-ring-pulse { animation: ring-pulse 3s ease-in-out infinite; }
+
 /* ── Animation container isolation — prevents layout recalc from leaking ── */
 .hero-bg-container,
 .anim-container {

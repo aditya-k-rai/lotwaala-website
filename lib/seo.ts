@@ -15,7 +15,7 @@ import {
   CITIES,
 } from "./constants";
 
-// ─── Dynamic Metadata Generator ─────────────────────────────────────────────
+// â”€â”€â”€ Dynamic Metadata Generator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 interface MetadataOptions {
   title: string;
@@ -104,7 +104,7 @@ export function generatePageMetadata({
   };
 }
 
-// ─── JSON-LD: SoftwareApplication Schema ────────────────────────────────────
+// â”€â”€â”€ JSON-LD: SoftwareApplication Schema â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export function generateAppSchema() {
   return {
@@ -150,7 +150,7 @@ export function generateAppSchema() {
   };
 }
 
-// ─── JSON-LD: WebSite Schema ───────────────────────────────────────────────
+// â”€â”€â”€ JSON-LD: WebSite Schema â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export function generateWebsiteSchema() {
   return {
@@ -261,7 +261,7 @@ export function generateCategoryCityItemListSchema(opts: {
   };
 }
 
-// ─── JSON-LD: Organization Schema ───────────────────────────────────────────
+// â”€â”€â”€ JSON-LD: Organization Schema â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export function generateOrganizationSchema() {
   return {
@@ -288,7 +288,7 @@ export function generateOrganizationSchema() {
   };
 }
 
-// ─── JSON-LD: BreadcrumbList Schema ─────────────────────────────────────────
+// â”€â”€â”€ JSON-LD: BreadcrumbList Schema â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export function generateBreadcrumbSchema(
   crumbs: { name: string; url: string }[]
@@ -305,7 +305,7 @@ export function generateBreadcrumbSchema(
   };
 }
 
-// ─── JSON-LD: FAQPage Schema ────────────────────────────────────────────────
+// â”€â”€â”€ JSON-LD: FAQPage Schema â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export function generateFAQSchema(
   faqs: { question: string; answer: string }[]
@@ -327,7 +327,7 @@ export function generateFAQSchema(
   };
 }
 
-// ─── JSON-LD: Local Market Page Schema (for /market/[city]/[category]) ──────
+// â”€â”€â”€ JSON-LD: Local Market Page Schema (for /market/[city]/[category]) â”€â”€â”€â”€â”€â”€
 
 export function generateLocalMarketSchema(opts: {
   city: string;
@@ -506,3 +506,61 @@ export function generateFestivalPageSchema(opts: {
     },
   };
 }
+
+// ─── JSON-LD: Developer Person Schema ───────────────────────────────────────
+
+export function generateDeveloperPersonSchema() {
+  const devDescription =
+    "Aditya Kumar Rai is a Software Developer, Web Developer & Digital Marketer based in Greater Noida, India. He designed, developed, and marketed Lotwaala — India's #1 wholesale marketplace app.";
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Aditya Kumar Rai",
+    alternateName: ["Aditya K. Rai", "Aditya Rai"],
+    url: `${SITE_URL}/developer`,
+    image: `${SITE_URL}/Aditya Kumar Rai Web Developer.png`,
+    jobTitle: ["Software Developer", "Web Developer", "Digital Marketer"],
+    description: devDescription,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Greater Noida",
+      addressRegion: "Uttar Pradesh",
+      addressCountry: "IN",
+    },
+    worksFor: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    birthPlace: {
+      "@type": "Place",
+      name: "Kushinagar, Uttar Pradesh, India",
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/aditya-k-rai/",
+      "https://github.com/aditya-k-rai",
+      "https://aditya-k-rai.github.io/P-Website/",
+      "https://www.instagram.com/aditya_k_raii",
+      "https://www.youtube.com/@Aditya-K-Rai",
+      "https://www.facebook.com/MightyAditya",
+      "https://www.quora.com/profile/Aditya-Kumar-Rai-51",
+      "https://t.me/Mighty_Joker",
+    ],
+    knowsAbout: [
+      "Web Development",
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+      "Firebase",
+      "SEO",
+      "Digital Marketing",
+      "Content Strategy",
+      "Local SEO",
+      "Schema Markup",
+      "TypeScript",
+      "Node.js",
+    ],
+  };
+}
+

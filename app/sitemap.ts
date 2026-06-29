@@ -11,11 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy",
     "/terms",
     "/editorial-policy",
+    "/developer",
   ].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified,
     changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : 0.7,
+    priority: path === "" ? 1 : path === "/developer" ? 0.5 : 0.7,
   }));
 
   const cityRoutes: MetadataRoute.Sitemap = CITIES.map((city) => ({
