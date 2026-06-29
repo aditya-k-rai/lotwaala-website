@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
+
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [360, 414, 640, 768, 1024, 1280, 1536],
@@ -39,12 +41,23 @@ const nextConfig: NextConfig = {
     ];
 
     return [
+      // Static image assets — long cache with stale-while-revalidate
       {
         source: "/:all*(svg|png|jpg|jpeg|webp|avif|ico)",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: "public, max-age=31536000, stale-while-revalidate=86400, immutable",
+          },
+        ],
+      },
+      // Font files — long cache
+      {
+        source: "/:all*(woff2|woff|ttf|otf)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, stale-while-revalidate=86400, immutable",
           },
         ],
       },

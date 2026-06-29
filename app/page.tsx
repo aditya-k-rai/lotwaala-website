@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import {
   generatePageMetadata,
   generateAppSchema,
@@ -14,14 +15,17 @@ import JsonLd from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeatureGrid from "@/components/FeatureGrid";
-import AppShowcase from "@/components/AppShowcase";
-import HowItWorks from "@/components/HowItWorks";
 import MarketExplorer from "@/components/MarketExplorer";
 import CategoryBrowser from "@/components/CategoryBrowser";
-import FAQSection from "@/components/FAQSection";
-import DownloadCTA from "@/components/DownloadCTA";
-import PopularSearches from "@/components/PopularSearches";
 import Footer from "@/components/Footer";
+
+// Below-fold components: dynamic import defers client JS hydration.
+// ssr: true (default) keeps full HTML for SEO crawlers.
+const AppShowcase = dynamic(() => import("@/components/AppShowcase"));
+const HowItWorks = dynamic(() => import("@/components/HowItWorks"));
+const FAQSection = dynamic(() => import("@/components/FAQSection"));
+const DownloadCTA = dynamic(() => import("@/components/DownloadCTA"));
+const PopularSearches = dynamic(() => import("@/components/PopularSearches"));
 
 // ─── SEO Metadata ────────────────────────────────────────────────────────────
 

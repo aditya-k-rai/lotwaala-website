@@ -129,12 +129,13 @@ body {
 
 .gradient-hero {
   background-color: #030014;
-  background-image: 
+  background-image:
     radial-gradient(at 0% 0%, rgba(121, 40, 202, 0.25) 0%, transparent 60%),
     radial-gradient(at 100% 0%, rgba(255, 0, 127, 0.2) 0%, transparent 60%),
     radial-gradient(at 50% 100%, rgba(0, 240, 255, 0.2) 0%, transparent 60%);
   background-size: 150% 150%;
   animation: gradient-shift 12s ease infinite alternate;
+  will-change: background-position;
 }
 
 .gradient-text-primary {
@@ -363,8 +364,8 @@ body {
   to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
 }
 
-/* ── Animation classes ── */
-.animate-float           { animation: float 6s ease-in-out infinite; }
+/* ── Animation classes — with GPU layer hints for perf ── */
+.animate-float           { animation: float 6s ease-in-out infinite; will-change: transform; }
 .animate-fade-in-up      { animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .animate-fade-in-down    { animation: fade-in-down 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .animate-fade-in-left    { animation: fade-in-left 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
@@ -372,13 +373,45 @@ body {
 .animate-scale-in        { animation: scale-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .animate-pulse-glow      { animation: pulse-glow 2.5s ease-in-out infinite; }
 .animate-shimmer         { background-size: 200% 100%; animation: shimmer 3s linear infinite; }
-.animate-bounce-subtle   { animation: bounce-subtle 2s ease-in-out infinite; }
-.animate-spin-slow       { animation: spin-slow 8s linear infinite; }
+.animate-bounce-subtle   { animation: bounce-subtle 2s ease-in-out infinite; will-change: transform; }
+.animate-spin-slow       { animation: spin-slow 8s linear infinite; will-change: transform; }
 .animate-gradient        { background-size: 200% 200%; animation: gradient-shift 4s ease infinite; }
-.animate-blob            { animation: blob 8s ease-in-out infinite; }
+.animate-blob            { animation: blob 8s ease-in-out infinite; will-change: border-radius; contain: layout style; }
 .animate-glow-pulse      { animation: glow-pulse 3s ease-in-out infinite; }
 .animate-slide-up-reveal { animation: slide-up-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .animate-text-shimmer    { background-size: 200% auto; animation: text-shimmer 4s linear infinite; }
+
+/* ── Animation container isolation — prevents layout recalc from leaking ── */
+.hero-bg-container,
+.anim-container {
+  contain: layout style paint;
+}
+
+/* ── Reduced motion — disable non-essential animations for accessibility & perf ── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-blob,
+  .animate-bounce-subtle,
+  .animate-spin-slow,
+  .animate-glow-pulse,
+  .animate-shimmer,
+  .animate-gradient,
+  .animate-text-shimmer {
+    animation: none !important;
+  }
+
+  .gradient-hero {
+    animation: none !important;
+  }
+
+  .phone-slide-1,
+  .phone-slide-2,
+  .phone-slide-3,
+  .phone-slide-4 {
+    animation: none !important;
+  }
+  .phone-slide-1 { opacity: 1 !important; }
+}
 
 /* ── Stagger delays ── */
 .delay-0   { animation-delay: 0ms; }
@@ -459,6 +492,8 @@ body {
   background: linear-gradient(90deg, #ff007f, #7928ca, #00f0ff, #10b981, #ffaa00);
   opacity: 0.15;
   filter: blur(8px);
+  will-change: width;
+  contain: layout style;
 }
 
 .nav-scroll-line {
@@ -468,6 +503,8 @@ body {
   height: 3px;
   background: linear-gradient(90deg, #ff007f, #7928ca, #00f0ff, #10b981, #ffaa00);
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.8), 0 0 30px rgba(121, 40, 202, 0.8);
+  will-change: width;
+  contain: layout style;
 }
 
 .nav-link-codepen {

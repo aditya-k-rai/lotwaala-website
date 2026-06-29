@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Download, Menu, X } from "lucide-react";
@@ -14,22 +14,42 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
-  const [scrollProgress, setScrollProgress] = useState(0);
+  // Use refs instead of state for scroll progress to avoid React re-renders
+  const progressRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateProgress = () => {
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const scrollHeight =
         document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-      setScrollProgress(progress);
+      const w = `${progress}%`;
+
+      // Direct DOM mutation — no React re-render
+      if (progressRef.current) progressRef.current.style.width = w;
+      if (lineRef.current) lineRef.current.style.width = w;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        rafRef.current = requestAnimationFrame(updateProgress);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    updateProgress(); // initial
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   useEffect(() => {
@@ -40,39 +60,44 @@ export default function Navbar() {
     }
   }, [isMobileMenuOpen]);
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-    label?: string
-  ) => {
-    setIsMobileMenuOpen(false);
-    if (label) trackNavClick(label, href);
+  const handleNavClick = useCallback(
+    (
+      e: React.MouseEvent<HTMLAnchorElement>,
+      href: string,
+      label?: string
+    ) => {
+      setIsMobileMenuOpen(false);
+      if (label) trackNavClick(label, href);
 
-    const hash = href.startsWith("/#") ? href.replace("/", "") : href;
+      const hash = href.startsWith("/#") ? href.replace("/", "") : href;
 
-    if (hash.startsWith("#") && window.location.pathname === "/") {
-      e.preventDefault();
-      setTimeout(() => {
-        const id = hash.replace("#", "");
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-          window.history.pushState(null, "", hash);
-        }
-      }, 50);
-    }
-  };
+      if (hash.startsWith("#") && window.location.pathname === "/") {
+        e.preventDefault();
+        setTimeout(() => {
+          const id = hash.replace("#", "");
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+            window.history.pushState(null, "", hash);
+          }
+        }, 50);
+      }
+    },
+    []
+  );
 
   return (
     <nav className="sticky top-0 z-50 overflow-visible" role="navigation">
-      {/* Scroll progress bar */}
+      {/* Scroll progress bar — driven by ref, no state re-renders */}
       <div
-        className="nav-scroll-progress transition-[width] duration-75 ease-out"
-        style={{ width: `${scrollProgress}%` }}
+        ref={progressRef}
+        className="nav-scroll-progress"
+        style={{ width: "0%" }}
       />
       <div
-        className="nav-scroll-line transition-[width] duration-75 ease-out"
-        style={{ width: `${scrollProgress}%` }}
+        ref={lineRef}
+        className="nav-scroll-line"
+        style={{ width: "0%" }}
       />
 
       {/* Solid dark-navy surface to match reference */}

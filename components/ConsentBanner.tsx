@@ -17,7 +17,7 @@ export default function ConsentBanner() {
       } catch {
         setVisible(true);
       }
-    }, 0);
+    }, 2000);
 
     return () => window.clearTimeout(timer);
   }, []);

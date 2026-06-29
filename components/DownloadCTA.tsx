@@ -1,17 +1,14 @@
-"use client";
-
-import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
 import { IOS_APP_INTEREST_URL, PLAY_STORE_URL } from "@/lib/constants";
 import { CTA_PREVIEW_IMAGE_SIZES, TINY_BLUR_DATA_URL } from "@/lib/image";
-import { trackAppDownload } from "@/lib/analytics-events";
+import TrackedLink from "./TrackedLink";
 
 export default function DownloadCTA() {
   return (
     <section className="relative overflow-hidden gradient-dark-mesh py-28 text-white">
       {/* Animated background glows */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 anim-container">
         <div className="absolute left-1/4 top-0 h-[400px] w-[400px] rounded-full bg-[#6366f1]/15 blur-[120px] animate-blob" />
         <div className="absolute bottom-0 right-1/4 h-[350px] w-[350px] rounded-full bg-[#a855f7]/10 blur-[120px] animate-blob delay-400" />
         <div className="absolute left-1/2 top-1/2 h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#06b6d4]/8 blur-[100px] animate-blob delay-700" />
@@ -81,26 +78,28 @@ export default function DownloadCTA() {
           ))}
         </div>
 
-        {/* Download buttons */}
+        {/* Download buttons — using TrackedLink instead of "use client" onClick */}
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in-up delay-400">
-          <Link
+          <TrackedLink
             href={PLAY_STORE_URL}
-            onClick={() => trackAppDownload("play_store", "download_cta")}
+            eventName="app_download_click"
+            eventParams={{ store: "play_store", source: "download_cta" }}
             className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4 text-base font-bold text-[#0f172a] shadow-xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:-translate-y-1 sm:w-auto"
           >
             <Zap className="h-5 w-5 text-[#6366f1] transition-transform group-hover:rotate-12" />
             Download for Android
             <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5" />
-          </Link>
-          <a
+          </TrackedLink>
+          <TrackedLink
             href={IOS_APP_INTEREST_URL}
+            eventName="app_download_click"
+            eventParams={{ store: "app_store", source: "download_cta" }}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackAppDownload("app_store", "download_cta")}
             className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/25 hover:-translate-y-1 sm:w-auto"
           >
             iOS availability
-          </a>
+          </TrackedLink>
         </div>
 
         <p className="mt-8 text-sm text-white/25 animate-fade-in-up delay-500">
