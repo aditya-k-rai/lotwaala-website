@@ -263,10 +263,10 @@ export default function DeveloperPage() {
         <section className="relative overflow-hidden">
           {/* Background gradient mesh */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#eef2ff] via-white to-[#fef3c7] opacity-60" />
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#6366f1]/5 blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#f59e0b]/5 blur-3xl" />
+          <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-[#6366f1]/5 blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-52 h-52 sm:w-80 sm:h-80 rounded-full bg-[#f59e0b]/5 blur-3xl" />
 
-          <div className="relative mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="relative mx-auto max-w-4xl px-4 py-8 sm:py-10 sm:px-6 lg:px-8">
             {/* Breadcrumb */}
             <div className="mb-8">
               <Breadcrumb
@@ -280,18 +280,18 @@ export default function DeveloperPage() {
 
             <div className="flex flex-col items-center text-center">
               {/* Developer Photo with animated glow ring */}
-              <div className="relative mb-8">
+              <div className="relative mb-6 sm:mb-8">
                 {/* Animated ring */}
                 <div
-                  className="absolute -inset-2 rounded-full animate-ring-spin"
+                  className="absolute -inset-1.5 sm:-inset-2 rounded-full animate-ring-spin"
                   style={{
                     background: "conic-gradient(from 0deg, #6366f1, #a855f7, #06b6d4, #f59e0b, #6366f1)",
                     opacity: 0.7,
                   }}
                 />
-                <div className="absolute -inset-2 rounded-full animate-ring-pulse" style={{ background: "conic-gradient(from 180deg, #6366f1, #a855f7, #06b6d4, #f59e0b, #6366f1)", opacity: 0.4 }} />
+                <div className="absolute -inset-1.5 sm:-inset-2 rounded-full animate-ring-pulse" style={{ background: "conic-gradient(from 180deg, #6366f1, #a855f7, #06b6d4, #f59e0b, #6366f1)", opacity: 0.4 }} />
                 {/* Photo */}
-                <div className="relative h-36 w-36 rounded-full border-4 border-white shadow-xl overflow-hidden sm:h-44 sm:w-44">
+                <div className="relative h-28 w-28 rounded-full border-[3px] border-white shadow-xl overflow-hidden sm:h-44 sm:w-44 sm:border-4">
                   <Image
                     src="/Developer Aditya Kumar Rai Image .gif"
                     alt={`${DEV_NAME} — Software Developer, Web Developer & Digital Marketer in Greater Noida`}
@@ -304,16 +304,16 @@ export default function DeveloperPage() {
               </div>
 
               {/* Name */}
-              <h1 className="text-4xl font-extrabold tracking-tight text-[#0f172a] sm:text-5xl animate-fade-in-up">
+              <h1 className="text-2xl font-extrabold tracking-tight text-[#0f172a] sm:text-4xl lg:text-5xl animate-fade-in-up">
                 {DEV_NAME}
               </h1>
 
               {/* Role badges */}
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-2 animate-fade-in-up delay-100">
+              <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 animate-fade-in-up delay-100">
                 {ROLES.map((role) => (
                   <span
                     key={role}
-                    className="rounded-full bg-[#6366f1]/10 px-4 py-1.5 text-xs font-semibold text-[#4f46e5] sm:text-sm"
+                    className="rounded-full bg-[#6366f1]/10 px-3 py-1 text-[11px] font-semibold text-[#4f46e5] sm:px-4 sm:py-1.5 sm:text-sm"
                   >
                     {role}
                   </span>
@@ -321,18 +321,20 @@ export default function DeveloperPage() {
               </div>
 
               {/* Location badge */}
-              <div className="mt-3 flex items-center gap-1.5 text-sm text-[#64748b] animate-fade-in-up delay-200">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-4 w-4 text-[#f59e0b]">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-                Greater Noida, Uttar Pradesh, India
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 text-xs sm:text-sm text-[#64748b] animate-fade-in-up delay-200">
+                <span className="inline-flex items-center gap-1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#f59e0b] flex-shrink-0">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Greater Noida, UP, India
+                </span>
                 <span className="text-[#94a3b8]">·</span>
                 <span className="text-[#94a3b8]">Originally from Kushinagar</span>
               </div>
 
               {/* Bio */}
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#475569] animate-fade-in-up delay-300">
+              <p className="mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed text-[#475569] animate-fade-in-up delay-300 px-2 sm:px-0">
                 Also known as <strong>Aditya K. Rai</strong> or <strong>Aditya Rai</strong>.
                 He designed, developed, and marketed the entire{" "}
                 <span className="font-semibold text-[#6366f1]">{SITE_NAME}</span> web platform
@@ -340,15 +342,15 @@ export default function DeveloperPage() {
               </p>
 
               {/* CTA Buttons */}
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-4 animate-fade-in-up delay-400">
+              <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 animate-fade-in-up delay-400">
                 <a
                   id="dev-hero-portfolio"
                   href="https://aditya-k-rai.github.io/P-Website/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full gradient-primary px-6 py-3 text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(99,102,241,0.4)]"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full gradient-primary px-4 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(99,102,241,0.4)]"
                 >
-                  <ExternalLink className="h-4 w-4" />
+                  <ExternalLink className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   View Portfolio
                 </a>
                 <a
@@ -357,7 +359,7 @@ export default function DeveloperPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${DEV_NAME} on LinkedIn`}
-                  className="inline-flex items-center gap-2 rounded-full border-2 border-[#6366f1] px-6 py-3 text-sm font-bold text-[#6366f1] transition-all duration-300 hover:bg-[#6366f1] hover:text-white hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border-2 border-[#6366f1] px-4 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-bold text-[#6366f1] transition-all duration-300 hover:bg-[#6366f1] hover:text-white hover:-translate-y-0.5"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -370,26 +372,26 @@ export default function DeveloperPage() {
         </section>
 
         {/* ── SECTION 2: What He Built ── */}
-        <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-4xl px-4 py-10 sm:py-16 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#6366f1]">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#6366f1]">
               {SITE_NAME} Development
             </span>
-            <h2 className="mt-2 text-3xl font-extrabold text-[#0f172a] sm:text-4xl">
+            <h2 className="mt-2 text-xl font-extrabold text-[#0f172a] sm:text-3xl lg:text-4xl">
               What He Built for {SITE_NAME}
             </h2>
-            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7]" />
+            <div className="mx-auto mt-3 sm:mt-4 h-1 w-12 sm:w-16 rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7]" />
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2">
             {WHAT_HE_BUILT.map((item, i) => (
               <div
                 key={i}
-                className="card-elevated rounded-2xl p-6"
+                className="card-elevated rounded-xl sm:rounded-2xl p-4 sm:p-6"
               >
-                <div className="mb-3 text-3xl">{item.emoji}</div>
-                <h3 className="font-bold text-[#0f172a]">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#64748b]">
+                <div className="mb-2 sm:mb-3 text-2xl sm:text-3xl">{item.emoji}</div>
+                <h3 className="text-sm sm:text-base font-bold text-[#0f172a]">{item.title}</h3>
+                <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-relaxed text-[#64748b]">
                   {item.description}
                 </p>
               </div>
@@ -411,26 +413,26 @@ export default function DeveloperPage() {
 
         {/* ── SECTION 3: How He Marketed ── */}
         <section className="bg-[#f8fafc]">
-          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl px-4 py-10 sm:py-16 sm:px-6 lg:px-8">
             <div className="text-center">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#f59e0b]">
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#f59e0b]">
                 Digital Marketing & SEO
               </span>
-              <h2 className="mt-2 text-3xl font-extrabold text-[#0f172a] sm:text-4xl">
+              <h2 className="mt-2 text-xl font-extrabold text-[#0f172a] sm:text-3xl lg:text-4xl">
                 How He Marketed {SITE_NAME}
               </h2>
-              <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-[#f59e0b] to-[#ef4444]" />
+              <div className="mx-auto mt-3 sm:mt-4 h-1 w-12 sm:w-16 rounded-full bg-gradient-to-r from-[#f59e0b] to-[#ef4444]" />
             </div>
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2">
               {HOW_HE_MARKETED.map((item, i) => (
                 <div
                   key={i}
-                  className="card-elevated rounded-2xl p-6"
+                  className="card-elevated rounded-xl sm:rounded-2xl p-4 sm:p-6"
                 >
-                  <div className="mb-3 text-3xl">{item.emoji}</div>
-                  <h3 className="font-bold text-[#0f172a]">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#64748b]">
+                  <div className="mb-2 sm:mb-3 text-2xl sm:text-3xl">{item.emoji}</div>
+                  <h3 className="text-sm sm:text-base font-bold text-[#0f172a]">{item.title}</h3>
+                  <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-relaxed text-[#64748b]">
                     {item.description}
                   </p>
                 </div>
@@ -452,21 +454,21 @@ export default function DeveloperPage() {
         </section>
 
         {/* ── SECTION 4: Social Media ── */}
-        <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-4xl px-4 py-10 sm:py-16 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#6366f1]">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#6366f1]">
               Connect
             </span>
-            <h2 className="mt-2 text-3xl font-extrabold text-[#0f172a] sm:text-4xl">
+            <h2 className="mt-2 text-xl font-extrabold text-[#0f172a] sm:text-3xl lg:text-4xl">
               Find {DEV_NAME} Online
             </h2>
-            <p className="mt-2 text-sm text-[#94a3b8]">
+            <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-[#94a3b8]">
               Software Developer · Web Developer · Digital Marketer in Greater Noida
             </p>
-            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-[#6366f1] to-[#06b6d4]" />
+            <div className="mx-auto mt-3 sm:mt-4 h-1 w-12 sm:w-16 rounded-full bg-gradient-to-r from-[#6366f1] to-[#06b6d4]" />
           </div>
 
-          <div className="mt-12 grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-8 sm:mt-12 grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
             {SOCIAL_LINKS.map((social) => (
               <a
                 key={social.platform}
@@ -475,7 +477,7 @@ export default function DeveloperPage() {
                 rel="noopener noreferrer"
                 aria-label={`${DEV_NAME} on ${social.platform}`}
                 title={`${DEV_NAME} — ${social.platform}`}
-                className="group relative flex flex-col items-center gap-3 rounded-2xl p-5 transition-all duration-300 hover:scale-[1.04] hover:-translate-y-1"
+                className="group relative flex flex-col items-center gap-2 sm:gap-3 rounded-xl sm:rounded-2xl p-3 sm:p-5 transition-all duration-300 hover:scale-[1.04] hover:-translate-y-1"
                 style={{
                   backgroundColor: social.bgTint,
                   border: `1px solid ${social.borderTint}`,
@@ -483,7 +485,7 @@ export default function DeveloperPage() {
               >
                 {/* Hover glow */}
                 <div
-                  className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   style={{
                     boxShadow: `0 8px 30px ${social.borderTint}`,
                   }}
@@ -491,11 +493,11 @@ export default function DeveloperPage() {
                 <div style={{ color: social.color }} className="relative z-10">
                   {social.icon}
                 </div>
-                <div className="relative z-10 text-center">
-                  <div className="text-sm font-bold text-[#0f172a]">
+                <div className="relative z-10 text-center min-w-0 w-full">
+                  <div className="text-xs sm:text-sm font-bold text-[#0f172a]">
                     {social.platform}
                   </div>
-                  <div className="mt-0.5 text-xs text-[#94a3b8] truncate max-w-[120px]">
+                  <div className="mt-0.5 text-[10px] sm:text-xs text-[#94a3b8] truncate">
                     {social.handle}
                   </div>
                 </div>

@@ -170,9 +170,9 @@ export default function Footer() {
       </div>
 
       {/* Developer Credit Bar */}
-      <div className="bg-[#080e18] border-t border-white/5 py-2.5 px-4">
-        <div className="flex items-center justify-center gap-2 font-[family-name:var(--font-inter)]">
-          <span className="text-white/40 text-[11px] sm:text-xs">Developed &amp; Marketed by</span>
+      <div className="bg-[#080e18] border-t border-white/5 py-2.5 px-3 sm:px-4">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 font-[family-name:var(--font-inter)]">
+          <span className="text-white/40 text-[10px] sm:text-xs">Developed &amp; Marketed by</span>
           <Link
             href="/developer"
             className="flex-shrink-0 rounded-full hover:scale-110 transition-transform duration-300"
@@ -183,7 +183,7 @@ export default function Footer() {
               alt="Aditya Kumar Rai"
               width={34}
               height={34}
-              className="h-[34px] w-[34px] rounded-full object-cover border-2 border-[#fbbf24] shadow-[0_0_8px_rgba(251,191,36,0.3)]"
+              className="h-[28px] w-[28px] sm:h-[34px] sm:w-[34px] rounded-full object-cover border-2 border-[#fbbf24] shadow-[0_0_8px_rgba(251,191,36,0.3)]"
               unoptimized
             />
           </Link>
