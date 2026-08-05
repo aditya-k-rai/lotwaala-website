@@ -33,7 +33,8 @@ export default function Footer() {
               partners.
             </p>
             <p className="mt-3 text-xs leading-relaxed text-[#64748b]">
-              Lotwaala Wholesale Marketplace Pvt. Ltd., New Delhi, India 110001
+              Surplus Saga Pvt. Ltd. (Lotwaala), G-07B C003, Sector 4,
+              Galaxy Blue Sapphire Plaza, Noida, UP 201305
             </p>
           </div>
 
@@ -75,7 +76,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Festival Deals */}
+          {/* Festival Deals + Company Links */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               Festival Deals
@@ -99,8 +100,12 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-2.5">
               {[
-                { label: "About", href: "/about" },
-                { label: "Contact", href: "/contact" },
+                { label: "About Lotwaala", href: "/about" },
+                { label: "Meet the Team", href: "/team" },
+                { label: "How to Use the App", href: "/how-to-use" },
+                { label: "Podcast", href: "/podcast" },
+                { label: "Business Enquiry", href: "/enquiry" },
+                { label: "Contact Us", href: "/contact" },
                 { label: "Developer", href: "/developer" },
                 { label: "Privacy Policy", href: "/privacy" },
                 { label: "Terms of Service", href: "/terms" },
@@ -118,7 +123,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* More Cities — Remaining cities */}
+          {/* More Cities + More Categories */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               More Cities
