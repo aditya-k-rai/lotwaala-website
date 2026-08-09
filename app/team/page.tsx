@@ -291,122 +291,131 @@ function SocialIcon({ icon }: { icon?: string }) {
 
 function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <article className="group relative overflow-hidden rounded-[2rem] border border-[#e2e8f0] bg-white shadow-md team-card-glow transition-all duration-500 hover:shadow-2xl">
+    <article className="group relative flex flex-col justify-between h-full overflow-hidden rounded-[2rem] border border-[#e2e8f0] bg-white shadow-md team-card-glow transition-all duration-500 hover:shadow-2xl">
       {/* Sheen light sweep animation layer */}
       <div className="team-card-sheen" />
 
       {/* Decorative Top Accent Gradient Header */}
-      <div className="h-28 w-full bg-gradient-to-r from-[#6366f1]/15 via-[#a855f7]/15 to-[#f59e0b]/15 relative overflow-hidden">
+      <div className="h-28 w-full bg-gradient-to-r from-[#6366f1]/15 via-[#a855f7]/15 to-[#f59e0b]/15 relative overflow-hidden flex-shrink-0">
         <div className="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-[#6366f1]/20 blur-2xl group-hover:scale-150 transition-transform duration-700" />
         <div className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-[#f59e0b]/20 blur-2xl group-hover:scale-150 transition-transform duration-700" />
       </div>
 
-      <div className="px-6 sm:px-8 pb-8 -mt-16 relative z-10">
-        <div className="flex flex-col sm:flex-row items-center sm:items-end gap-6 text-center sm:text-left">
-          {/* Much Larger Modern Portrait Photo Frame */}
-          <div className="relative flex-shrink-0">
-            {/* Animated Conic Glow Outer Ring */}
-            <div
-              className="absolute -inset-2 rounded-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300 animate-ring-pulse"
-              style={{
-                background: "linear-gradient(135deg, #6366f1, #a855f7, #f59e0b, #6366f1)",
-              }}
-            />
-
-            {member.image ? (
-              <div className="relative w-48 sm:w-60 aspect-[4/5] overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-[#f8fafc]">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                  priority={member.badge === "Founder"}
-                />
-              </div>
-            ) : (
+      <div className="px-6 sm:px-8 pb-8 -mt-16 relative z-10 flex flex-col justify-between flex-1">
+        <div>
+          <div className="flex flex-col sm:flex-row items-center sm:items-end gap-6 text-center sm:text-left">
+            {/* 1080x1350 4:5 Portrait Photo Frame */}
+            <div className="relative flex-shrink-0">
+              {/* Animated Conic Glow Outer Ring */}
               <div
-                className={`relative flex w-48 sm:w-60 aspect-[4/5] items-center justify-center rounded-2xl border-4 border-white bg-gradient-to-br ${member.gradient} text-4xl font-extrabold text-white shadow-2xl transition-transform duration-700 group-hover:scale-105`}
-              >
-                {member.initials}
-              </div>
-            )}
-          </div>
+                className="absolute -inset-2 rounded-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300 animate-ring-pulse"
+                style={{
+                  background: "linear-gradient(135deg, #6366f1, #a855f7, #f59e0b, #6366f1)",
+                }}
+              />
 
-          <div className="min-w-0 flex-1 pb-2">
-            <div className="flex items-center justify-center sm:justify-start gap-2.5 flex-wrap">
-              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0f172a] transition-colors duration-300 group-hover:text-[#6366f1]">
-                {member.name}
-              </h3>
-              <span className="rounded-full bg-[#6366f1] px-3.5 py-1 text-xs font-extrabold text-white shadow-sm">
-                {member.badge}
-              </span>
-              {member.placeholder && (
-                <span className="rounded-full bg-[#f59e0b]/10 px-3 py-1 text-xs font-medium text-[#d97706]">
-                  Details Coming Soon
-                </span>
+              {member.image ? (
+                <div className="relative w-44 sm:w-52 aspect-[4/5] overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-[#f8fafc]">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                    priority={member.badge === "Founder"}
+                  />
+                </div>
+              ) : (
+                <div
+                  className={`relative flex w-44 sm:w-52 aspect-[4/5] items-center justify-center rounded-2xl border-4 border-white bg-gradient-to-br ${member.gradient} text-4xl font-extrabold text-white shadow-2xl transition-transform duration-700 group-hover:scale-105`}
+                >
+                  {member.initials}
+                </div>
               )}
             </div>
-            <p className="text-base sm:text-lg font-bold text-[#6366f1] mt-1">{member.role}</p>
-            <p className="text-xs font-bold uppercase tracking-widest text-[#94a3b8] mt-0.5">{member.department}</p>
-          </div>
-        </div>
 
-        {/* Bio */}
-        <p className="mt-6 text-sm sm:text-base leading-relaxed text-[#475569]">{member.bio}</p>
-
-        {/* Key Highlights */}
-        <div className="mt-6 border-t border-[#f1f5f9] pt-5">
-          <p className="text-xs font-bold uppercase tracking-wider text-[#6366f1] mb-3">Key Highlights</p>
-          <ul className="grid gap-2.5 sm:grid-cols-2">
-            {member.highlights.map((h) => (
-              <li key={h} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#334155] group/item">
-                <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] transition-transform duration-300 group-hover/item:scale-125" />
-                <span className="group-hover/item:text-[#0f172a] transition-colors">{h}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Action Links */}
-        {member.links.length > 0 && (
-          <div className="mt-6 flex flex-wrap gap-2.5">
-            {member.links.map((link) => {
-              if (link.isPlaceholder) {
-                return (
-                  <span
-                    key={link.label}
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-pink-500/10 border border-pink-500/20 px-3.5 py-2 text-xs font-bold text-pink-600 cursor-default"
-                    title="Instagram profile coming soon"
-                  >
-                    <SocialIcon icon="instagram" />
-                    Instagram (Soon)
+            <div className="min-w-0 flex-1 pb-2">
+              <div className="flex items-center justify-center sm:justify-start gap-2.5 flex-wrap">
+                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0f172a] transition-colors duration-300 group-hover:text-[#6366f1]">
+                  {member.name}
+                </h3>
+                <span className="rounded-full bg-[#6366f1] px-3.5 py-1 text-xs font-extrabold text-white shadow-sm">
+                  {member.badge}
+                </span>
+                {member.placeholder && (
+                  <span className="rounded-full bg-[#f59e0b]/10 px-3 py-1 text-xs font-medium text-[#d97706]">
+                    Details Coming Soon
                   </span>
-                );
-              }
-
-              return (
-                <Link
-                  key={link.href + link.label}
-                  href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs sm:text-sm font-bold text-white shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 ${
-                    link.platform === "linkedin"
-                      ? "bg-[#0a66c2] hover:bg-[#004182]"
-                      : link.platform === "github"
-                      ? "bg-[#24292e] hover:bg-[#1b1f23]"
-                      : link.platform === "quora"
-                      ? "bg-[#b92b27] hover:bg-[#961c19]"
-                      : "bg-[#6366f1] hover:bg-[#4f46e5]"
-                  }`}
-                >
-                  <SocialIcon icon={link.platform} />
-                  {link.label}
-                </Link>
-              );
-            })}
+                )}
+              </div>
+              <p className="text-base sm:text-lg font-bold text-[#6366f1] mt-1">{member.role}</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#94a3b8] mt-0.5">{member.department}</p>
+            </div>
           </div>
-        )}
+
+          {/* Bio */}
+          <p className="mt-5 text-sm sm:text-base leading-relaxed text-[#475569]">{member.bio}</p>
+
+          {/* Key Highlights — Single-column smooth vertical flow */}
+          <div className="mt-5 border-t border-[#f1f5f9] pt-4">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#6366f1] mb-2.5">Key Highlights</p>
+            <ul className="space-y-2">
+              {member.highlights.map((h) => (
+                <li key={h} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#334155] group/item">
+                  <span className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] transition-transform duration-300 group-hover/item:scale-125" />
+                  <span className="group-hover/item:text-[#0f172a] transition-colors">{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Action Links — Always aligned at bottom */}
+        <div className="mt-6 border-t border-[#f1f5f9] pt-4">
+          <div className="flex flex-wrap items-center gap-2">
+            {member.links && member.links.length > 0 ? (
+              member.links.map((link) => {
+                if (link.isPlaceholder) {
+                  return (
+                    <span
+                      key={link.label}
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-pink-500/10 border border-pink-500/20 px-3 py-1.5 text-xs font-bold text-pink-600 cursor-default"
+                      title="Instagram profile coming soon"
+                    >
+                      <SocialIcon icon="instagram" />
+                      Instagram (Soon)
+                    </span>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.href + link.label}
+                    href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-bold text-white shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 ${
+                      link.platform === "linkedin"
+                        ? "bg-[#0a66c2] hover:bg-[#004182]"
+                        : link.platform === "github"
+                        ? "bg-[#24292e] hover:bg-[#1b1f23]"
+                        : link.platform === "quora"
+                        ? "bg-[#b92b27] hover:bg-[#961c19]"
+                        : "bg-[#6366f1] hover:bg-[#4f46e5]"
+                    }`}
+                  >
+                    <SocialIcon icon={link.platform} />
+                    {link.label}
+                  </Link>
+                );
+              })
+            ) : (
+              <span className="inline-flex items-center gap-1.5 rounded-xl bg-[#6366f1]/10 border border-[#6366f1]/20 px-3.5 py-1.5 text-xs font-bold text-[#6366f1]">
+                <SocialIcon icon="website" />
+                Lotwaala Team
+              </span>
+            )}
+          </div>
+        </div>
       </div>
     </article>
   );
