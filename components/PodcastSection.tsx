@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { SITE_NAME, SITE_URL } from "@/lib/constants";
 import JsonLd from "@/components/JsonLd";
@@ -6,7 +9,6 @@ export const PODCAST_EPISODES = [
   {
     id: "ep1-real-impact",
     youtubeId: "2-0C9jxqO9k",
-    embedUrl: "https://www.youtube.com/embed/2-0C9jxqO9k?si=oGLJ8TKUvG-VxesX",
     episodeNumber: "Episode 1",
     title: "Founder Anurag Sharma on the Real Impact of India's Wholesale App",
     description:
@@ -23,7 +25,6 @@ export const PODCAST_EPISODES = [
   {
     id: "ep2-growth-strategies",
     youtubeId: "D-diclquH1Q",
-    embedUrl: "https://www.youtube.com/embed/D-diclquH1Q?si=IC5Ay3l6nxcxYWXh",
     episodeNumber: "Episode 2",
     title: "Lotwaala Founder Shares Secret Growth Strategies & Market Expansion Secrets",
     description:
@@ -40,7 +41,6 @@ export const PODCAST_EPISODES = [
   {
     id: "ep3-fraud-free",
     youtubeId: "rhYv9IrLX8A",
-    embedUrl: "https://www.youtube.com/embed/rhYv9IrLX8A?si=K6iEfNWXjpHlMfpF",
     episodeNumber: "Episode 3",
     title: "Building a Trusted and Fraud-Free B2B Marketplace in India",
     description:
@@ -57,7 +57,6 @@ export const PODCAST_EPISODES = [
   {
     id: "ep4-vision-story",
     youtubeId: "AGOHvmRE8ps",
-    embedUrl: "https://www.youtube.com/embed/AGOHvmRE8ps?si=w_46SQ5pi3E0FxuO",
     episodeNumber: "Episode 4",
     title: "Anurag Sharma on the Real Impact of India's Wholesale App — Extended Cut",
     description:
@@ -74,7 +73,6 @@ export const PODCAST_EPISODES = [
   {
     id: "ep5-trusted-marketplace",
     youtubeId: "BN9SmF1ZY5k",
-    embedUrl: "https://www.youtube.com/embed/BN9SmF1ZY5k?si=V1jQ8oep6vWNgXCS",
     episodeNumber: "Episode 5",
     title: "Building a Trusted and Fraud-Free B2B Marketplace — The Lotwaala Model",
     description:
@@ -95,7 +93,7 @@ const videoSchemas = PODCAST_EPISODES.map((ep) => ({
   "@type": "VideoObject",
   name: ep.title,
   description: ep.description,
-  thumbnailUrl: `https://img.youtube.com/vi/${ep.youtubeId}/maxresdefault.jpg`,
+  thumbnailUrl: `https://img.youtube.com/vi/${ep.youtubeId}/hqdefault.jpg`,
   embedUrl: `https://www.youtube.com/embed/${ep.youtubeId}`,
   url: `https://www.youtube.com/watch?v=${ep.youtubeId}`,
   uploadDate: "2025-01-01",
@@ -130,6 +128,67 @@ const podcastSeriesSchema = {
   },
   sameAs: ["https://www.youtube.com/@Lotwaala/"],
 };
+
+function VideoPlayerCard({ ep }: { ep: (typeof PODCAST_EPISODES)[0] }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <div className="relative aspect-video w-full bg-[#05050f] overflow-hidden rounded-xl border border-white/10 shadow-xl">
+      {!isPlaying ? (
+        <button
+          type="button"
+          onClick={() => setIsPlaying(true)}
+          aria-label={`Play ${ep.title}`}
+          className="group/thumb relative h-full w-full text-left cursor-pointer overflow-hidden border-0 p-0"
+        >
+          {/* Official High-Res YouTube Thumbnail */}
+          <img
+            src={`https://img.youtube.com/vi/${ep.youtubeId}/hqdefault.jpg`}
+            alt={ep.title}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover/thumb:scale-105"
+          />
+
+          {/* Dark Overlay Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20 group-hover/thumb:via-black/20 transition-colors" />
+
+          {/* Red & White Animated Play Button Badge */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#ff0000] text-white shadow-2xl transition-all duration-300 group-hover/thumb:scale-110 group-hover/thumb:bg-[#e60000]">
+              <div className="absolute -inset-2 rounded-full bg-[#ff0000]/30 blur-md group-hover/thumb:opacity-100 transition-opacity" />
+              <svg className="relative h-7 w-7 translate-x-0.5 fill-current" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Top Title Overlay */}
+          <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+            <span className="rounded-md bg-black/80 px-2.5 py-1 text-[11px] font-bold text-[#fbbf24] backdrop-blur-sm border border-white/10">
+              {ep.episodeNumber}
+            </span>
+            <span className="rounded-md bg-red-600 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-sm">
+              YouTube
+            </span>
+          </div>
+
+          {/* Bottom Click to Watch Badge */}
+          <div className="absolute bottom-3 right-3 rounded-md bg-black/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm border border-white/10 flex items-center gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+            Click to Watch Video
+          </div>
+        </button>
+      ) : (
+        <iframe
+          src={`https://www.youtube.com/embed/${ep.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+          title={ep.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="absolute inset-0 h-full w-full border-0"
+        />
+      )}
+    </div>
+  );
+}
 
 export default function PodcastSection() {
   return (
@@ -166,19 +225,9 @@ export default function PodcastSection() {
               className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden hover:border-[#6366f1]/50 transition-colors"
             >
               <div className={`grid gap-0 ${i % 2 === 0 ? "lg:grid-cols-[1.1fr_1fr]" : "lg:grid-cols-[1fr_1.1fr]"}`}>
-                {/* Embedded YouTube Player */}
-                <div className={`${i % 2 !== 0 ? "lg:order-2" : ""}`}>
-                  <div className="relative aspect-video w-full bg-[#05050f]">
-                    <iframe
-                      src={ep.embedUrl || `https://www.youtube.com/embed/${ep.youtubeId}?rel=0&modestbranding=1`}
-                      title={ep.title}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full border-0"
-                    />
-                  </div>
+                {/* Video Player Container */}
+                <div className={`p-4 sm:p-6 ${i % 2 !== 0 ? "lg:order-2" : ""}`}>
+                  <VideoPlayerCard ep={ep} />
                 </div>
 
                 {/* Content */}
