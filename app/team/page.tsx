@@ -235,85 +235,97 @@ interface TeamMember {
 
 function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <article className="group relative overflow-hidden rounded-3xl border border-[#e2e8f0] bg-white p-6 sm:p-8 shadow-sm team-card-glow transition-all duration-300">
+    <article className="group relative overflow-hidden rounded-[2rem] border border-[#e2e8f0] bg-white shadow-md team-card-glow transition-all duration-500 hover:shadow-2xl">
       {/* Sheen light sweep animation layer */}
       <div className="team-card-sheen" />
 
-      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 relative z-10">
-        {/* Large Prominent Avatar Frame with Glow Ring */}
-        <div className="relative flex-shrink-0">
-          {/* Animated conic gradient outer ring */}
-          <div
-            className="absolute -inset-1.5 rounded-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-ring-pulse"
-            style={{
-              background: "linear-gradient(135deg, #6366f1, #a855f7, #f59e0b, #6366f1)",
-            }}
-          />
-          
-          {member.image ? (
-            <div className="relative h-28 w-28 sm:h-36 sm:w-36 overflow-hidden rounded-2xl border-4 border-white shadow-xl bg-[#f8fafc]">
-              <Image
-                src={member.image}
-                alt={member.name}
-                fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-              />
-            </div>
-          ) : (
-            <div
-              className={`relative flex h-28 w-28 sm:h-36 sm:w-36 items-center justify-center rounded-2xl border-4 border-white bg-gradient-to-br ${member.gradient} text-3xl font-extrabold text-white shadow-xl transition-transform duration-500 group-hover:scale-105`}
-            >
-              {member.initials}
-            </div>
-          )}
-        </div>
-
-        <div className="min-w-0 flex-1 text-center sm:text-left">
-          <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-            <h3 className="text-xl sm:text-2xl font-extrabold text-[#0f172a] transition-all duration-300 group-hover:text-[#6366f1]">
-              {member.name}
-            </h3>
-            <span className="rounded-full bg-[#6366f1]/10 px-3 py-1 text-xs font-bold text-[#6366f1] group-hover:bg-[#6366f1] group-hover:text-white transition-colors duration-300">
-              {member.badge}
-            </span>
-            {member.placeholder && (
-              <span className="rounded-full bg-[#f59e0b]/10 px-3 py-1 text-xs font-medium text-[#d97706]">
-                Details Coming Soon
-              </span>
-            )}
-          </div>
-          <p className="text-sm sm:text-base font-bold text-[#6366f1] mt-1">{member.role}</p>
-          <p className="text-xs font-semibold uppercase tracking-wider text-[#94a3b8] mt-0.5">{member.department}</p>
-        </div>
+      {/* Decorative Top Accent Gradient Header */}
+      <div className="h-28 w-full bg-gradient-to-r from-[#6366f1]/15 via-[#a855f7]/15 to-[#f59e0b]/15 relative overflow-hidden">
+        <div className="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-[#6366f1]/20 blur-2xl group-hover:scale-150 transition-transform duration-700" />
+        <div className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-[#f59e0b]/20 blur-2xl group-hover:scale-150 transition-transform duration-700" />
       </div>
 
-      {/* Bio */}
-      <p className="mt-5 text-sm leading-relaxed text-[#475569] relative z-10">{member.bio}</p>
+      <div className="px-6 sm:px-8 pb-8 -mt-16 relative z-10">
+        <div className="flex flex-col sm:flex-row items-center sm:items-end gap-6 text-center sm:text-left">
+          {/* Much Larger Modern Portrait Photo Frame */}
+          <div className="relative flex-shrink-0">
+            {/* Animated Conic Glow Outer Ring */}
+            <div
+              className="absolute -inset-2 rounded-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-300 animate-ring-pulse"
+              style={{
+                background: "linear-gradient(135deg, #6366f1, #a855f7, #f59e0b, #6366f1)",
+              }}
+            />
 
-      {/* Key Highlights */}
-      <ul className="mt-4 space-y-2 relative z-10">
-        {member.highlights.map((h) => (
-          <li key={h} className="flex items-center gap-2 text-xs text-[#334155] group/item">
-            <span className="h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] transition-transform duration-300 group-hover/item:scale-125" />
-            <span className="group-hover/item:text-[#0f172a] transition-colors">{h}</span>
-          </li>
-        ))}
-      </ul>
+            {member.image ? (
+              <div className="relative h-44 w-44 sm:h-52 sm:w-52 overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-[#f8fafc]">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  priority={member.badge === "Founder"}
+                />
+              </div>
+            ) : (
+              <div
+                className={`relative flex h-44 w-44 sm:h-52 sm:w-52 items-center justify-center rounded-2xl border-4 border-white bg-gradient-to-br ${member.gradient} text-4xl font-extrabold text-white shadow-2xl transition-transform duration-700 group-hover:scale-110`}
+              >
+                {member.initials}
+              </div>
+            )}
+          </div>
 
-      {/* Links */}
-      {member.links.length > 0 && (
-        <div className="mt-5 flex gap-2 relative z-10">
-          {member.links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-[#6366f1] px-4 py-2 text-xs font-bold text-white shadow-sm transition-all duration-300 hover:bg-[#4f46e5] hover:shadow-md hover:translate-x-1"
-            >
-              {link.label} →
-            </Link>
-          ))}
+          <div className="min-w-0 flex-1 pb-2">
+            <div className="flex items-center justify-center sm:justify-start gap-2.5 flex-wrap">
+              <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0f172a] transition-colors duration-300 group-hover:text-[#6366f1]">
+                {member.name}
+              </h3>
+              <span className="rounded-full bg-[#6366f1] px-3.5 py-1 text-xs font-extrabold text-white shadow-sm">
+                {member.badge}
+              </span>
+              {member.placeholder && (
+                <span className="rounded-full bg-[#f59e0b]/10 px-3 py-1 text-xs font-medium text-[#d97706]">
+                  Details Coming Soon
+                </span>
+              )}
+            </div>
+            <p className="text-base sm:text-lg font-bold text-[#6366f1] mt-1">{member.role}</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-[#94a3b8] mt-0.5">{member.department}</p>
+          </div>
         </div>
-      )}
+
+        {/* Bio */}
+        <p className="mt-6 text-sm sm:text-base leading-relaxed text-[#475569]">{member.bio}</p>
+
+        {/* Key Highlights */}
+        <div className="mt-6 border-t border-[#f1f5f9] pt-5">
+          <p className="text-xs font-bold uppercase tracking-wider text-[#6366f1] mb-3">Key Highlights</p>
+          <ul className="grid gap-2.5 sm:grid-cols-2">
+            {member.highlights.map((h) => (
+              <li key={h} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#334155] group/item">
+                <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] transition-transform duration-300 group-hover/item:scale-125" />
+                <span className="group-hover/item:text-[#0f172a] transition-colors">{h}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Action Links */}
+        {member.links.length > 0 && (
+          <div className="mt-6 flex flex-wrap gap-3">
+            {member.links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="inline-flex items-center gap-2 rounded-xl bg-[#6366f1] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md transition-all duration-300 hover:bg-[#4f46e5] hover:shadow-xl hover:-translate-y-0.5"
+              >
+                {link.label} →
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
     </article>
   );
 }

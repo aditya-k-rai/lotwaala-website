@@ -274,19 +274,31 @@ export default function AboutPage() {
                 As the founder of <strong>Colour Tribe</strong> — a highly successful clothing brand he has operated since 2017, generating <strong>₹30–40 Lakhs in monthly sales revenue</strong> — Sharma understood the real-world operational challenges of garment manufacturing, inventory turnover, and cash flow. Drawing on his earlier experience at <strong>HCL Technologies</strong> and <strong>EXL Service</strong>, he incorporated <strong>Surplus Saga Private Limited</strong> on July 20, 2025, and launched the Lotwaala app on November 26, 2025 — built to solve three non-negotiable problems: fraud, dead stock, and broken payments.
               </p>
             </div>
-            <div className="rounded-2xl border border-[#e2e8f0] bg-gradient-to-br from-[#f8fafc] to-white p-8 shadow-sm">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-2xl border border-[#e2e8f0] shadow-md bg-[#f8fafc]">
-                  <Image
-                    src="/Anurag sharma Official .png"
-                    alt="Anurag Sharma - Founder & CEO"
-                    fill
-                    className="object-cover"
+            <div className="rounded-3xl border border-[#e2e8f0] bg-gradient-to-br from-[#f8fafc] via-white to-[#f1f5f9] p-8 shadow-md hover:shadow-xl transition-shadow">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6 text-center sm:text-left">
+                <div className="relative flex-shrink-0">
+                  <div
+                    className="absolute -inset-1.5 rounded-3xl opacity-80 animate-ring-pulse"
+                    style={{
+                      background: "linear-gradient(135deg, #6366f1, #a855f7, #f59e0b, #6366f1)",
+                    }}
                   />
+                  <div className="relative h-32 w-32 sm:h-40 sm:w-40 overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-[#f8fafc]">
+                    <Image
+                      src="/Anurag sharma Official .png"
+                      alt="Anurag Sharma - Founder & CEO"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#0f172a]">Anurag Sharma</h3>
-                  <p className="text-sm font-medium text-[#6366f1]">Founder & CEO, Lotwaala</p>
+                  <h3 className="text-2xl font-extrabold text-[#0f172a]">Anurag Sharma</h3>
+                  <p className="text-base font-bold text-[#6366f1] mt-0.5">Founder & CEO, Lotwaala</p>
+                  <span className="mt-2 inline-block rounded-full bg-[#6366f1] px-3 py-1 text-xs font-bold text-white shadow-sm">
+                    Founder
+                  </span>
                 </div>
               </div>
               <div className="mt-5 space-y-3">
