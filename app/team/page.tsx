@@ -71,6 +71,14 @@ const teamSchema = {
         "Nandani Rastogi leads Human Resources and Customer Support operations at Lotwaala, managing team recruitment and buyer/seller assistance.",
       worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
     },
+    {
+      "@type": "Person",
+      name: "Sachin Puri",
+      jobTitle: "Operations & Platform Manager",
+      description:
+        "Sachin Puri is the Operations & Platform Manager at Lotwaala, overseeing platform operations, buyer/seller onboarding, and dispute resolution.",
+      worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
+    },
   ],
 };
 
@@ -94,8 +102,9 @@ const LEADERSHIP = [
     initials: "AS",
     gradient: "from-[#6366f1] to-[#4f46e5]",
     image: "/Anurag sharma Official .png",
-    bio: "Anurag Sharma is the driving force behind Lotwaala — a business leader with 15+ years spanning global trade, corporate sales, and real estate across India and Dubai. He spent nearly a decade (2016–2025) as Sales Manager at Octagon International in Dubai, specialising in international business development and marketing. On returning to India, he drew on his early experience at HCL Technologies and EXL Service to identify the systemic fraud and dead stock crises crippling India's B2B markets — and built Lotwaala to fix them.",
+    bio: "Anurag Sharma is the driving force behind Lotwaala — a seasoned business leader with 15+ years spanning global trade, corporate sales, and apparel manufacturing. Since 2017, he has successfully owned and operated Colour Tribe, a premier clothing brand generating ₹30–40 Lakhs in monthly sales revenue. He spent nearly a decade (2016–2025) as Sales Manager at Octagon International in Dubai, specializing in global trade and marketing before returning to India to build Lotwaala.",
     highlights: [
+      "Founder & Owner — Colour Tribe (Clothing brand est. 2017, ₹30–40L/month revenue)",
       "Sales Manager — Octagon International, Dubai (2016–2025)",
       "General Manager — Indirapuram Real Estate Operations",
       "Alumni — HCL Technologies & EXL Service",
@@ -164,20 +173,20 @@ const OPERATIONS_TEAM = [
   },
   {
     name: "Sachin Puri",
-    role: "Support Specialist",
-    department: "Support",
+    role: "Operations & Platform Manager",
+    department: "Operations & Support",
     initials: "SP",
     gradient: "from-[#ec4899] to-[#db2777]",
     image: "/Sachin Puri.png",
-    bio: "Sachin Puri handles day-to-day buyer and seller queries on the Lotwaala platform — from order issues and payment disputes to onboarding assistance. He is a core part of Lotwaala's mission to deliver India-class customer support.",
+    bio: "Sachin Puri serves as Operations & Platform Manager at Lotwaala, overseeing platform management, buyer/seller onboarding operations, order escalation, and dispute handling to ensure seamless performance across the platform.",
     highlights: [
-      "Buyer & Seller Query Resolution",
-      "Order & Payment Dispute Handling",
-      "Platform Onboarding Assistance",
-      "Real-time Support Operations",
+      "Platform & Operations Management",
+      "Buyer & Seller Onboarding Oversight",
+      "Order Dispute Resolution & Escalation",
+      "Operations & Support Leadership",
     ],
     links: [],
-    badge: "Support",
+    badge: "Manager",
   },
 ];
 
@@ -227,56 +236,79 @@ interface TeamMember {
 
 function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <article className="rounded-2xl border border-[#e2e8f0] bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
-      <div className="flex items-start gap-4">
-        {/* Avatar */}
-        {member.image ? (
-          <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-2xl border border-[#e2e8f0] shadow-md bg-[#f8fafc]">
-            <Image
-              src={member.image}
-              alt={member.name}
-              fill
-              className="object-cover"
-            />
-          </div>
-        ) : (
+    <article className="group relative overflow-hidden rounded-2xl border border-[#e2e8f0] bg-white p-6 shadow-sm team-card-glow transition-all duration-300">
+      {/* Sheen light sweep animation layer */}
+      <div className="team-card-sheen" />
+
+      <div className="flex items-start gap-4 relative z-10">
+        {/* Avatar with Animated Glow Ring */}
+        <div className="relative flex-shrink-0">
+          {/* Animated conic gradient outer ring */}
           <div
-            className={`flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${member.gradient} text-lg font-extrabold text-white shadow-md`}
-          >
-            {member.initials}
-          </div>
-        )}
-        <div className="min-w-0">
+            className="absolute -inset-1 rounded-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-300 animate-ring-pulse"
+            style={{
+              background: "linear-gradient(135deg, #6366f1, #a855f7, #f59e0b, #6366f1)",
+            }}
+          />
+          
+          {member.image ? (
+            <div className="relative h-16 w-16 overflow-hidden rounded-2xl border-2 border-white shadow-md bg-[#f8fafc]">
+              <Image
+                src={member.image}
+                alt={member.name}
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+              />
+            </div>
+          ) : (
+            <div
+              className={`relative flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-white bg-gradient-to-br ${member.gradient} text-xl font-extrabold text-white shadow-md transition-transform duration-500 group-hover:scale-110`}
+            >
+              {member.initials}
+            </div>
+          )}
+        </div>
+
+        <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
-            <h3 className="font-extrabold text-[#0f172a]">{member.name}</h3>
-            <span className="rounded-full bg-[#6366f1]/10 px-2 py-0.5 text-xs font-bold text-[#6366f1]">
+            <h3 className="text-base sm:text-lg font-extrabold text-[#0f172a] transition-all duration-300 group-hover:text-[#6366f1]">
+              {member.name}
+            </h3>
+            <span className="rounded-full bg-[#6366f1]/10 px-2.5 py-0.5 text-xs font-bold text-[#6366f1] group-hover:bg-[#6366f1] group-hover:text-white transition-colors duration-300">
               {member.badge}
             </span>
             {member.placeholder && (
-              <span className="rounded-full bg-[#f59e0b]/10 px-2 py-0.5 text-xs font-medium text-[#d97706]">
+              <span className="rounded-full bg-[#f59e0b]/10 px-2.5 py-0.5 text-xs font-medium text-[#d97706]">
                 Details Coming Soon
               </span>
             )}
           </div>
-          <p className="text-sm font-medium text-[#6366f1]">{member.role}</p>
+          <p className="text-xs sm:text-sm font-semibold text-[#6366f1] mt-0.5">{member.role}</p>
+          <p className="text-[11px] font-medium uppercase tracking-wider text-[#94a3b8]">{member.department}</p>
         </div>
       </div>
-      <p className="mt-4 text-sm leading-relaxed text-[#64748b]">{member.bio}</p>
-      <ul className="mt-4 space-y-1.5">
+
+      {/* Bio */}
+      <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#475569] relative z-10">{member.bio}</p>
+
+      {/* Key Highlights */}
+      <ul className="mt-4 space-y-2 relative z-10">
         {member.highlights.map((h) => (
-          <li key={h} className="flex items-center gap-2 text-xs text-[#475569]">
-            <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#6366f1]" />
-            {h}
+          <li key={h} className="flex items-center gap-2 text-xs text-[#334155] group/item">
+            <span className="h-2 w-2 flex-shrink-0 rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] transition-transform duration-300 group-hover/item:scale-125" />
+            <span className="group-hover/item:text-[#0f172a] transition-colors">{h}</span>
           </li>
         ))}
       </ul>
+
+      {/* Links */}
       {member.links.length > 0 && (
-        <div className="mt-4 flex gap-2">
+        <div className="mt-5 flex gap-2 relative z-10">
           {member.links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="inline-flex items-center gap-1 rounded-lg bg-[#6366f1]/10 px-3 py-1.5 text-xs font-semibold text-[#6366f1] transition-colors hover:bg-[#6366f1] hover:text-white"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-[#6366f1] px-4 py-2 text-xs font-bold text-white shadow-sm transition-all duration-300 hover:bg-[#4f46e5] hover:shadow-md hover:translate-x-1"
             >
               {link.label} →
             </Link>

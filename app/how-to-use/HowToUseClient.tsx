@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { PLAY_STORE_URL, IOS_APP_INTEREST_URL } from "@/lib/constants";
+import PodcastSection from "@/components/PodcastSection";
 
 // ─── Buyer Steps ──────────────────────────────────────────────────────────────
 
@@ -341,6 +342,9 @@ export function HowToUseClient() {
           </div>
         </div>
       </section>
+
+      {/* ── Podcast Video Series ── */}
+      <PodcastSection />
 
       {/* ── FAQ ── */}
       <section className="py-20" aria-labelledby="howto-faq-heading">

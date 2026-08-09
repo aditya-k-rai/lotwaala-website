@@ -9,7 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/team",
     "/how-to-use",
-    "/podcast",
     "/enquiry",
     "/contact",
     "/privacy",
@@ -20,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE_URL}${path}`,
     lastModified,
     changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : ["/about", "/how-to-use", "/podcast", "/team", "/enquiry"].includes(path) ? 0.8 : path === "/developer" ? 0.5 : 0.7,
+    priority: path === "" ? 1 : ["/about", "/how-to-use", "/team", "/enquiry"].includes(path) ? 0.8 : path === "/developer" ? 0.5 : 0.7,
   }));
 
   const cityRoutes: MetadataRoute.Sitemap = CITIES.map((city) => ({

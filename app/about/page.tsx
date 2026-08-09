@@ -7,6 +7,7 @@ import JsonLd from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
 import Breadcrumb from "@/components/Breadcrumb";
 import Footer from "@/components/Footer";
+import PodcastSection from "@/components/PodcastSection";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 
@@ -270,7 +271,7 @@ export default function AboutPage() {
                 After nearly a decade in Dubai as a Sales Manager at Octagon International — specializing in global marketing and international business development — <strong>Anurag Sharma</strong> returned to India and saw a glaring problem: millions of rupees in inventory were rotting in warehouses, and small retailers were getting defrauded by unverified suppliers on fragmented B2B platforms.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-[#475569]">
-                Drawing on his earlier experience at <strong>HCL Technologies</strong> and <strong>EXL Service</strong>, and his deep operational work in Noida&apos;s real estate and trade sectors, Sharma incorporated <strong>Surplus Saga Private Limited</strong> on July 20, 2025, and launched the Lotwaala marketplace app on November 26, 2025 — built to solve three non-negotiable problems: fraud, dead stock, and broken payments.
+                As the founder of <strong>Colour Tribe</strong> — a highly successful clothing brand he has operated since 2017, generating <strong>₹30–40 Lakhs in monthly sales revenue</strong> — Sharma understood the real-world operational challenges of garment manufacturing, inventory turnover, and cash flow. Drawing on his earlier experience at <strong>HCL Technologies</strong> and <strong>EXL Service</strong>, he incorporated <strong>Surplus Saga Private Limited</strong> on July 20, 2025, and launched the Lotwaala app on November 26, 2025 — built to solve three non-negotiable problems: fraud, dead stock, and broken payments.
               </p>
             </div>
             <div className="rounded-2xl border border-[#e2e8f0] bg-gradient-to-br from-[#f8fafc] to-white p-8 shadow-sm">
@@ -290,7 +291,8 @@ export default function AboutPage() {
               </div>
               <div className="mt-5 space-y-3">
                 {[
-                  "15+ years across global sales, trade & real estate",
+                  "15+ years across global trade, sales & apparel manufacturing",
+                  "Founder & Owner — Colour Tribe (Clothing brand est. 2017, ₹30–40L/month revenue)",
                   "Sales Manager, Octagon International — Dubai (2016–2025)",
                   "General Manager, Indirapuram real estate operations",
                   "Alumni: HCL Technologies & EXL Service",
@@ -502,6 +504,9 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        {/* ── Podcast Section ── */}
+        <PodcastSection />
 
         {/* ── Timeline ── */}
         <section className="py-20" aria-labelledby="timeline-heading">

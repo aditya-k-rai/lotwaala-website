@@ -8,10 +8,10 @@ const DEVELOPER_LINKEDIN = "https://www.linkedin.com/in/aditya-k-rai/";
 export default function Footer() {
   return (
     <footer className="border-t border-[#e2e8f0] bg-[#fafbff]">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        {/* ── Main Grid — 5 columns ── */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
-          {/* Brand */}
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+        {/* ── Main Footer Grid — 4 Columns ── */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Col 1: Brand Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5">
               <Image
@@ -28,7 +28,7 @@ export default function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-[#64748b]">
               India&apos;s #1 wholesale products marketplace, serving all of
               India. Buy wholesale products online from 10,000+ verified
-              wholesalers - with hubs in 120+ cities in India and in-app
+              wholesalers — with hubs in 120+ cities in India and in-app
               delivery support through Big-Ship and other major delivery
               partners.
             </p>
@@ -38,67 +38,12 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Popular Wholesale Markets — City Hub Links */}
+          {/* Col 2: Company Links */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
-              Top Cities
+              Company &amp; Platform
             </h3>
-            <ul className="mt-4 space-y-2.5">
-              {CITIES.slice(0, 8).map((city) => (
-                <li key={city.slug}>
-                  <Link
-                    href={`/market/${city.slug}`}
-                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
-                  >
-                    Wholesale Market in {city.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Wholesale Categories — Category Hub Links */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
-              Wholesale Categories
-            </h3>
-            <ul className="mt-4 space-y-2.5">
-              {CATEGORIES.slice(0, 8).map((cat) => (
-                <li key={cat.slug}>
-                  <Link
-                    href={`/market/category/${cat.slug}`}
-                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
-                  >
-                    Wholesale {cat.name} Products
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Festival Deals + Company Links */}
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
-              Festival Deals
-            </h3>
-            <ul className="mt-4 space-y-2.5">
-              {FESTIVALS.map((fest) => (
-                <li key={fest.slug}>
-                  <Link
-                    href={`/market/festival/${fest.slug}`}
-                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
-                  >
-                    {fest.name} Wholesale
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            {/* Company Links */}
-            <h3 className="mt-8 text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
-              Company
-            </h3>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-4 space-y-2">
               {[
                 { label: "About Lotwaala", href: "/about" },
                 { label: "Meet the Team", href: "/team" },
@@ -106,7 +51,7 @@ export default function Footer() {
                 { label: "Podcast", href: "/podcast" },
                 { label: "Business Enquiry", href: "/enquiry" },
                 { label: "Contact Us", href: "/contact" },
-                { label: "Developer", href: "/developer" },
+                { label: "Developer Profile", href: "/developer" },
                 { label: "Privacy Policy", href: "/privacy" },
                 { label: "Terms of Service", href: "/terms" },
                 { label: "Editorial Policy", href: "/editorial-policy" },
@@ -114,7 +59,7 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
+                    className="text-xs sm:text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
                   >
                     {item.label}
                   </Link>
@@ -123,36 +68,38 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* More Cities + More Categories */}
+          {/* Col 3: Wholesale Categories */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
-              More Cities
+              Wholesale Categories
             </h3>
-            <ul className="mt-4 space-y-2.5">
-              {CITIES.slice(8).map((city) => (
-                <li key={city.slug}>
+            <ul className="mt-4 space-y-2">
+              {CATEGORIES.map((cat) => (
+                <li key={cat.slug}>
                   <Link
-                    href={`/market/${city.slug}`}
-                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
+                    href={`/market/category/${cat.slug}`}
+                    className="text-xs sm:text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
                   >
-                    Wholesale Market in {city.name}
+                    Wholesale {cat.name}
                   </Link>
                 </li>
               ))}
             </ul>
+          </div>
 
-            {/* More Categories */}
-            <h3 className="mt-8 text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
-              More Categories
+          {/* Col 4: Festival & Seasonal Deals */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+              Festival &amp; Seasonal Deals
             </h3>
-            <ul className="mt-4 space-y-2.5">
-              {CATEGORIES.slice(8).map((cat) => (
-                <li key={cat.slug}>
+            <ul className="mt-4 space-y-2">
+              {FESTIVALS.map((fest) => (
+                <li key={fest.slug}>
                   <Link
-                    href={`/market/category/${cat.slug}`}
-                    className="text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
+                    href={`/market/festival/${fest.slug}`}
+                    className="text-xs sm:text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
                   >
-                    Wholesale {cat.name} Products
+                    {fest.name} Wholesale
                   </Link>
                 </li>
               ))}
@@ -160,16 +107,40 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 border-t border-[#e2e8f0] pt-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-[#94a3b8]">
+        {/* ── Wholesale Markets by City — Full-Width Balanced Grid ── */}
+        <div className="mt-12 border-t border-[#e2e8f0] pt-8">
+          <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+              Wholesale Markets Across India (120+ Cities)
+            </h3>
+            <span className="text-xs text-[#94a3b8]">Verified B2B Market Hubs</span>
+          </div>
+          
+          {/* 4-column balanced grid on desktop, 2-column on mobile */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-2 gap-x-4">
+            {CITIES.map((city) => (
+              <Link
+                key={city.slug}
+                href={`/market/${city.slug}`}
+                className="text-xs text-[#64748b] transition-colors hover:text-[#6366f1] hover:underline truncate"
+                title={`Wholesale Market in ${city.name}`}
+              >
+                Wholesale Market in {city.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom copyright bar */}
+        <div className="mt-10 border-t border-[#e2e8f0] pt-6 flex flex-col items-center justify-between gap-3 sm:flex-row text-xs text-[#94a3b8]">
+          <p>
             &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
           </p>
-          <p className="text-sm text-[#94a3b8]">
+          <p>
             India&apos;s #1 Wholesale Products App &amp; Wholesale Marketplace
           </p>
-          <p className="text-sm text-[#94a3b8]">
-            Last updated May 26, 2026
+          <p>
+            Surplus Saga Private Limited
           </p>
         </div>
       </div>

@@ -12,7 +12,6 @@ const NAV_LINKS = [
   { href: "/#how-it-works", label: "How It Works", color: "#7928ca" }, // Vibrant purple
   { href: "/#markets", label: "Markets", color: "#00f0ff" }, // Electric cyan
   { href: "/how-to-use", label: "How to Use", color: "#10b981" }, // Emerald green
-  { href: "/podcast", label: "Podcast", color: "#f59e0b" }, // Amber
   { href: "/about", label: "About", color: "#6366f1" }, // Indigo
 ];
 
