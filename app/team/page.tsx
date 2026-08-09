@@ -258,12 +258,12 @@ function TeamCard({ member }: { member: TeamMember }) {
             />
 
             {member.image ? (
-              <div className="relative h-44 w-44 sm:h-52 sm:w-52 overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-[#f8fafc]">
+              <div className="relative h-44 w-44 sm:h-52 sm:w-52 overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-gradient-to-b from-[#f8fafc] via-[#f1f5f9] to-[#e2e8f0]">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  className="object-contain p-1 transition-transform duration-700 ease-out group-hover:scale-105"
                   priority={member.badge === "Founder"}
                 />
               </div>
