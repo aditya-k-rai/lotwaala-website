@@ -4,9 +4,10 @@ import JsonLd from "@/components/JsonLd";
 
 export const PODCAST_EPISODES = [
   {
-    id: "ep4-real-impact",
+    id: "ep1-real-impact",
     youtubeId: "2-0C9jxqO9k",
-    episodeNumber: "Episode 4",
+    embedUrl: "https://www.youtube.com/embed/2-0C9jxqO9k?si=oGLJ8TKUvG-VxesX",
+    episodeNumber: "Episode 1",
     title: "Founder Anurag Sharma on the Real Impact of India's Wholesale App",
     description:
       "In this episode, Lotwaala founder Anurag Sharma dives deep into how the Lotwaala app is creating real, measurable impact for manufacturers and retailers across India. He discusses how the platform is fundamentally reshaping trust in India's fragmented B2B wholesale market — from escrow-protected payments to GST-based seller verification — and what it means for the next generation of Indian MSMEs.",
@@ -22,6 +23,7 @@ export const PODCAST_EPISODES = [
   {
     id: "ep2-growth-strategies",
     youtubeId: "D-diclquH1Q",
+    embedUrl: "https://www.youtube.com/embed/D-diclquH1Q?si=IC5Ay3l6nxcxYWXh",
     episodeNumber: "Episode 2",
     title: "Lotwaala Founder Shares Secret Growth Strategies & Market Expansion Secrets",
     description:
@@ -36,9 +38,10 @@ export const PODCAST_EPISODES = [
     publishDate: "2025",
   },
   {
-    id: "ep-fraud-free",
+    id: "ep3-fraud-free",
     youtubeId: "rhYv9IrLX8A",
-    episodeNumber: "Founder Special",
+    embedUrl: "https://www.youtube.com/embed/rhYv9IrLX8A?si=K6iEfNWXjpHlMfpF",
+    episodeNumber: "Episode 3",
     title: "Building a Trusted and Fraud-Free B2B Marketplace in India",
     description:
       "One of the most critical challenges in India's B2B wholesale market is endemic fraud — from fake sellers to payment defaults and substandard goods. In this special episode, Anurag Sharma outlines the exact mechanisms Lotwaala has built to eliminate fraud: mandatory KYC, GST verification, escrow payments, and transparent dispute resolution.",
@@ -52,9 +55,10 @@ export const PODCAST_EPISODES = [
     publishDate: "2025",
   },
   {
-    id: "ep4-alt",
+    id: "ep4-vision-story",
     youtubeId: "AGOHvmRE8ps",
-    episodeNumber: "Episode 4 (Extended)",
+    embedUrl: "https://www.youtube.com/embed/AGOHvmRE8ps?si=w_46SQ5pi3E0FxuO",
+    episodeNumber: "Episode 4",
     title: "Anurag Sharma on the Real Impact of India's Wholesale App — Extended Cut",
     description:
       "The extended version of our most popular episode — with additional discussion on Lotwaala's long-term vision for India's B2B market, the role of technology in transforming traditional trade, and Anurag Sharma's personal journey from Dubai-based global trade to founding one of India's most ambitious MSME marketplaces.",
@@ -70,6 +74,7 @@ export const PODCAST_EPISODES = [
   {
     id: "ep5-trusted-marketplace",
     youtubeId: "BN9SmF1ZY5k",
+    embedUrl: "https://www.youtube.com/embed/BN9SmF1ZY5k?si=V1jQ8oep6vWNgXCS",
     episodeNumber: "Episode 5",
     title: "Building a Trusted and Fraud-Free B2B Marketplace — The Lotwaala Model",
     description:
@@ -165,9 +170,10 @@ export default function PodcastSection() {
                 <div className={`${i % 2 !== 0 ? "lg:order-2" : ""}`}>
                   <div className="relative aspect-video w-full bg-[#05050f]">
                     <iframe
-                      src={`https://www.youtube.com/embed/${ep.youtubeId}?rel=0&modestbranding=1`}
+                      src={ep.embedUrl || `https://www.youtube.com/embed/${ep.youtubeId}?rel=0&modestbranding=1`}
                       title={ep.title}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
                       allowFullScreen
                       loading="lazy"
                       className="absolute inset-0 h-full w-full border-0"
