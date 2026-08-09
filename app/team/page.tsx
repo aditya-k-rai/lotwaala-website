@@ -110,7 +110,9 @@ const LEADERSHIP = [
       "Incorporated Surplus Saga Pvt. Ltd. — July 20, 2025",
       "Launched Lotwaala App — November 26, 2025",
     ],
-    links: [],
+    links: [
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/anurag-sharma-8997551b/", platform: "linkedin" },
+    ],
     badge: "Founder",
   },
 ];
@@ -140,14 +142,20 @@ const TECH_TEAM = [
     initials: "AKR",
     gradient: "from-[#10b981] to-[#059669]",
     image: "/Aditya Kumar Rai Lotwaala.png",
-    bio: "Aditya Kumar Rai designed, developed, and marketed the Lotwaala web platform and digital ecosystem. Based in Greater Noida, he combines software development with performance-driven digital marketing to build Lotwaala's online presence, SEO footprint, and app discovery.",
+    bio: "Aditya Kumar Rai (also known as Aditya Rai) designed, developed, and marketed the Lotwaala web platform and digital ecosystem. Based in Greater Noida, he combines software development with performance-driven digital marketing to build Lotwaala's online presence, SEO footprint, and app discovery.",
     highlights: [
+      "Also known as: Aditya Rai",
       "Full-stack Web Development (Next.js, React, TypeScript)",
       "Digital Marketing & SEO Architecture",
       "Designed & built lotwaala.com",
       "Based in Greater Noida, Uttar Pradesh",
     ],
-    links: [{ label: "View Developer Profile", href: "/developer" }],
+    links: [
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/aditya-k-rai/", platform: "linkedin" },
+      { label: "GitHub", href: "https://github.com/aditya-k-rai", platform: "github" },
+      { label: "Quora", href: "https://www.quora.com/profile/Aditya-Kumar-Rai-51", platform: "quora" },
+      { label: "Developer Profile", href: "/developer", platform: "website" },
+    ],
     badge: "Web Dev",
   },
 ];
@@ -167,7 +175,9 @@ const OPERATIONS_TEAM = [
       "Order Dispute Resolution & Escalation",
       "Operations & Support Leadership",
     ],
-    links: [],
+    links: [
+      { label: "Instagram", href: "#", platform: "instagram", isPlaceholder: true },
+    ],
     badge: "Manager",
   },
   {
@@ -184,7 +194,9 @@ const OPERATIONS_TEAM = [
       "Support in English & Hindi",
       "Mon–Sat, 9 AM – 6 PM IST",
     ],
-    links: [],
+    links: [
+      { label: "Instagram", href: "#", platform: "instagram", isPlaceholder: true },
+    ],
     badge: "HR Lead",
   },
 ];
@@ -219,6 +231,13 @@ const CORE_VALUES = [
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+interface TeamMemberLink {
+  label: string;
+  href: string;
+  platform?: string;
+  isPlaceholder?: boolean;
+}
+
 interface TeamMember {
   name: string;
   role: string;
@@ -228,9 +247,46 @@ interface TeamMember {
   image?: string;
   bio: string;
   highlights: string[];
-  links: { label: string; href: string }[];
+  links: TeamMemberLink[];
   badge: string;
   placeholder?: boolean;
+}
+
+function SocialIcon({ icon }: { icon?: string }) {
+  if (icon === "linkedin") {
+    return (
+      <svg className="h-4 w-4 fill-current flex-shrink-0" viewBox="0 0 24 24">
+        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+      </svg>
+    );
+  }
+  if (icon === "github") {
+    return (
+      <svg className="h-4 w-4 fill-current flex-shrink-0" viewBox="0 0 24 24">
+        <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+      </svg>
+    );
+  }
+  if (icon === "quora") {
+    return (
+      <svg className="h-4 w-4 fill-current flex-shrink-0" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12c0 3.69 2.01 6.91 5 8.61V22l3.41-1.71C10.92 20.78 11.45 20.8 12 20.8c5.52 0 10-4.48 10-9.8S17.52 2 12 2zm1 14.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+      </svg>
+    );
+  }
+  if (icon === "instagram") {
+    return (
+      <svg className="h-4 w-4 fill-current flex-shrink-0" viewBox="0 0 24 24">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+      </svg>
+    );
+  }
+  return (
+    <svg className="h-4 w-4 fill-none stroke-current stroke-2 flex-shrink-0" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20" />
+    </svg>
+  );
 }
 
 function TeamCard({ member }: { member: TeamMember }) {
@@ -313,16 +369,42 @@ function TeamCard({ member }: { member: TeamMember }) {
 
         {/* Action Links */}
         {member.links.length > 0 && (
-          <div className="mt-6 flex flex-wrap gap-3">
-            {member.links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="inline-flex items-center gap-2 rounded-xl bg-[#6366f1] px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md transition-all duration-300 hover:bg-[#4f46e5] hover:shadow-xl hover:-translate-y-0.5"
-              >
-                {link.label} →
-              </Link>
-            ))}
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            {member.links.map((link) => {
+              if (link.isPlaceholder) {
+                return (
+                  <span
+                    key={link.label}
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-pink-500/10 border border-pink-500/20 px-3.5 py-2 text-xs font-bold text-pink-600 cursor-default"
+                    title="Instagram profile coming soon"
+                  >
+                    <SocialIcon icon="instagram" />
+                    Instagram (Soon)
+                  </span>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.href + link.label}
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 text-xs sm:text-sm font-bold text-white shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 ${
+                    link.platform === "linkedin"
+                      ? "bg-[#0a66c2] hover:bg-[#004182]"
+                      : link.platform === "github"
+                      ? "bg-[#24292e] hover:bg-[#1b1f23]"
+                      : link.platform === "quora"
+                      ? "bg-[#b92b27] hover:bg-[#961c19]"
+                      : "bg-[#6366f1] hover:bg-[#4f46e5]"
+                  }`}
+                >
+                  <SocialIcon icon={link.platform} />
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
         )}
       </div>
