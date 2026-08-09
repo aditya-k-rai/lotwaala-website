@@ -48,7 +48,7 @@ export default function Footer() {
                 { label: "About Lotwaala", href: "/about" },
                 { label: "Meet the Team", href: "/team" },
                 { label: "How to Use the App", href: "/how-to-use" },
-                { label: "Podcast", href: "/podcast" },
+                { label: "Podcast", href: "/about#podcast" },
                 { label: "Business Enquiry", href: "/enquiry" },
                 { label: "Contact Us", href: "/contact" },
                 { label: "Developer Profile", href: "/developer" },
