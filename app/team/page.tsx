@@ -24,8 +24,7 @@ export const metadata: Metadata = generatePageMetadata({
     "wholesale marketplace team India",
     "B2B startup team Noida",
     "Lotwaala Nandani Rastogi HR",
-    "wholesale app India founders",
-    "Lotwaala company team Noida",
+    "wholesale app India founder",
   ],
 });
 
@@ -43,7 +42,15 @@ const teamSchema = {
       name: "Anurag Sharma",
       jobTitle: "Founder & Chief Executive Officer",
       description:
-        "Anurag Sharma founded Lotwaala in 2025 after 15+ years across global sales, real estate, and international trade in India and Dubai. He previously served as Sales Manager at Octagon International (Dubai) and has experience at HCL Technologies and EXL Service.",
+        "Anurag Sharma founded Lotwaala in 2025 after 15+ years across global sales, real estate, and international trade in India and Dubai. He previously served as Sales Manager at Octagon International (Dubai) and operates Colour Tribe clothing brand.",
+      worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
+    },
+    {
+      "@type": "Person",
+      name: "Navneet Pandey",
+      jobTitle: "Full-Stack & App Developer",
+      description:
+        "Navneet Pandey is a Full-Stack & App Developer with 3+ years of experience building and maintaining web and mobile applications for Lotwaala.",
       worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
     },
     {
@@ -57,10 +64,10 @@ const teamSchema = {
     },
     {
       "@type": "Person",
-      name: "Navneet Pandey",
-      jobTitle: "Full-Stack & App Developer",
+      name: "Sachin Puri",
+      jobTitle: "Operations & Platform Manager",
       description:
-        "Navneet Pandey is a Full-Stack & App Developer with 3+ years of experience building and maintaining web and mobile applications for Lotwaala.",
+        "Sachin Puri is the Operations & Platform Manager at Lotwaala, overseeing platform operations, buyer/seller onboarding, and dispute resolution.",
       worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
     },
     {
@@ -69,14 +76,6 @@ const teamSchema = {
       jobTitle: "HR & Support Lead",
       description:
         "Nandani Rastogi leads Human Resources and Customer Support operations at Lotwaala, managing team recruitment and buyer/seller assistance.",
-      worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
-    },
-    {
-      "@type": "Person",
-      name: "Sachin Puri",
-      jobTitle: "Operations & Platform Manager",
-      description:
-        "Sachin Puri is the Operations & Platform Manager at Lotwaala, overseeing platform operations, buyer/seller onboarding, and dispute resolution.",
       worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
     },
   ],
@@ -118,23 +117,6 @@ const LEADERSHIP = [
 
 const TECH_TEAM = [
   {
-    name: "Aditya Kumar Rai",
-    role: "Web Developer & Digital Marketer",
-    department: "Technology",
-    initials: "AKR",
-    gradient: "from-[#10b981] to-[#059669]",
-    image: "/Aditya Kumar Rai Web Developer.png",
-    bio: "Aditya Kumar Rai designed, developed, and marketed the Lotwaala web platform and digital ecosystem. Based in Greater Noida, he combines software development with performance-driven digital marketing to build Lotwaala's online presence, SEO footprint, and app discovery.",
-    highlights: [
-      "Full-stack Web Development (Next.js, React, TypeScript)",
-      "Digital Marketing & SEO Architecture",
-      "Designed & built lotwaala.com",
-      "Based in Greater Noida, Uttar Pradesh",
-    ],
-    links: [{ label: "View Developer Profile", href: "/developer" }],
-    badge: "Web Dev",
-  },
-  {
     name: "Navneet Pandey",
     role: "Full-Stack & App Developer",
     department: "Technology",
@@ -151,26 +133,26 @@ const TECH_TEAM = [
     links: [],
     badge: "App Dev",
   },
+  {
+    name: "Aditya Kumar Rai",
+    role: "Web Developer & Digital Marketer",
+    department: "Technology",
+    initials: "AKR",
+    gradient: "from-[#10b981] to-[#059669]",
+    image: "/Aditya Kumar Rai Web Developer.png",
+    bio: "Aditya Kumar Rai designed, developed, and marketed the Lotwaala web platform and digital ecosystem. Based in Greater Noida, he combines software development with performance-driven digital marketing to build Lotwaala's online presence, SEO footprint, and app discovery.",
+    highlights: [
+      "Full-stack Web Development (Next.js, React, TypeScript)",
+      "Digital Marketing & SEO Architecture",
+      "Designed & built lotwaala.com",
+      "Based in Greater Noida, Uttar Pradesh",
+    ],
+    links: [{ label: "View Developer Profile", href: "/developer" }],
+    badge: "Web Dev",
+  },
 ];
 
 const OPERATIONS_TEAM = [
-  {
-    name: "Nandani Rastogi",
-    role: "HR & Support Lead",
-    department: "HR & Support",
-    initials: "NR",
-    gradient: "from-[#f59e0b] to-[#d97706]",
-    image: "/Nandani Rastogi.png",
-    bio: "Nandani Rastogi leads Human Resources and Customer Support at Lotwaala. She oversees team recruitment, onboarding, and manages buyer and seller support operations — ensuring every Lotwaala user gets timely, reliable assistance in English and Hindi.",
-    highlights: [
-      "Human Resources & Team Recruitment",
-      "Buyer & Seller Customer Support",
-      "Support in English & Hindi",
-      "Mon–Sat, 9 AM – 6 PM IST",
-    ],
-    links: [],
-    badge: "HR Lead",
-  },
   {
     name: "Sachin Puri",
     role: "Operations & Platform Manager",
@@ -187,6 +169,23 @@ const OPERATIONS_TEAM = [
     ],
     links: [],
     badge: "Manager",
+  },
+  {
+    name: "Nandani Rastogi",
+    role: "HR & Support Lead",
+    department: "HR & Support",
+    initials: "NR",
+    gradient: "from-[#f59e0b] to-[#d97706]",
+    image: "/Nandani Rastogi.png",
+    bio: "Nandani Rastogi leads Human Resources and Customer Support at Lotwaala. She oversees team recruitment, onboarding, and manages buyer and seller support operations — ensuring every Lotwaala user gets timely, reliable assistance in English and Hindi.",
+    highlights: [
+      "Human Resources & Team Recruitment",
+      "Buyer & Seller Customer Support",
+      "Support in English & Hindi",
+      "Mon–Sat, 9 AM – 6 PM IST",
+    ],
+    links: [],
+    badge: "HR Lead",
   },
 ];
 
@@ -236,60 +235,60 @@ interface TeamMember {
 
 function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-[#e2e8f0] bg-white p-6 shadow-sm team-card-glow transition-all duration-300">
+    <article className="group relative overflow-hidden rounded-3xl border border-[#e2e8f0] bg-white p-6 sm:p-8 shadow-sm team-card-glow transition-all duration-300">
       {/* Sheen light sweep animation layer */}
       <div className="team-card-sheen" />
 
-      <div className="flex items-start gap-4 relative z-10">
-        {/* Avatar with Animated Glow Ring */}
+      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 relative z-10">
+        {/* Large Prominent Avatar Frame with Glow Ring */}
         <div className="relative flex-shrink-0">
           {/* Animated conic gradient outer ring */}
           <div
-            className="absolute -inset-1 rounded-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-300 animate-ring-pulse"
+            className="absolute -inset-1.5 rounded-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-ring-pulse"
             style={{
               background: "linear-gradient(135deg, #6366f1, #a855f7, #f59e0b, #6366f1)",
             }}
           />
           
           {member.image ? (
-            <div className="relative h-16 w-16 overflow-hidden rounded-2xl border-2 border-white shadow-md bg-[#f8fafc]">
+            <div className="relative h-28 w-28 sm:h-36 sm:w-36 overflow-hidden rounded-2xl border-4 border-white shadow-xl bg-[#f8fafc]">
               <Image
                 src={member.image}
                 alt={member.name}
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
               />
             </div>
           ) : (
             <div
-              className={`relative flex h-16 w-16 items-center justify-center rounded-2xl border-2 border-white bg-gradient-to-br ${member.gradient} text-xl font-extrabold text-white shadow-md transition-transform duration-500 group-hover:scale-110`}
+              className={`relative flex h-28 w-28 sm:h-36 sm:w-36 items-center justify-center rounded-2xl border-4 border-white bg-gradient-to-br ${member.gradient} text-3xl font-extrabold text-white shadow-xl transition-transform duration-500 group-hover:scale-105`}
             >
               {member.initials}
             </div>
           )}
         </div>
 
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-2 flex-wrap">
-            <h3 className="text-base sm:text-lg font-extrabold text-[#0f172a] transition-all duration-300 group-hover:text-[#6366f1]">
+        <div className="min-w-0 flex-1 text-center sm:text-left">
+          <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-[#0f172a] transition-all duration-300 group-hover:text-[#6366f1]">
               {member.name}
             </h3>
-            <span className="rounded-full bg-[#6366f1]/10 px-2.5 py-0.5 text-xs font-bold text-[#6366f1] group-hover:bg-[#6366f1] group-hover:text-white transition-colors duration-300">
+            <span className="rounded-full bg-[#6366f1]/10 px-3 py-1 text-xs font-bold text-[#6366f1] group-hover:bg-[#6366f1] group-hover:text-white transition-colors duration-300">
               {member.badge}
             </span>
             {member.placeholder && (
-              <span className="rounded-full bg-[#f59e0b]/10 px-2.5 py-0.5 text-xs font-medium text-[#d97706]">
+              <span className="rounded-full bg-[#f59e0b]/10 px-3 py-1 text-xs font-medium text-[#d97706]">
                 Details Coming Soon
               </span>
             )}
           </div>
-          <p className="text-xs sm:text-sm font-semibold text-[#6366f1] mt-0.5">{member.role}</p>
-          <p className="text-[11px] font-medium uppercase tracking-wider text-[#94a3b8]">{member.department}</p>
+          <p className="text-sm sm:text-base font-bold text-[#6366f1] mt-1">{member.role}</p>
+          <p className="text-xs font-semibold uppercase tracking-wider text-[#94a3b8] mt-0.5">{member.department}</p>
         </div>
       </div>
 
       {/* Bio */}
-      <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[#475569] relative z-10">{member.bio}</p>
+      <p className="mt-5 text-sm leading-relaxed text-[#475569] relative z-10">{member.bio}</p>
 
       {/* Key Highlights */}
       <ul className="mt-4 space-y-2 relative z-10">
