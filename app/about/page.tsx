@@ -283,12 +283,12 @@ export default function AboutPage() {
                       background: "linear-gradient(135deg, #6366f1, #a855f7, #f59e0b, #6366f1)",
                     }}
                   />
-                  <div className="relative h-32 w-32 sm:h-40 sm:w-40 overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-gradient-to-b from-[#f8fafc] via-[#f1f5f9] to-[#e2e8f0]">
+                  <div className="relative w-36 sm:w-48 aspect-[4/5] overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-[#f8fafc]">
                     <Image
                       src="/Anurag sharma Official .png"
                       alt="Anurag Sharma - Founder & CEO"
                       fill
-                      className="object-contain p-1"
+                      className="object-cover object-top"
                       priority
                     />
                   </div>

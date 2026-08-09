@@ -139,7 +139,7 @@ const TECH_TEAM = [
     department: "Technology",
     initials: "AKR",
     gradient: "from-[#10b981] to-[#059669]",
-    image: "/Aditya Kumar Rai Web Developer.png",
+    image: "/Aditya Kumar Rai Lotwaala.png",
     bio: "Aditya Kumar Rai designed, developed, and marketed the Lotwaala web platform and digital ecosystem. Based in Greater Noida, he combines software development with performance-driven digital marketing to build Lotwaala's online presence, SEO footprint, and app discovery.",
     highlights: [
       "Full-stack Web Development (Next.js, React, TypeScript)",
@@ -258,18 +258,18 @@ function TeamCard({ member }: { member: TeamMember }) {
             />
 
             {member.image ? (
-              <div className="relative h-44 w-44 sm:h-52 sm:w-52 overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-gradient-to-b from-[#f8fafc] via-[#f1f5f9] to-[#e2e8f0]">
+              <div className="relative w-48 sm:w-60 aspect-[4/5] overflow-hidden rounded-2xl border-4 border-white shadow-2xl bg-[#f8fafc]">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-contain p-1 transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   priority={member.badge === "Founder"}
                 />
               </div>
             ) : (
               <div
-                className={`relative flex h-44 w-44 sm:h-52 sm:w-52 items-center justify-center rounded-2xl border-4 border-white bg-gradient-to-br ${member.gradient} text-4xl font-extrabold text-white shadow-2xl transition-transform duration-700 group-hover:scale-110`}
+                className={`relative flex w-48 sm:w-60 aspect-[4/5] items-center justify-center rounded-2xl border-4 border-white bg-gradient-to-br ${member.gradient} text-4xl font-extrabold text-white shadow-2xl transition-transform duration-700 group-hover:scale-105`}
               >
                 {member.initials}
               </div>

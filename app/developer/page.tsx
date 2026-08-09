@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: `${DEV_NAME} | Software Developer, Web Developer & Digital Marketer — Greater Noida`,
     description: DEV_DESCRIPTION,
     path: "/developer",
-    image: `${SITE_URL}/Aditya Kumar Rai Web Developer.png`,
+    image: `${SITE_URL}/Aditya Kumar Rai Lotwaala.png`,
     keywords: [
       "Aditya Kumar Rai",
       "Aditya K. Rai",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: `${SITE_URL}/Aditya Kumar Rai Web Developer.png`,
+        url: `${SITE_URL}/Aditya Kumar Rai Lotwaala.png`,
         width: 1200,
         height: 630,
         alt: `${DEV_NAME} — Software Developer, Web Developer & Digital Marketer`,
@@ -293,12 +293,11 @@ export default function DeveloperPage() {
                 {/* Photo */}
                 <div className="relative h-28 w-28 rounded-full border-[3px] border-white shadow-xl overflow-hidden sm:h-44 sm:w-44 sm:border-4">
                   <Image
-                    src="/Developer Aditya Kumar Rai Image .gif"
+                    src="/Aditya Kumar Rai Lotwaala.png"
                     alt={`${DEV_NAME} — Software Developer, Web Developer & Digital Marketer in Greater Noida`}
                     fill
                     className="object-cover"
                     priority
-                    unoptimized
                   />
                 </div>
               </div>
@@ -512,12 +511,11 @@ export default function DeveloperPage() {
             <div className="flex flex-col items-center gap-3 text-center">
               <div className="h-10 w-10 rounded-full overflow-hidden ring-2 ring-[#6366f1]/20">
                 <Image
-                  src="/Developer Aditya Kumar Rai Image .gif"
+                  src="/Aditya Kumar Rai Lotwaala.png"
                   alt={DEV_NAME}
                   width={40}
                   height={40}
                   className="h-full w-full object-cover"
-                  unoptimized
                 />
               </div>
               <p className="text-xs text-[#94a3b8]">

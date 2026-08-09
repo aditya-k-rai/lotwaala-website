@@ -155,12 +155,11 @@ export default function Footer() {
             title="Aditya Kumar Rai — Developer"
           >
             <Image
-              src="/Developer Aditya Kumar Rai Image .gif"
+              src="/Aditya Kumar Rai Lotwaala.png"
               alt="Aditya Kumar Rai"
               width={34}
               height={34}
               className="h-[28px] w-[28px] sm:h-[34px] sm:w-[34px] rounded-full object-cover border-2 border-[#fbbf24] shadow-[0_0_8px_rgba(251,191,36,0.3)]"
-              unoptimized
             />
           </Link>
           <Link

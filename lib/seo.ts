@@ -519,7 +519,7 @@ export function generateDeveloperPersonSchema() {
     name: "Aditya Kumar Rai",
     alternateName: ["Aditya K. Rai", "Aditya Rai"],
     url: `${SITE_URL}/developer`,
-    image: `${SITE_URL}/Aditya Kumar Rai Web Developer.png`,
+    image: `${SITE_URL}/Aditya Kumar Rai Lotwaala.png`,
     jobTitle: ["Software Developer", "Web Developer", "Digital Marketer"],
     description: devDescription,
     address: {
