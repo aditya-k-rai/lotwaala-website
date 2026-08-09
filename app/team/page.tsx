@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { generatePageMetadata } from "@/lib/seo";
 import { SITE_NAME, SITE_URL, PLAY_STORE_URL } from "@/lib/constants";
@@ -56,6 +57,14 @@ const teamSchema = {
     },
     {
       "@type": "Person",
+      name: "Navneet Pandey",
+      jobTitle: "Full-Stack & App Developer",
+      description:
+        "Navneet Pandey is a Full-Stack & App Developer with 3+ years of experience building and maintaining web and mobile applications for Lotwaala.",
+      worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
+    },
+    {
+      "@type": "Person",
       name: "Nandani Rastogi",
       jobTitle: "HR & Support Lead",
       description:
@@ -84,6 +93,7 @@ const LEADERSHIP = [
     department: "Leadership",
     initials: "AS",
     gradient: "from-[#6366f1] to-[#4f46e5]",
+    image: "/Anurag sharma Official .png",
     bio: "Anurag Sharma is the driving force behind Lotwaala — a business leader with 15+ years spanning global trade, corporate sales, and real estate across India and Dubai. He spent nearly a decade (2016–2025) as Sales Manager at Octagon International in Dubai, specialising in international business development and marketing. On returning to India, he drew on his early experience at HCL Technologies and EXL Service to identify the systemic fraud and dead stock crises crippling India's B2B markets — and built Lotwaala to fix them.",
     highlights: [
       "Sales Manager — Octagon International, Dubai (2016–2025)",
@@ -104,6 +114,7 @@ const TECH_TEAM = [
     department: "Technology",
     initials: "AKR",
     gradient: "from-[#10b981] to-[#059669]",
+    image: "/Aditya Kumar Rai Web Developer.png",
     bio: "Aditya Kumar Rai designed, developed, and marketed the Lotwaala web platform and digital ecosystem. Based in Greater Noida, he combines software development with performance-driven digital marketing to build Lotwaala's online presence, SEO footprint, and app discovery.",
     highlights: [
       "Full-stack Web Development (Next.js, React, TypeScript)",
@@ -115,21 +126,21 @@ const TECH_TEAM = [
     badge: "Web Dev",
   },
   {
-    name: "App Developer",
-    role: "Android & iOS Developer",
+    name: "Navneet Pandey",
+    role: "Full-Stack & App Developer",
     department: "Technology",
-    initials: "AD",
+    initials: "NP",
     gradient: "from-[#8b5cf6] to-[#7c3aed]",
-    bio: "The Lotwaala mobile app (Android & iOS) is built and maintained by our app development specialist. The app features real-time inventory browsing, direct buyer-seller chat, secure escrow payment integration, and KYC verification flows.",
+    image: "/Navneet Pandey.png",
+    bio: "Navneet Pandey is a Full-Stack Developer with 3+ years of experience building and maintaining web and mobile platforms. He developed the Lotwaala app platform across frontend, backend APIs, MySQL/Firebase databases, Cloudflare R2, and Razorpay payment integrations.",
     highlights: [
-      "Android App Development (Kotlin/Java)",
-      "iOS App Development (Swift)",
-      "Escrow & Payment Gateway Integration",
-      "Real-time Chat Architecture",
+      "Full-Stack & Mobile Development (React, Next.js, React Native, Node.js)",
+      "Backend APIs, MySQL, Firebase & Cloudflare R2 Architecture",
+      "Razorpay Payment Gateway & Escrow Integrations",
+      "3+ years of professional full-stack engineering experience",
     ],
     links: [],
     badge: "App Dev",
-    placeholder: true,
   },
 ];
 
@@ -140,6 +151,7 @@ const OPERATIONS_TEAM = [
     department: "HR & Support",
     initials: "NR",
     gradient: "from-[#f59e0b] to-[#d97706]",
+    image: "/Nandani Rastogi.png",
     bio: "Nandani Rastogi leads Human Resources and Customer Support at Lotwaala. She oversees team recruitment, onboarding, and manages buyer and seller support operations — ensuring every Lotwaala user gets timely, reliable assistance in English and Hindi.",
     highlights: [
       "Human Resources & Team Recruitment",
@@ -151,12 +163,13 @@ const OPERATIONS_TEAM = [
     badge: "HR Lead",
   },
   {
-    name: "Sachin",
+    name: "Sachin Puri",
     role: "Support Specialist",
     department: "Support",
-    initials: "SC",
+    initials: "SP",
     gradient: "from-[#ec4899] to-[#db2777]",
-    bio: "Sachin handles day-to-day buyer and seller queries on the Lotwaala platform — from order issues and payment disputes to onboarding assistance. He is a core part of Lotwaala's mission to deliver India-class customer support.",
+    image: "/Sachin Puri.png",
+    bio: "Sachin Puri handles day-to-day buyer and seller queries on the Lotwaala platform — from order issues and payment disputes to onboarding assistance. He is a core part of Lotwaala's mission to deliver India-class customer support.",
     highlights: [
       "Buyer & Seller Query Resolution",
       "Order & Payment Dispute Handling",
@@ -204,6 +217,7 @@ interface TeamMember {
   department: string;
   initials: string;
   gradient: string;
+  image?: string;
   bio: string;
   highlights: string[];
   links: { label: string; href: string }[];
@@ -216,11 +230,22 @@ function TeamCard({ member }: { member: TeamMember }) {
     <article className="rounded-2xl border border-[#e2e8f0] bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex items-start gap-4">
         {/* Avatar */}
-        <div
-          className={`flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${member.gradient} text-lg font-extrabold text-white shadow-md`}
-        >
-          {member.initials}
-        </div>
+        {member.image ? (
+          <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-2xl border border-[#e2e8f0] shadow-md bg-[#f8fafc]">
+            <Image
+              src={member.image}
+              alt={member.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <div
+            className={`flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${member.gradient} text-lg font-extrabold text-white shadow-md`}
+          >
+            {member.initials}
+          </div>
+        )}
         <div className="min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
             <h3 className="font-extrabold text-[#0f172a]">{member.name}</h3>

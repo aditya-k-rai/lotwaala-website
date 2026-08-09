@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { generatePageMetadata } from "@/lib/seo";
 import { SITE_NAME, SITE_URL, PHONE_NUMBER, PLAY_STORE_URL } from "@/lib/constants";
@@ -273,8 +274,20 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="rounded-2xl border border-[#e2e8f0] bg-gradient-to-br from-[#f8fafc] to-white p-8 shadow-sm">
-              <h3 className="text-lg font-bold text-[#0f172a]">Anurag Sharma</h3>
-              <p className="text-sm font-medium text-[#6366f1]">Founder & CEO, Lotwaala</p>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-2xl border border-[#e2e8f0] shadow-md bg-[#f8fafc]">
+                  <Image
+                    src="/Anurag sharma Official .png"
+                    alt="Anurag Sharma - Founder & CEO"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-[#0f172a]">Anurag Sharma</h3>
+                  <p className="text-sm font-medium text-[#6366f1]">Founder & CEO, Lotwaala</p>
+                </div>
+              </div>
               <div className="mt-5 space-y-3">
                 {[
                   "15+ years across global sales, trade & real estate",
