@@ -73,12 +73,12 @@ export default function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               Wholesale Categories
             </h3>
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
               {CATEGORIES.map((cat) => (
                 <li key={cat.slug}>
                   <Link
                     href={`/market/category/${cat.slug}`}
-                    className="text-xs sm:text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
+                    className="text-xs text-[#64748b] transition-colors hover:text-[#6366f1]"
                   >
                     Wholesale {cat.name}
                   </Link>
