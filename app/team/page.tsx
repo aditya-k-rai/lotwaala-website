@@ -41,8 +41,19 @@ const teamSchema = {
       "@type": "Person",
       name: "Anurag Sharma",
       jobTitle: "Founder & Chief Executive Officer",
+      sameAs: ["https://www.linkedin.com/in/anurag-sharma-8997551b/"],
       description:
         "Anurag Sharma founded Lotwaala in 2025 after 15+ years across global sales, real estate, and international trade in India and Dubai. He previously served as Sales Manager at Octagon International (Dubai) and operates Colour Tribe clothing brand.",
+      worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
+    },
+    {
+      "@type": "Person",
+      name: "Manisha Parashar",
+      jobTitle: "Co-Founder & Head of HR",
+      url: "https://www.linkedin.com/in/manisha-parashar-217302100/",
+      sameAs: ["https://www.linkedin.com/in/manisha-parashar-217302100/"],
+      description:
+        "Manisha Parashar is Co-Founder at Lotwaala with 8+ years of experience in recruitment management, global hiring, corporate HR administration, and organizational operations across India, Dubai, US, and UK markets.",
       worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
     },
     {
@@ -114,6 +125,28 @@ const LEADERSHIP = [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/anurag-sharma-8997551b/", platform: "linkedin" },
     ],
     badge: "Founder",
+  },
+  {
+    name: "Manisha Parashar",
+    role: "Co-Founder & Head of HR",
+    department: "Leadership & HR Operations",
+    initials: "MP",
+    gradient: "from-[#ec4899] via-[#a855f7] to-[#6366f1]",
+    image: "/Manisha Parashar.jpeg",
+    bio: "Manisha Parashar is Co-Founder at Lotwaala, bringing 8+ years of global leadership in recruitment management, corporate HR administration, and talent acquisition across India, Dubai, US, and UK markets. Holding an MBA in HR (A+ Grade) from Subharti University, she specializes in end-to-end recruitment pipelines, CTC structuring, and organizational engagement. Manisha maintains a community of over 34,900+ followers on LinkedIn with 99+ verified endorsements in HR Management.",
+    highlights: [
+      "Co-Founder, Lotwaala — Leading HR Operations & Talent Acquisition Strategy",
+      "8+ years of professional HR experience across India, Dubai (UAE), US & UK markets",
+      "34,900+ LinkedIn Followers & 99+ Verified HR Endorsements",
+      "Master of Business Administration (MBA - HR, A+ Grade, Subharti University)",
+      "Former Talent Acquisition Specialist (IMS Group) & HR Admin (Mahaswetha Trading LLC, Dubai)",
+      "Bachelor of Commerce (B.Com, A+ Grade, MJP Rohilkhand University)",
+      "DOEACC 'O' Level Computer Certified Professional",
+    ],
+    links: [
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/manisha-parashar-217302100/", platform: "linkedin" },
+    ],
+    badge: "Co-Founder",
   },
 ];
 
@@ -465,7 +498,7 @@ export default function TeamPage() {
             <span className="text-2xl">👑</span>
             <h2 id="leadership-heading" className="text-2xl font-extrabold text-[#0f172a]">Leadership</h2>
           </div>
-          <div className="mt-6">
+          <div className="mt-6 grid gap-8 sm:grid-cols-2">
             {LEADERSHIP.map((m) => (
               <TeamCard key={m.name} member={m} />
             ))}
