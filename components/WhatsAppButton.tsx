@@ -1,10 +1,10 @@
-import { PHONE_NUMBER } from "@/lib/constants";
+import { WHATSAPP_PHONE_NUMBER } from "@/lib/constants";
 import WhatsAppButtonClient from "./WhatsAppButtonClient";
 
 const WHATSAPP_MESSAGE = encodeURIComponent(
   "Hi! I'm interested in buying wholesale products on the Lotwaala app."
 );
-const WHATSAPP_HREF = `https://wa.me/91${PHONE_NUMBER}?text=${WHATSAPP_MESSAGE}`;
+const WHATSAPP_HREF = `https://wa.me/91${WHATSAPP_PHONE_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
 export default function WhatsAppButton() {
   return (

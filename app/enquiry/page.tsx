@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { generatePageMetadata } from "@/lib/seo";
-import { SITE_NAME, SITE_URL, PHONE_NUMBER, PLAY_STORE_URL } from "@/lib/constants";
+import {
+  SITE_NAME,
+  SITE_URL,
+  PRIMARY_PHONE_NUMBER,
+  PRIMARY_PHONE_DISPLAY,
+  WHATSAPP_PHONE_NUMBER,
+  WHATSAPP_PHONE_DISPLAY,
+  COMPANY_ADDRESS,
+  PLAY_STORE_URL,
+} from "@/lib/constants";
 import JsonLd from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -13,7 +22,7 @@ import { EnquiryFormClient } from "./EnquiryFormClient";
 export const metadata: Metadata = generatePageMetadata({
   title: "Business Enquiry — Partner with Lotwaala | India's #1 Wholesale B2B Marketplace",
   description:
-    "Partner with Lotwaala — India's #1 zero-commission B2B dead stock and wholesale marketplace. Submit a business enquiry to become a seller, bulk buyer, brand partner, or media collaborator. Operated by Surplus Saga Pvt. Ltd., Noida.",
+    "Partner with Lotwaala — India's #1 zero-commission B2B dead stock and wholesale marketplace. Submit a business enquiry to become a seller, bulk buyer, brand partner, or media collaborator. Operated by Surplus Saga Pvt. Ltd., Greater Noida.",
   path: "/enquiry",
   keywords: [
     "Lotwaala business enquiry",
@@ -44,16 +53,16 @@ const contactSchema = {
   mainEntity: {
     "@type": "LocalBusiness",
     name: "Lotwaala — Surplus Saga Pvt. Ltd.",
-    telephone: `+91-${PHONE_NUMBER}`,
+    telephone: `+91-${PRIMARY_PHONE_NUMBER}`,
     email: "support@lotwaala.com",
     url: SITE_URL,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "G-07B, C003, Sector 4, Galaxy Blue Sapphire Plaza, Nepz Post Office",
-      addressLocality: "Noida",
-      addressRegion: "Uttar Pradesh",
-      postalCode: "201305",
-      addressCountry: "IN",
+      streetAddress: COMPANY_ADDRESS.streetAddress,
+      addressLocality: COMPANY_ADDRESS.addressLocality,
+      addressRegion: COMPANY_ADDRESS.addressRegion,
+      postalCode: COMPANY_ADDRESS.postalCode,
+      addressCountry: COMPANY_ADDRESS.addressCountry,
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -237,13 +246,25 @@ export default function EnquiryPage() {
                   <h3 className="font-bold text-[#0f172a]">Direct Contact</h3>
                   <div className="mt-4 space-y-3">
                     <a
-                      href={`tel:+91${PHONE_NUMBER}`}
+                      href={`tel:${PRIMARY_PHONE_NUMBER}`}
                       className="flex items-center gap-3 text-sm text-[#475569] hover:text-[#6366f1] transition-colors"
                     >
                       <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#6366f1]/10 text-[#6366f1]">📞</span>
                       <div>
-                        <p className="font-semibold text-[#0f172a]">+91 {PHONE_NUMBER}</p>
-                        <p className="text-xs text-[#94a3b8]">Call or WhatsApp</p>
+                        <p className="font-semibold text-[#0f172a]">{PRIMARY_PHONE_DISPLAY}</p>
+                        <p className="text-xs text-[#94a3b8]">Primary Calling Line</p>
+                      </div>
+                    </a>
+                    <a
+                      href={`https://wa.me/91${WHATSAPP_PHONE_NUMBER}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 text-sm text-[#475569] hover:text-[#10b981] transition-colors"
+                    >
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#10b981]/10 text-[#10b981]">💬</span>
+                      <div>
+                        <p className="font-semibold text-[#0f172a]">{WHATSAPP_PHONE_DISPLAY}</p>
+                        <p className="text-xs text-[#94a3b8]">Secondary WhatsApp Support</p>
                       </div>
                     </a>
                     <a
@@ -262,9 +283,8 @@ export default function EnquiryPage() {
                         <p className="font-semibold text-[#0f172a] text-sm">Registered Office</p>
                         <p className="text-xs text-[#64748b] leading-relaxed">
                           Surplus Saga Pvt. Ltd.<br />
-                          G-07B C003, Sector 4,<br />
-                          Galaxy Blue Sapphire Plaza,<br />
-                          Noida, UP 201305
+                          KH 58, Tigri Gol Chakkar, Plot no 2,<br />
+                          Taj Hwy, Greater Noida, UP 201009
                         </p>
                       </div>
                     </div>
@@ -328,12 +348,12 @@ export default function EnquiryPage() {
               within <strong className="text-[#0f172a]">24 business hours</strong> (Monday–Saturday,
               9 AM – 6 PM IST). For urgent matters, reach us directly via WhatsApp at{" "}
               <a
-                href={`https://wa.me/91${PHONE_NUMBER}`}
+                href={`https://wa.me/91${WHATSAPP_PHONE_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-[#6366f1] hover:underline"
               >
-                +91 {PHONE_NUMBER}
+                {WHATSAPP_PHONE_DISPLAY}
               </a>
               .
             </p>

@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { generatePageMetadata } from "@/lib/seo";
-import { SITE_NAME, SITE_URL, PHONE_NUMBER } from "@/lib/constants";
+import {
+  SITE_NAME,
+  SITE_URL,
+  PRIMARY_PHONE_NUMBER,
+  PRIMARY_PHONE_DISPLAY,
+  WHATSAPP_PHONE_NUMBER,
+  WHATSAPP_PHONE_DISPLAY,
+  COMPANY_ADDRESS,
+} from "@/lib/constants";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -24,14 +32,14 @@ import {
 export const metadata: Metadata = generatePageMetadata({
   title: "Contact Lotwaala — 24/7 Wholesale Support & Inquiries",
   description:
-    "Get in touch with Lotwaala. Contact our dedicated wholesale marketplace support team via phone, WhatsApp, email, or visit our Noida headquarters. Serving 120+ cities across India.",
+    "Get in touch with Lotwaala. Contact our dedicated wholesale marketplace support team via phone (094296 90230), WhatsApp (+91 87969 11891), email, or visit our Greater Noida headquarters. Serving 120+ cities across India.",
   path: "/contact",
   keywords: [
     "Contact Lotwaala",
     "Lotwaala customer support",
     "wholesale support India",
     "Lotwaala phone number",
-    "Lotwaala Noida address",
+    "Lotwaala Greater Noida address",
     "wholesale app customer care",
     "Lotwaala WhatsApp support",
     "Surplus Saga Pvt Ltd contact",
@@ -48,16 +56,16 @@ const contactPageSchema = {
   mainEntity: {
     "@type": "LocalBusiness",
     name: `${SITE_NAME} — Surplus Saga Pvt. Ltd.`,
-    telephone: `+91-${PHONE_NUMBER}`,
+    telephone: `+91-${PRIMARY_PHONE_NUMBER}`,
     email: "support@lotwaala.com",
     url: SITE_URL,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "G-07B C003, Sector 4, Galaxy Blue Sapphire Plaza",
-      addressLocality: "Noida",
-      addressRegion: "Uttar Pradesh",
-      postalCode: "201305",
-      addressCountry: "IN",
+      streetAddress: COMPANY_ADDRESS.streetAddress,
+      addressLocality: COMPANY_ADDRESS.addressLocality,
+      addressRegion: COMPANY_ADDRESS.addressRegion,
+      postalCode: COMPANY_ADDRESS.postalCode,
+      addressCountry: COMPANY_ADDRESS.addressCountry,
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -80,9 +88,9 @@ const breadcrumbSchema = {
 const CONTACT_CHANNELS = [
   {
     icon: <Phone className="h-6 w-6 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />,
-    title: "Call Us Directly",
-    detail: `+91 ${PHONE_NUMBER}`,
-    action: `tel:+91${PHONE_NUMBER}`,
+    title: "Call Us (Primary)",
+    detail: PRIMARY_PHONE_DISPLAY,
+    action: `tel:${PRIMARY_PHONE_NUMBER}`,
     btnText: "Call Now",
     gradient: "from-[#6366f1] to-[#818cf8]",
     shadow: "shadow-indigo-500/25 group-hover:shadow-indigo-500/50",
@@ -91,9 +99,9 @@ const CONTACT_CHANNELS = [
   },
   {
     icon: <MessageCircle className="h-6 w-6 transition-transform duration-300 group-hover:scale-115 group-hover:-translate-y-0.5" />,
-    title: "WhatsApp Chat Support",
-    detail: "Fastest response via WhatsApp",
-    action: `https://wa.me/91${PHONE_NUMBER}?text=${encodeURIComponent("Hello Lotwaala! I would like to get in touch with your team.")}`,
+    title: "WhatsApp (Secondary)",
+    detail: `${WHATSAPP_PHONE_DISPLAY} (Chat)`,
+    action: `https://wa.me/91${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent("Hello Lotwaala! I would like to get in touch with your team on WhatsApp.")}`,
     btnText: "Open WhatsApp Chat",
     gradient: "from-[#10b981] to-[#34d399]",
     shadow: "shadow-emerald-500/25 group-hover:shadow-emerald-500/50",
@@ -114,20 +122,20 @@ const CONTACT_CHANNELS = [
   {
     icon: <Building2 className="h-6 w-6 transition-transform duration-300 group-hover:scale-115 group-hover:-rotate-6" />,
     title: "Corporate Headquarters",
-    detail: "Galaxy Blue Sapphire Plaza, Sector 4, Noida",
+    detail: "KH 58, Tigri Gol Chakkar, Taj Hwy, Greater Noida",
     action: "https://share.google/Nrf7hJo1fiEvQUbcS",
     btnText: "Open on Google Maps",
     gradient: "from-[#f59e0b] to-[#fbbf24]",
     shadow: "shadow-amber-500/25 group-hover:shadow-amber-500/50",
     glow: "rgba(245,158,11,0.3)",
-    tag: "Noida, UP 201305",
+    tag: "Greater Noida, UP 201009",
   },
 ];
 
 const CONTACT_FAQS = [
   {
     q: "How can I contact Lotwaala customer care?",
-    a: `You can reach Lotwaala via phone call at +91 ${PHONE_NUMBER}, direct WhatsApp chat at +91 ${PHONE_NUMBER}, or via email at support@lotwaala.com. Our support desk operates Monday through Saturday, 9:00 AM to 6:00 PM IST.`,
+    a: `You can reach Lotwaala via direct call on our Primary line ${PRIMARY_PHONE_DISPLAY}, or connect on our Secondary WhatsApp support line ${WHATSAPP_PHONE_DISPLAY}, or email us at support@lotwaala.com. Our support desk operates Monday through Saturday, 9:00 AM to 6:00 PM IST.`,
   },
   {
     q: "How does Lotwaala handle order deliveries?",
@@ -139,7 +147,7 @@ const CONTACT_FAQS = [
   },
   {
     q: "Where is Lotwaala's physical office located?",
-    a: "Our registered corporate office is located at Surplus Saga Pvt. Ltd. (Lotwaala), G-07B C003, Sector 4, Galaxy Blue Sapphire Plaza, Noida, Uttar Pradesh 201305.",
+    a: `Our registered corporate office is located at Surplus Saga Pvt. Ltd. (Lotwaala), ${COMPANY_ADDRESS.fullAddress}.`,
   },
   {
     q: "Is payment on Lotwaala safe?",
@@ -277,9 +285,11 @@ export default function ContactPage() {
                         Surplus Saga Private Limited (Lotwaala)
                       </h4>
                       <p className="mt-1.5 text-xs leading-relaxed text-[#64748b]">
-                        G-07B C003, Sector 4, Galaxy Blue Sapphire Plaza,
+                        KH 58, Tigri Gol Chakkar, Plot no 2, Taj Hwy,
                         <br />
-                        Noida, Uttar Pradesh — 201305, India
+                        Biharipura, Raghunathpuri, Nai Basti Dundahera,
+                        <br />
+                        Chipyana Khurd Urf Tigri, Greater Noida, UP 201009
                       </p>
                       <a
                         href="https://share.google/Nrf7hJo1fiEvQUbcS"

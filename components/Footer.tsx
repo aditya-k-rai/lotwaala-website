@@ -37,8 +37,9 @@ export default function Footer() {
               partners.
             </p>
             <p className="mt-3 text-xs leading-relaxed text-[#64748b]">
-              Surplus Saga Pvt. Ltd. (Lotwaala), G-07B C003, Sector 4,
-              Galaxy Blue Sapphire Plaza, Noida, UP 201305
+              Surplus Saga Pvt. Ltd. (Lotwaala), KH 58, Tigri Gol Chakkar,
+              Plot no 2, Taj Hwy, Biharipura, Raghunathpuri, Nai Basti Dundahera,
+              Chipyana Khurd Urf Tigri, Greater Noida, UP 201009
             </p>
           </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PHONE_NUMBER } from "@/lib/constants";
+import { WHATSAPP_PHONE_NUMBER } from "@/lib/constants";
 
 const ENQUIRY_TYPES = ["Become a Seller", "Bulk Buyer", "Brand Partnership", "Media / PR", "Other"];
 
@@ -46,7 +46,7 @@ export function EnquiryFormClient() {
     const whatsappText = encodeURIComponent(
       `*Lotwaala Business Enquiry*\n\nType: ${selectedType}\nName: ${name}\nCompany: ${company}\nPhone: ${phone}\nEmail: ${email}\nCity: ${city}\nBusiness Type: ${businessType}\nMonthly Volume: ${volume}\n\nMessage:\n${message}`
     );
-    const whatsappUrl = `https://wa.me/91${PHONE_NUMBER}?text=${whatsappText}`;
+    const whatsappUrl = `https://wa.me/91${WHATSAPP_PHONE_NUMBER}?text=${whatsappText}`;
 
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     setSubmitted(true);

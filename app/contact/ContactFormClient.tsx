@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Send, CheckCircle2, MessageSquare, PhoneCall, Loader2, ArrowRight } from "lucide-react";
-import { PHONE_NUMBER } from "@/lib/constants";
+import { WHATSAPP_PHONE_NUMBER } from "@/lib/constants";
 
 const INQUIRY_CATEGORIES = [
   { value: "buyer-support", label: "Wholesale Buyer Support" },
@@ -72,7 +72,7 @@ export default function ContactFormClient() {
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href={`https://wa.me/91${PHONE_NUMBER}?text=${whatsappMessage}`}
+              href={`https://wa.me/91${WHATSAPP_PHONE_NUMBER}?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3 text-sm font-bold text-white shadow-md transition-all hover:bg-[#20ba59] sm:w-auto"
@@ -230,7 +230,7 @@ export default function ContactFormClient() {
             </button>
 
             <a
-              href={`https://wa.me/91${PHONE_NUMBER}?text=${encodeURIComponent("Hi! I have an inquiry for Lotwaala customer support.")}`}
+              href={`https://wa.me/91${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent("Hi! I have an inquiry for Lotwaala customer support.")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-xs font-semibold text-[#10b981] hover:underline"

@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { generatePageMetadata } from "@/lib/seo";
-import { SITE_NAME, SITE_URL, PHONE_NUMBER, PLAY_STORE_URL } from "@/lib/constants";
+import {
+  SITE_NAME,
+  SITE_URL,
+  PRIMARY_PHONE_NUMBER,
+  COMPANY_ADDRESS,
+  PLAY_STORE_URL,
+} from "@/lib/constants";
 import JsonLd from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -59,15 +65,15 @@ const organizationSchema = {
   },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "G-07B, C003, Sector 4, Galaxy Blue Sapphire Plaza, Nepz Post Office",
-    addressLocality: "Noida",
-    addressRegion: "Uttar Pradesh",
-    postalCode: "201305",
-    addressCountry: "IN",
+    streetAddress: COMPANY_ADDRESS.streetAddress,
+    addressLocality: COMPANY_ADDRESS.addressLocality,
+    addressRegion: COMPANY_ADDRESS.addressRegion,
+    postalCode: COMPANY_ADDRESS.postalCode,
+    addressCountry: COMPANY_ADDRESS.addressCountry,
   },
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: `+91-${PHONE_NUMBER}`,
+    telephone: `+91-${PRIMARY_PHONE_NUMBER}`,
     contactType: "customer support",
     availableLanguage: ["English", "Hindi"],
     areaServed: "IN",
@@ -91,15 +97,15 @@ const localBusinessSchema = {
   name: "Lotwaala — Wholesale Marketplace",
   image: `${SITE_URL}/logo.png`,
   url: SITE_URL,
-  telephone: `+91-${PHONE_NUMBER}`,
+  telephone: `+91-${PRIMARY_PHONE_NUMBER}`,
   email: "support@lotwaala.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "G-07B, C003, Sector 4, Galaxy Blue Sapphire Plaza",
-    addressLocality: "Noida",
-    addressRegion: "Uttar Pradesh",
-    postalCode: "201305",
-    addressCountry: "IN",
+    streetAddress: COMPANY_ADDRESS.streetAddress,
+    addressLocality: COMPANY_ADDRESS.addressLocality,
+    addressRegion: COMPANY_ADDRESS.addressRegion,
+    postalCode: COMPANY_ADDRESS.postalCode,
+    addressCountry: COMPANY_ADDRESS.addressCountry,
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",

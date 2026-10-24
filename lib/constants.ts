@@ -9,10 +9,24 @@ export const SITE_TAGLINE =
 export const SITE_DESCRIPTION =
   "Buy wholesale products online in India's #1 wholesale app. Connect with verified wholesalers in 120+ cities in India. Download free for Android & iOS.";
 
-export const PHONE_NUMBER = "9266402725";
+export const PRIMARY_PHONE_NUMBER = "9429690230";
+export const PRIMARY_PHONE_DISPLAY = "094296 90230";
+export const WHATSAPP_PHONE_NUMBER = "8796911891";
+export const WHATSAPP_PHONE_DISPLAY = "+91 87969 11891";
+export const PHONE_NUMBER = PRIMARY_PHONE_NUMBER;
+
+export const COMPANY_ADDRESS = {
+  streetAddress: "KH 58, Tigri Gol Chakkar, Plot no 2, Taj Hwy, Biharipura, Raghunathpuri, Nai Basti Dundahera, Chipyana Khurd Urf Tigri",
+  addressLocality: "Greater Noida",
+  addressRegion: "Uttar Pradesh",
+  postalCode: "201009",
+  addressCountry: "IN",
+  fullAddress: "KH 58, Tigri Gol Chakkar, Plot no 2, Taj Hwy, Biharipura, Raghunathpuri, Nai Basti Dundahera, Chipyana Khurd Urf Tigri, Greater Noida, Uttar Pradesh 201009",
+};
+
 export const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.lotwallaim.app";
 export const APP_STORE_URL = ""; // Replace with the real App Store link when available.
-export const IOS_APP_INTEREST_URL = `https://wa.me/91${PHONE_NUMBER}?text=${encodeURIComponent(
+export const IOS_APP_INTEREST_URL = `https://wa.me/91${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent(
   "Hi! I'm interested in the Lotwaala iOS app. Please let me know when it's available."
 )}`;
 
