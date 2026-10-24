@@ -10,16 +10,30 @@ export default function ConsentBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
+    const show = () => {
       try {
         const stored = window.localStorage.getItem(STORAGE_KEY);
-        setVisible(stored !== "granted" && stored !== "denied");
+        if (stored !== "granted" && stored !== "denied") {
+          setVisible(true);
+        }
       } catch {
         setVisible(true);
       }
-    }, 2000);
+    };
 
-    return () => window.clearTimeout(timer);
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      const win = window as unknown as {
+        requestIdleCallback: (cb: () => void, opts: { timeout: number }) => number;
+        cancelIdleCallback: (id: number) => void;
+      };
+      const handle = win.requestIdleCallback(show, { timeout: 4500 });
+      return () => {
+        if (win.cancelIdleCallback) win.cancelIdleCallback(handle);
+      };
+    }
+
+    const timer = setTimeout(show, 4500);
+    return () => clearTimeout(timer);
   }, []);
 
   const handle = (granted: boolean) => {

@@ -46,7 +46,6 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    updateProgress(); // initial
 
     return () => {
       window.removeEventListener("scroll", handleScroll);

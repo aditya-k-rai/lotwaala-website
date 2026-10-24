@@ -21,7 +21,7 @@ const TOP_CATEGORIES = CATEGORIES.slice(0, 10);
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#e2e8f0] bg-[#fafbff]">
+    <footer className="border-t border-[#e2e8f0] bg-[#fafbff] cv-auto">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         {/* ── Main Footer Grid — 4 Balanced Columns ── */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

@@ -404,6 +404,12 @@ body {
   }
 }
 
+/* ── Content Visibility Optimization for Below-the-Fold ── */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
 /* ── Developer page — photo ring animations ── */
 @keyframes ring-spin {
   from { transform: rotate(0deg); }

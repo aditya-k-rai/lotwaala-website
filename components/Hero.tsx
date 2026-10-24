@@ -27,14 +27,14 @@ export default function Hero() {
           {/* ── Left column: Copy ── */}
           <div className="text-center lg:text-left">
             {/* Badge */}
-            <div className="animate-fade-in-up inline-flex items-center gap-2 rounded-full border border-[#6366f1]/20 bg-[#6366f1]/10 px-4 py-2 text-sm font-semibold text-[#a5b4fc] shadow-sm backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#6366f1]/20 bg-[#6366f1]/10 px-4 py-2 text-sm font-semibold text-[#a5b4fc] shadow-sm backdrop-blur-sm">
               <Star className="h-4 w-4 fill-[#fbbf24] text-[#fbbf24] animate-bounce-subtle" />
               <span>Rated 4.8 on Play Store</span>
               <Sparkles className="h-3.5 w-3.5 text-[#fbbf24]" />
             </div>
 
-            {/* Headline */}
-            <h1 className="mt-8 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem] animate-fade-in-up delay-100">
+            {/* Headline — instantaneous LCP paint */}
+            <h1 className="mt-8 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]">
               Buy{" "}
               <span className="gradient-text-light">Wholesale Products Online</span>{" "}
               in India
@@ -42,22 +42,22 @@ export default function Hero() {
               From 120+ Cities in India — Free App
             </h1>
 
-            <p className="mt-6 text-lg leading-relaxed text-white/50 sm:text-xl lg:max-w-lg animate-fade-in-up delay-200">
-              India&apos;s #1 <strong className="text-white/80">wholesale products marketplace app</strong>. Connect with verified wholesalers in <strong className="text-white/80">Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Pune, Kolkata, Ahmedabad, Surat, Jaipur</strong> and 110+ more cities in India. Browse <strong className="text-white/80">100,000+ bulk inventory items</strong>, negotiate wholesale prices, and close deals — all from your phone. Delivery is supported in-app through our Big-Ship tie-up and other major delivery partners for transportation across India.
+            <p className="mt-6 text-lg leading-relaxed text-white/70 sm:text-xl lg:max-w-lg">
+              India&apos;s #1 <strong className="text-white">wholesale products marketplace app</strong>. Connect with verified wholesalers in <strong className="text-white">Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Pune, Kolkata, Ahmedabad, Surat, Jaipur</strong> and 110+ more cities in India. Browse <strong className="text-white">100,000+ bulk inventory items</strong>, negotiate wholesale prices, and close deals — all from your phone. Delivery is supported in-app through our Big-Ship tie-up and other major delivery partners for transportation across India.
             </p>
 
             {/* Download buttons — client component for onClick tracking */}
             <HeroButtons />
 
             {/* Trust line */}
-            <p className="mt-6 text-sm text-white/30 animate-fade-in-up delay-400">
+            <p className="mt-6 text-sm text-white/50">
               Free download &middot; No credit card required &middot; 50K+
               businesses trust Lotwaala
             </p>
           </div>
 
-          {/* ── Right column: Phone Mockup ── */}
-          <div className="flex justify-center lg:justify-end animate-fade-in-right delay-300">
+          {/* ── Right column: Phone Mockup — immediate paint ── */}
+          <div className="flex justify-center lg:justify-end">
             <PhoneMockup />
           </div>
         </div>

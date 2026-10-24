@@ -14,18 +14,18 @@ import { SITE_NAME, SITE_URL, CATEGORIES, CITIES, CITY_SEO_DATA } from "@/lib/co
 import JsonLd from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import FeatureGrid from "@/components/FeatureGrid";
-import MarketExplorer from "@/components/MarketExplorer";
-import CategoryBrowser from "@/components/CategoryBrowser";
 import Footer from "@/components/Footer";
 
 // Below-fold components: dynamic import defers client JS hydration.
-// ssr: true (default) keeps full HTML for SEO crawlers.
-const AppShowcase = dynamic(() => import("@/components/AppShowcase"));
-const HowItWorks = dynamic(() => import("@/components/HowItWorks"));
-const FAQSection = dynamic(() => import("@/components/FAQSection"));
-const DownloadCTA = dynamic(() => import("@/components/DownloadCTA"));
-const PopularSearches = dynamic(() => import("@/components/PopularSearches"));
+// ssr: true keeps full server-rendered HTML for SEO crawlers while freeing initial main-thread.
+const FeatureGrid = dynamic(() => import("@/components/FeatureGrid"), { ssr: true });
+const MarketExplorer = dynamic(() => import("@/components/MarketExplorer"), { ssr: true });
+const CategoryBrowser = dynamic(() => import("@/components/CategoryBrowser"), { ssr: true });
+const AppShowcase = dynamic(() => import("@/components/AppShowcase"), { ssr: true });
+const HowItWorks = dynamic(() => import("@/components/HowItWorks"), { ssr: true });
+const FAQSection = dynamic(() => import("@/components/FAQSection"), { ssr: true });
+const DownloadCTA = dynamic(() => import("@/components/DownloadCTA"), { ssr: true });
+const PopularSearches = dynamic(() => import("@/components/PopularSearches"), { ssr: true });
 
 // ─── SEO Metadata ────────────────────────────────────────────────────────────
 
@@ -143,7 +143,9 @@ export default function Home() {
         {/* Divider */}
         <div className="section-divider" />
 
-        <FeatureGrid />
+        <div className="cv-auto">
+          <FeatureGrid />
+        </div>
         <section className="bg-white py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
@@ -187,24 +189,38 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <MarketExplorer />
-        <CategoryBrowser />
-        <AppShowcase />
-        <HowItWorks />
+        <div className="cv-auto">
+          <MarketExplorer />
+        </div>
+        <div className="cv-auto">
+          <CategoryBrowser />
+        </div>
+        <div className="cv-auto">
+          <AppShowcase />
+        </div>
+        <div className="cv-auto">
+          <HowItWorks />
+        </div>
 
         {/* Wholesale Products keyword cluster — internal links boost ranking */}
-        <PopularSearches
-          title="Popular Wholesale Products Searches"
-          searches={WHOLESALE_PRODUCTS_SEARCHES}
-        />
+        <div className="cv-auto">
+          <PopularSearches
+            title="Popular Wholesale Products Searches"
+            searches={WHOLESALE_PRODUCTS_SEARCHES}
+          />
+        </div>
 
-        <FAQSection
-          title="Wholesale Products on Lotwaala — Everything You Need to Know"
-          subtitle="Common questions about buying wholesale products online in India"
-          faqs={HOME_FAQS}
-        />
+        <div className="cv-auto">
+          <FAQSection
+            title="Wholesale Products on Lotwaala — Everything You Need to Know"
+            subtitle="Common questions about buying wholesale products online in India"
+            faqs={HOME_FAQS}
+          />
+        </div>
 
-        <DownloadCTA />
+        <div className="cv-auto">
+          <DownloadCTA />
+        </div>
       </main>
 
       <Footer />

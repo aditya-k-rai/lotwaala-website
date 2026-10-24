@@ -48,7 +48,7 @@ export default function PhoneMockup() {
             <div
               key={screenshot.src}
               className={`absolute inset-0 phone-slide-${i + 1}`}
-              style={{ opacity: 0 }}
+              style={{ opacity: i === 0 ? 1 : 0 }}
             >
               <Image
                 src={screenshot.src}
