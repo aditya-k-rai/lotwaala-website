@@ -184,21 +184,23 @@ export default function CategoryBrowser() {
                 href={`/market/category/${cat.slug}`}
                 eventName="category_click"
                 eventParams={{ category_slug: cat.slug, source: "home_grid" }}
-                className={`group relative rounded-2xl bg-white p-6 transition-all duration-500 hover:-translate-y-2 animate-fade-in-up delay-${Math.min(i * 100, 800)}`}
+                className={`group relative rounded-2xl bg-white p-6 transition-all duration-300 hover:-translate-y-2 active:scale-[0.98] cursor-pointer animate-fade-in-up delay-${Math.min(i * 100, 800)}`}
                 style={{
                   border: '1px solid rgba(0,0,0,0.04)',
                   boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)',
                 }}
               >
                 {/* Hover glow */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ boxShadow: '0 8px 40px rgba(99,102,241,0.1), 0 0 0 1px rgba(99,102,241,0.08)' }} />
+                <div className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ boxShadow: '0 8px 40px rgba(99,102,241,0.12), 0 0 0 1px rgba(99,102,241,0.1)' }} />
 
                 <div className="relative">
-                  {/* Icon */}
+                  {/* Motion Icon with hover and click feedback */}
                   <div
-                    className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} text-white shadow-md transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg`}
+                    className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} text-white shadow-md transition-all duration-300 group-hover:scale-115 group-hover:-rotate-3 group-hover:shadow-xl active:scale-90 active:rotate-0`}
                   >
-                    {CATEGORY_ICONS[cat.slug] ?? <ShieldCheck className="h-6 w-6" />}
+                    <div className="transition-transform duration-300 group-hover:scale-110">
+                      {CATEGORY_ICONS[cat.slug] ?? <ShieldCheck className="h-6 w-6" />}
+                    </div>
                   </div>
 
                   {/* Content */}

@@ -79,39 +79,47 @@ const breadcrumbSchema = {
 
 const CONTACT_CHANNELS = [
   {
-    icon: <Phone className="h-6 w-6" />,
+    icon: <Phone className="h-6 w-6 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />,
     title: "Call Us Directly",
     detail: `+91 ${PHONE_NUMBER}`,
     action: `tel:+91${PHONE_NUMBER}`,
     btnText: "Call Now",
     gradient: "from-[#6366f1] to-[#818cf8]",
+    shadow: "shadow-indigo-500/25 group-hover:shadow-indigo-500/50",
+    glow: "rgba(99,102,241,0.3)",
     tag: "Mon-Sat, 9AM-6PM",
   },
   {
-    icon: <MessageCircle className="h-6 w-6" />,
+    icon: <MessageCircle className="h-6 w-6 transition-transform duration-300 group-hover:scale-115 group-hover:-translate-y-0.5" />,
     title: "WhatsApp Chat Support",
     detail: "Fastest response via WhatsApp",
     action: `https://wa.me/91${PHONE_NUMBER}?text=${encodeURIComponent("Hello Lotwaala! I would like to get in touch with your team.")}`,
     btnText: "Open WhatsApp Chat",
     gradient: "from-[#10b981] to-[#34d399]",
+    shadow: "shadow-emerald-500/25 group-hover:shadow-emerald-500/50",
+    glow: "rgba(16,185,129,0.3)",
     tag: "Average reply: < 15 mins",
   },
   {
-    icon: <Mail className="h-6 w-6" />,
+    icon: <Mail className="h-6 w-6 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110" />,
     title: "Official Email Support",
     detail: "support@lotwaala.com",
     action: "mailto:support@lotwaala.com",
     btnText: "Send Email",
     gradient: "from-[#ec4899] to-[#f472b6]",
+    shadow: "shadow-pink-500/25 group-hover:shadow-pink-500/50",
+    glow: "rgba(236,72,153,0.3)",
     tag: "Response in 24h",
   },
   {
-    icon: <Building2 className="h-6 w-6" />,
+    icon: <Building2 className="h-6 w-6 transition-transform duration-300 group-hover:scale-115 group-hover:-rotate-6" />,
     title: "Corporate Headquarters",
     detail: "Galaxy Blue Sapphire Plaza, Sector 4, Noida",
     action: "https://share.google/Nrf7hJo1fiEvQUbcS",
     btnText: "Open on Google Maps",
     gradient: "from-[#f59e0b] to-[#fbbf24]",
+    shadow: "shadow-amber-500/25 group-hover:shadow-amber-500/50",
+    glow: "rgba(245,158,11,0.3)",
     tag: "Noida, UP 201305",
   },
 ];
@@ -168,7 +176,7 @@ export default function ContactPage() {
 
             <div className="mx-auto max-w-3xl text-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#f59e0b]/25 bg-[#f59e0b]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#fbbf24]">
-                <Sparkles className="h-3.5 w-3.5" />
+                <Sparkles className="h-3.5 w-3.5 animate-spin-slow" />
                 <span>24/7 Wholesale Assistance</span>
               </div>
 
@@ -185,44 +193,55 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ── Quick Contact Channel Cards ── */}
+        {/* ── Quick Contact Channel Cards — Fully Clickable with Icon Motion Animations ── */}
         <section className="relative -mt-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {CONTACT_CHANNELS.map((channel, i) => (
-              <div
+              <a
                 key={channel.title}
-                className="group relative rounded-2xl border border-white/60 bg-white p-6 shadow-lg shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+                href={channel.action}
+                target={channel.action.startsWith("http") ? "_blank" : undefined}
+                rel={channel.action.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="group relative block rounded-2xl border border-white/80 bg-white p-6 shadow-lg shadow-indigo-500/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl active:scale-[0.97] cursor-pointer"
+                title={`${channel.title} — ${channel.btnText}`}
               >
-                <div className="flex items-center justify-between">
-                  <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${channel.gradient} text-white shadow-md`}
-                  >
-                    {channel.icon}
+                {/* Hover Glow Highlight */}
+                <div
+                  className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
+                  style={{
+                    boxShadow: `0 12px 35px ${channel.glow}`,
+                  }}
+                />
+
+                <div className="relative">
+                  <div className="flex items-center justify-between">
+                    {/* Motion Icon with link and click ripple effect */}
+                    <div
+                      className={`relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${channel.gradient} text-white shadow-md ${channel.shadow} transition-all duration-300 group-hover:scale-115 group-hover:-rotate-3 group-hover:shadow-xl active:scale-90 active:rotate-0`}
+                    >
+                      {channel.icon}
+                      {/* Pulse ring on hover */}
+                      <span className="absolute -inset-1 rounded-2xl bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </div>
+
+                    <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600 transition-colors group-hover:bg-indigo-50 group-hover:text-[#6366f1]">
+                      {channel.tag}
+                    </span>
                   </div>
-                  <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-600">
-                    {channel.tag}
-                  </span>
-                </div>
 
-                <h3 className="mt-4 text-base font-bold text-[#0f172a]">
-                  {channel.title}
-                </h3>
-                <p className="mt-1 text-xs text-[#64748b] font-medium leading-relaxed">
-                  {channel.detail}
-                </p>
+                  <h3 className="mt-4 text-base font-bold text-[#0f172a] transition-colors group-hover:text-[#6366f1]">
+                    {channel.title}
+                  </h3>
+                  <p className="mt-1 text-xs text-[#64748b] font-medium leading-relaxed">
+                    {channel.detail}
+                  </p>
 
-                <div className="mt-5">
-                  <a
-                    href={channel.action}
-                    target={channel.action.startsWith("http") ? "_blank" : undefined}
-                    rel={channel.action.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#6366f1] group-hover:text-[#4f46e5] group-hover:underline"
-                  >
+                  <div className="mt-5 flex items-center gap-1.5 text-xs font-bold text-[#6366f1] transition-all group-hover:translate-x-1 group-hover:text-[#4f46e5]">
                     <span>{channel.btnText}</span>
-                    <ExternalLink className="h-3 w-3" />
-                  </a>
+                    <ExternalLink className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </section>
