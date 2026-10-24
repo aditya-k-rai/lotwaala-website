@@ -8,10 +8,10 @@ export default function Hero() {
     <section className="relative overflow-hidden gradient-hero min-h-[90vh] flex items-center">
       {/* ── Animated background elements ── */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden hero-bg-container">
-        {/* Gradient orbs */}
-        <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-[#ff007f]/[0.15] blur-[100px] animate-blob mix-blend-screen" />
-        <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-[#7928ca]/[0.18] blur-[100px] animate-blob delay-400 mix-blend-screen" />
-        <div className="absolute top-1/4 left-1/3 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#00f0ff]/[0.15] blur-[100px] animate-blob delay-700 mix-blend-screen" />
+        {/* Gradient orbs — optimized for mobile GPU rasterization */}
+        <div className="absolute -top-40 -right-40 h-[400px] w-[400px] sm:h-[600px] sm:w-[600px] rounded-full bg-[#ff007f]/[0.15] blur-[50px] sm:blur-[100px] animate-blob mix-blend-screen" />
+        <div className="absolute -bottom-40 -left-40 h-[350px] w-[350px] sm:h-[500px] sm:w-[500px] rounded-full bg-[#7928ca]/[0.18] blur-[50px] sm:blur-[100px] animate-blob delay-400 mix-blend-screen" />
+        <div className="absolute top-1/4 left-1/3 h-[350px] w-[350px] sm:h-[500px] sm:w-[500px] -translate-x-1/2 rounded-full bg-[#00f0ff]/[0.15] blur-[50px] sm:blur-[100px] animate-blob delay-700 mix-blend-screen" />
 
         {/* Dot grid pattern */}
         <div className="absolute inset-0 dot-pattern opacity-30 mix-blend-overlay" />

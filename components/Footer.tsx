@@ -77,7 +77,7 @@ export default function Footer() {
 
           {/* Col 2: Company Links */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#4338ca]">
               Company &amp; Platform
             </h3>
             <ul className="mt-4 space-y-2">
@@ -96,7 +96,7 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-xs sm:text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
+                    className="text-xs sm:text-sm text-[#475569] transition-colors hover:text-[#4338ca]"
                   >
                     {item.label}
                   </Link>
@@ -108,7 +108,7 @@ export default function Footer() {
           {/* Col 3: Popular Wholesale Categories */}
           <div>
             <div className="flex items-center justify-between">
-              <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+              <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#4338ca]">
                 Top Categories
               </h3>
             </div>
@@ -117,7 +117,7 @@ export default function Footer() {
                 <li key={cat.slug}>
                   <Link
                     href={`/market/category/${cat.slug}`}
-                    className="text-xs sm:text-sm text-[#64748b] transition-colors hover:text-[#6366f1] truncate block"
+                    className="text-xs sm:text-sm text-[#475569] transition-colors hover:text-[#4338ca] truncate block"
                   >
                     Wholesale {cat.name}
                   </Link>
@@ -126,7 +126,7 @@ export default function Footer() {
               <li className="pt-1.5">
                 <a
                   href="#all-categories"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#6366f1] hover:text-[#4f46e5] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#4338ca] hover:text-[#312e81] transition-colors"
                 >
                   <span>View all 50+ categories</span>
                   <ArrowDown className="h-3.5 w-3.5" />
@@ -137,7 +137,7 @@ export default function Footer() {
 
           {/* Col 4: Festival Deals & Quick Links */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#4338ca]">
               Festival &amp; Seasonal Deals
             </h3>
             <ul className="mt-4 space-y-2">
@@ -145,7 +145,7 @@ export default function Footer() {
                 <li key={fest.slug}>
                   <Link
                     href={`/market/festival/${fest.slug}`}
-                    className="text-xs sm:text-sm text-[#64748b] transition-colors hover:text-[#6366f1]"
+                    className="text-xs sm:text-sm text-[#475569] transition-colors hover:text-[#4338ca]"
                   >
                     {fest.name} Wholesale
                   </Link>
@@ -154,10 +154,10 @@ export default function Footer() {
             </ul>
 
             <div className="mt-6 pt-5 border-t border-[#e2e8f0]">
-              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#4338ca]">
                 Mobile App
               </h4>
-              <p className="mt-2 text-xs text-[#64748b]">
+              <p className="mt-2 text-xs text-[#475569]">
                 Download Lotwaala free on Android &amp; iOS to buy wholesale goods anywhere.
               </p>
               <div className="mt-3">
@@ -165,7 +165,7 @@ export default function Footer() {
                   href={PLAY_STORE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#6366f1] hover:underline"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#4338ca] hover:underline"
                 >
                   <span>Google Play Store</span>
                   <ArrowRight className="h-3 w-3" />
@@ -178,10 +178,10 @@ export default function Footer() {
         {/* ── Wholesale Categories Directory — Full-Width Balanced Grid ── */}
         <div id="all-categories" className="mt-12 border-t border-[#e2e8f0] pt-8">
           <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#4338ca]">
               All Wholesale Categories (50+ Categories)
             </h3>
-            <span className="text-xs text-[#94a3b8]">Verified Pan-India B2B Wholesalers</span>
+            <span className="text-xs text-[#475569]">Verified Pan-India B2B Wholesalers</span>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-2.5 gap-x-4">
@@ -189,7 +189,7 @@ export default function Footer() {
               <Link
                 key={cat.slug}
                 href={`/market/category/${cat.slug}`}
-                className="text-xs text-[#64748b] transition-colors hover:text-[#6366f1] hover:underline truncate"
+                className="text-xs text-[#475569] transition-colors hover:text-[#4338ca] hover:underline truncate"
                 title={`Wholesale ${cat.name} Products`}
               >
                 Wholesale {cat.name}
@@ -201,10 +201,10 @@ export default function Footer() {
         {/* ── Wholesale Markets by City — Full-Width Balanced Grid ── */}
         <div className="mt-10 border-t border-[#e2e8f0] pt-8">
           <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#4338ca]">
               Wholesale Markets Across India (120+ Cities)
             </h3>
-            <span className="text-xs text-[#94a3b8]">Verified B2B Market Hubs</span>
+            <span className="text-xs text-[#475569]">Verified B2B Market Hubs</span>
           </div>
           
           {/* 4-column balanced grid on desktop, 2-column on mobile */}
@@ -213,7 +213,7 @@ export default function Footer() {
               <Link
                 key={city.slug}
                 href={`/market/${city.slug}`}
-                className="text-xs text-[#64748b] transition-colors hover:text-[#6366f1] hover:underline truncate"
+                className="text-xs text-[#475569] transition-colors hover:text-[#4338ca] hover:underline truncate"
                 title={`Wholesale Market in ${city.name}`}
               >
                 Wholesale Market in {city.name}
@@ -223,7 +223,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright bar */}
-        <div className="mt-10 border-t border-[#e2e8f0] pt-6 flex flex-col items-center justify-between gap-3 sm:flex-row text-xs text-[#94a3b8]">
+        <div className="mt-10 border-t border-[#e2e8f0] pt-6 flex flex-col items-center justify-between gap-3 sm:flex-row text-xs text-[#475569]">
           <p>
             &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
           </p>
@@ -239,10 +239,10 @@ export default function Footer() {
       {/* Developer Credit Bar */}
       <div className="bg-[#080e18] border-t border-white/5 py-2.5 px-3 sm:px-4">
         <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 font-[family-name:var(--font-inter)]">
-          <span className="text-white/40 text-[10px] sm:text-xs">Developed &amp; Marketed by</span>
+          <span className="text-white/75 text-[10px] sm:text-xs">Developed &amp; Marketed by</span>
           <Link
             href="/developer"
-            className="flex-shrink-0 rounded-full hover:scale-110 transition-transform duration-300"
+            className="flex-shrink-0 rounded-full hover:scale-110 transition-transform duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center p-1"
             title="Aditya Kumar Rai — Developer"
           >
             <Image
@@ -255,20 +255,20 @@ export default function Footer() {
           </Link>
           <Link
             href="/developer"
-            className="text-white/80 hover:text-[#fbbf24] transition-colors duration-300 text-[11px] sm:text-xs font-semibold tracking-wide"
+            className="text-white/90 hover:text-[#fbbf24] transition-colors duration-300 text-[11px] sm:text-xs font-semibold tracking-wide py-2"
             title="Visit Developer Page"
           >
             Aditya Kumar Rai
           </Link>
-          <span className="text-white/20">|</span>
+          <span className="text-white/30">|</span>
           <a
             href={DEVELOPER_LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Aditya Kumar Rai on LinkedIn"
-            className="text-white/40 hover:text-[#0A66C2] transition-colors duration-300"
+            className="text-white/75 hover:text-[#0A66C2] transition-colors duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-lg hover:bg-white/10"
           >
-            <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
           </a>
@@ -277,9 +277,9 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Aditya Kumar Rai Portfolio"
-            className="text-white/40 hover:text-[#6366f1] transition-colors duration-300"
+            className="text-white/75 hover:text-[#818cf8] transition-colors duration-300 min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-lg hover:bg-white/10"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
               <circle cx="12" cy="12" r="10" />
               <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
             </svg>

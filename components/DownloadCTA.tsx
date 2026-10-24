@@ -7,11 +7,11 @@ import TrackedLink from "./TrackedLink";
 export default function DownloadCTA() {
   return (
     <section className="relative overflow-hidden gradient-dark-mesh py-28 text-white">
-      {/* Animated background glows */}
+      {/* Animated background glows — optimized for smartphone GPUs */}
       <div className="pointer-events-none absolute inset-0 anim-container">
-        <div className="absolute left-1/4 top-0 h-[400px] w-[400px] rounded-full bg-[#6366f1]/15 blur-[120px] animate-blob" />
-        <div className="absolute bottom-0 right-1/4 h-[350px] w-[350px] rounded-full bg-[#a855f7]/10 blur-[120px] animate-blob delay-400" />
-        <div className="absolute left-1/2 top-1/2 h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#06b6d4]/8 blur-[100px] animate-blob delay-700" />
+        <div className="absolute left-1/4 top-0 h-[400px] w-[400px] rounded-full bg-[#6366f1]/15 blur-[50px] sm:blur-[120px] animate-blob" />
+        <div className="absolute bottom-0 right-1/4 h-[350px] w-[350px] rounded-full bg-[#a855f7]/10 blur-[50px] sm:blur-[120px] animate-blob delay-400" />
+        <div className="absolute left-1/2 top-1/2 h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#06b6d4]/8 blur-[40px] sm:blur-[100px] animate-blob delay-700" />
         <div className="absolute inset-0 dot-pattern opacity-10" />
       </div>
 
@@ -54,9 +54,9 @@ export default function DownloadCTA() {
         {/* App screenshots preview */}
         <div className="mt-10 flex items-center justify-center gap-4 animate-fade-in-up delay-300">
           {[
-            { src: "/screenshots/dashboard.png", alt: "Dashboard" },
-            { src: "/screenshots/explore.png", alt: "Explore Products" },
-            { src: "/screenshots/orders.png", alt: "Orders" },
+            { src: "/screenshots/dashboard.webp", alt: "Dashboard" },
+            { src: "/screenshots/explore.webp", alt: "Explore Products" },
+            { src: "/screenshots/orders.webp", alt: "Orders" },
           ].map((img, i) => (
             <div
               key={img.alt}

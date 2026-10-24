@@ -184,7 +184,7 @@ export default function CategoryBrowser() {
                 href={`/market/category/${cat.slug}`}
                 eventName="category_click"
                 eventParams={{ category_slug: cat.slug, source: "home_grid" }}
-                className={`group relative rounded-2xl bg-white p-6 transition-all duration-300 hover:-translate-y-2 active:scale-[0.98] cursor-pointer animate-fade-in-up delay-${Math.min(i * 100, 800)}`}
+                className={`group relative rounded-2xl bg-white p-5 sm:p-6 transition-all duration-300 hover:-translate-y-2 active:scale-[0.98] cursor-pointer animate-fade-in-up delay-${Math.min(i * 100, 800)}`}
                 style={{
                   border: '1px solid rgba(0,0,0,0.04)',
                   boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)',
@@ -196,23 +196,23 @@ export default function CategoryBrowser() {
                 <div className="relative">
                   {/* Motion Icon with hover and click feedback */}
                   <div
-                    className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} text-white shadow-md transition-all duration-300 group-hover:scale-115 group-hover:-rotate-3 group-hover:shadow-xl active:scale-90 active:rotate-0`}
+                    className={`flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${gradient} text-white shadow-md transition-all duration-300 group-hover:scale-115 group-hover:-rotate-3 group-hover:shadow-xl active:scale-90 active:rotate-0`}
                   >
                     <div className="transition-transform duration-300 group-hover:scale-110">
-                      {CATEGORY_ICONS[cat.slug] ?? <ShieldCheck className="h-6 w-6" />}
+                      {CATEGORY_ICONS[cat.slug] ?? <ShieldCheck className="h-5 w-5 sm:h-6 sm:w-6" />}
                     </div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="mt-4 text-base font-bold text-[#0f172a]">
+                  <h3 className="mt-3.5 sm:mt-4 text-base font-bold text-[#0f172a]">
                     Wholesale {cat.name} Products
                   </h3>
-                  <p className="mt-1.5 text-sm text-[#64748b] leading-relaxed">
+                  <p className="mt-1.5 text-xs sm:text-sm text-[#64748b] leading-relaxed">
                     {cat.description}
                   </p>
 
-                  {/* Link */}
-                  <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-[#6366f1] opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
+                  {/* Link — visible on mobile, hover-animated on desktop */}
+                  <div className="mt-3 sm:mt-4 flex items-center gap-1 text-xs sm:text-sm font-semibold text-[#6366f1] opacity-100 sm:opacity-0 transition-all duration-300 sm:group-hover:opacity-100 sm:group-hover:translate-x-1">
                     <span>Browse wholesale products</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </div>

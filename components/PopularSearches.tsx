@@ -15,7 +15,7 @@ export default function PopularSearches({
   return (
     <section className="py-12 bg-bg-subtle">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-2 text-sm font-bold text-[#94a3b8]">
+        <div className="flex items-center gap-2 text-sm font-bold text-[#475569]">
           <Search className="h-4 w-4" />
           <span>{title}</span>
         </div>

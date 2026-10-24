@@ -3,25 +3,25 @@ import { APP_SHOWCASE_IMAGE_SIZES, TINY_BLUR_DATA_URL } from "@/lib/image";
 
 const SCREENSHOTS = [
   {
-    src: "/screenshots/splash.png",
+    src: "/screenshots/splash.webp",
     alt: "Lotwaala App Setup — Getting started with your wholesale account",
     label: "Quick Setup",
     description: "Create your account and start browsing in under 60 seconds",
   },
   {
-    src: "/screenshots/explore.png",
+    src: "/screenshots/explore.webp",
     alt: "Lotwaala Explore Products — Browse wholesale listings with live inventory",
     label: "Explore Products",
     description: "Browse thousands of wholesale listings with real-time availability",
   },
   {
-    src: "/screenshots/dashboard.png",
+    src: "/screenshots/dashboard.webp",
     alt: "Lotwaala Dashboard — Track orders, revenue, and stock at a glance",
     label: "Seller Dashboard",
     description: "Track orders, revenue, and stock levels all in one place",
   },
   {
-    src: "/screenshots/orders.png",
+    src: "/screenshots/orders.webp",
     alt: "Lotwaala Orders — Manage wholesale orders and track transportation status",
     label: "Order Management",
     description: "Manage orders and supported delivery partner updates",

@@ -3,19 +3,19 @@ import { PHONE_SCREEN_SIZES, TINY_BLUR_DATA_URL } from "@/lib/image";
 
 const SCREENSHOTS = [
   {
-    src: "/screenshots/explore.png",
+    src: "/screenshots/explore.webp",
     alt: "Lotwaala App — Explore wholesale products with live inventory",
   },
   {
-    src: "/screenshots/dashboard.png",
+    src: "/screenshots/dashboard.webp",
     alt: "Lotwaala App — Seller dashboard with orders and revenue tracking",
   },
   {
-    src: "/screenshots/orders.png",
+    src: "/screenshots/orders.webp",
     alt: "Lotwaala App — Order management and delivery partner transportation tracking",
   },
   {
-    src: "/screenshots/splash.png",
+    src: "/screenshots/splash.webp",
     alt: "Lotwaala App — Quick account setup in seconds",
   },
 ];
@@ -23,9 +23,9 @@ const SCREENSHOTS = [
 export default function PhoneMockup() {
   return (
     <div className="relative animate-float">
-      {/* Multi-layer glow behind phone */}
-      <div className="absolute -inset-16 rounded-full bg-[#6366f1]/12 blur-[100px] animate-blob" />
-      <div className="absolute -inset-20 rounded-full bg-[#a855f7]/6 blur-[120px] animate-blob delay-400" />
+      {/* Multi-layer glow behind phone — optimized for mobile GPU */}
+      <div className="absolute -inset-16 rounded-full bg-[#6366f1]/12 blur-[40px] sm:blur-[100px] animate-blob" />
+      <div className="absolute -inset-20 rounded-full bg-[#a855f7]/6 blur-[50px] sm:blur-[120px] animate-blob delay-400" />
 
       {/* Phone frame */}
       <div className="relative w-[280px] rounded-[48px] phone-frame p-[14px] sm:w-[300px]">
@@ -55,7 +55,8 @@ export default function PhoneMockup() {
                 alt={screenshot.alt}
                 fill
                 className="object-cover object-top"
-                preload={i === 0}
+                priority={i === 0}
+                loading={i === 0 ? "eager" : "lazy"}
                 sizes={PHONE_SCREEN_SIZES}
                 placeholder="blur"
                 blurDataURL={TINY_BLUR_DATA_URL}
