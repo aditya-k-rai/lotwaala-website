@@ -1,7 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import { SITE_NAME, CATEGORIES, CITIES, FESTIVALS, PLAY_STORE_URL } from "@/lib/constants";
+import {
+  SITE_NAME,
+  CATEGORIES,
+  CITIES,
+  FESTIVALS,
+  PLAY_STORE_URL,
+  PRIMARY_PHONE_NUMBER,
+  PRIMARY_PHONE_DISPLAY,
+  WHATSAPP_PHONE_NUMBER,
+  WHATSAPP_PHONE_DISPLAY,
+} from "@/lib/constants";
 
 const DEVELOPER_PORTFOLIO = "https://aditya-k-rai.github.io/P-Website/";
 const DEVELOPER_LINKEDIN = "https://www.linkedin.com/in/aditya-k-rai/";
@@ -41,6 +51,28 @@ export default function Footer() {
               Plot no 2, Taj Hwy, Biharipura, Raghunathpuri, Nai Basti Dundahera,
               Chipyana Khurd Urf Tigri, Greater Noida, UP 201009
             </p>
+            <div className="mt-3.5 space-y-1.5 border-t border-[#e2e8f0]/80 pt-3 text-xs text-[#64748b]">
+              <p className="flex items-center gap-1.5">
+                <span className="font-semibold text-[#0f172a]">Call (Primary):</span>
+                <a
+                  href={`tel:${PRIMARY_PHONE_NUMBER}`}
+                  className="font-medium text-[#6366f1] hover:underline"
+                >
+                  {PRIMARY_PHONE_DISPLAY}
+                </a>
+              </p>
+              <p className="flex items-center gap-1.5">
+                <span className="font-semibold text-[#0f172a]">WhatsApp (Secondary):</span>
+                <a
+                  href={`https://wa.me/91${WHATSAPP_PHONE_NUMBER}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-[#10b981] hover:underline"
+                >
+                  {WHATSAPP_PHONE_DISPLAY}
+                </a>
+              </p>
+            </div>
           </div>
 
           {/* Col 2: Company Links */}

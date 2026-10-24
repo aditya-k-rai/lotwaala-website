@@ -11,6 +11,8 @@ import {
   APP_STORE_URL,
   PLAY_STORE_URL,
   PHONE_NUMBER,
+  PRIMARY_PHONE_NUMBER,
+  WHATSAPP_PHONE_NUMBER,
   CATEGORIES,
   CITIES,
 } from "./constants";
@@ -279,12 +281,20 @@ export function generateOrganizationSchema() {
       "@type": "Country",
       name: "India",
     },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: `+91-${PHONE_NUMBER}`,
-      contactType: "customer support",
-      availableLanguage: ["English", "Hindi"],
-    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: `+91-${PRIMARY_PHONE_NUMBER}`,
+        contactType: "customer support",
+        availableLanguage: ["English", "Hindi"],
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: `+91-${WHATSAPP_PHONE_NUMBER}`,
+        contactType: "WhatsApp support",
+        availableLanguage: ["English", "Hindi"],
+      },
+    ],
   };
 }
 

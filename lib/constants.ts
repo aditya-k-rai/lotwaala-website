@@ -11,9 +11,11 @@ export const SITE_DESCRIPTION =
 
 export const PRIMARY_PHONE_NUMBER = "9429690230";
 export const PRIMARY_PHONE_DISPLAY = "094296 90230";
-export const WHATSAPP_PHONE_NUMBER = "8796911891";
-export const WHATSAPP_PHONE_DISPLAY = "+91 87969 11891";
-export const PHONE_NUMBER = PRIMARY_PHONE_NUMBER;
+export const SECONDARY_PHONE_NUMBER = "8796911891";
+export const SECONDARY_PHONE_DISPLAY = "+91 87969 11891";
+export const WHATSAPP_PHONE_NUMBER = SECONDARY_PHONE_NUMBER;
+export const WHATSAPP_PHONE_DISPLAY = SECONDARY_PHONE_DISPLAY;
+export const PHONE_NUMBER = SECONDARY_PHONE_NUMBER;
 
 export const COMPANY_ADDRESS = {
   streetAddress: "KH 58, Tigri Gol Chakkar, Plot no 2, Taj Hwy, Biharipura, Raghunathpuri, Nai Basti Dundahera, Chipyana Khurd Urf Tigri",
