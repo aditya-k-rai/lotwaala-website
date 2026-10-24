@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "/#markets", label: "Markets", color: "#00f0ff" }, // Electric cyan
   { href: "/how-to-use", label: "How to Use", color: "#10b981" }, // Emerald green
   { href: "/about", label: "About", color: "#6366f1" }, // Indigo
+  { href: "/contact", label: "Contact Us", color: "#f59e0b" }, // Warm Amber / Vibrant Gold
 ];
 
 export default function Navbar() {
@@ -114,11 +115,11 @@ export default function Navbar() {
             onClick={(e) => handleNavClick(e, "/", "Logo")}
           >
             <Image
-              src="/logo.png"
+              src="/logo-icon.png"
               alt="Lotwaala Logo"
               width={40}
               height={40}
-              className="h-8 w-8 rounded-[20%] bg-white object-contain sm:h-10 sm:w-10"
+              className="h-8 w-8 object-contain sm:h-10 sm:w-10 drop-shadow-md"
               preload
             />
             <span className="text-lg font-extrabold tracking-tight text-white sm:text-xl">

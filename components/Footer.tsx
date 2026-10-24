@@ -1,25 +1,29 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SITE_NAME, CATEGORIES, CITIES, FESTIVALS } from "@/lib/constants";
+import { ArrowDown, ArrowRight } from "lucide-react";
+import { SITE_NAME, CATEGORIES, CITIES, FESTIVALS, PLAY_STORE_URL } from "@/lib/constants";
 
 const DEVELOPER_PORTFOLIO = "https://aditya-k-rai.github.io/P-Website/";
 const DEVELOPER_LINKEDIN = "https://www.linkedin.com/in/aditya-k-rai/";
+
+// Top featured categories for the 4-column balanced grid
+const TOP_CATEGORIES = CATEGORIES.slice(0, 10);
 
 export default function Footer() {
   return (
     <footer className="border-t border-[#e2e8f0] bg-[#fafbff]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* ── Main Footer Grid — 4 Columns ── */}
+        {/* ── Main Footer Grid — 4 Balanced Columns ── */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5">
               <Image
-                src="/logo.png"
+                src="/logo-icon.png"
                 alt="Lotwaala Logo"
                 width={40}
                 height={40}
-                className="h-10 w-10 rounded-xl object-contain"
+                className="h-10 w-10 object-contain drop-shadow-sm"
               />
               <span className="text-xl font-extrabold text-[#0f172a]">
                 {SITE_NAME}
@@ -68,26 +72,37 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Wholesale Categories */}
+          {/* Col 3: Popular Wholesale Categories */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
-              Wholesale Categories
-            </h3>
-            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
-              {CATEGORIES.map((cat) => (
+            <div className="flex items-center justify-between">
+              <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+                Top Categories
+              </h3>
+            </div>
+            <ul className="mt-4 space-y-2">
+              {TOP_CATEGORIES.map((cat) => (
                 <li key={cat.slug}>
                   <Link
                     href={`/market/category/${cat.slug}`}
-                    className="text-xs text-[#64748b] transition-colors hover:text-[#6366f1]"
+                    className="text-xs sm:text-sm text-[#64748b] transition-colors hover:text-[#6366f1] truncate block"
                   >
                     Wholesale {cat.name}
                   </Link>
                 </li>
               ))}
+              <li className="pt-1.5">
+                <a
+                  href="#all-categories"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#6366f1] hover:text-[#4f46e5] transition-colors"
+                >
+                  <span>View all 50+ categories</span>
+                  <ArrowDown className="h-3.5 w-3.5" />
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Col 4: Festival & Seasonal Deals */}
+          {/* Col 4: Festival Deals & Quick Links */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               Festival &amp; Seasonal Deals
@@ -104,11 +119,54 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-6 pt-5 border-t border-[#e2e8f0]">
+              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+                Mobile App
+              </h4>
+              <p className="mt-2 text-xs text-[#64748b]">
+                Download Lotwaala free on Android &amp; iOS to buy wholesale goods anywhere.
+              </p>
+              <div className="mt-3">
+                <Link
+                  href={PLAY_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#6366f1] hover:underline"
+                >
+                  <span>Google Play Store</span>
+                  <ArrowRight className="h-3 w-3" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Wholesale Categories Directory — Full-Width Balanced Grid ── */}
+        <div id="all-categories" className="mt-12 border-t border-[#e2e8f0] pt-8">
+          <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
+            <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
+              All Wholesale Categories (50+ Categories)
+            </h3>
+            <span className="text-xs text-[#94a3b8]">Verified Pan-India B2B Wholesalers</span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-2.5 gap-x-4">
+            {CATEGORIES.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/market/category/${cat.slug}`}
+                className="text-xs text-[#64748b] transition-colors hover:text-[#6366f1] hover:underline truncate"
+                title={`Wholesale ${cat.name} Products`}
+              >
+                Wholesale {cat.name}
+              </Link>
+            ))}
           </div>
         </div>
 
         {/* ── Wholesale Markets by City — Full-Width Balanced Grid ── */}
-        <div className="mt-12 border-t border-[#e2e8f0] pt-8">
+        <div className="mt-10 border-t border-[#e2e8f0] pt-8">
           <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
             <h3 className="text-xs font-bold uppercase tracking-[0.15em] text-[#6366f1]">
               Wholesale Markets Across India (120+ Cities)
@@ -117,7 +175,7 @@ export default function Footer() {
           </div>
           
           {/* 4-column balanced grid on desktop, 2-column on mobile */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-2 gap-x-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-y-2.5 gap-x-4">
             {CITIES.map((city) => (
               <Link
                 key={city.slug}

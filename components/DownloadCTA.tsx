@@ -20,11 +20,11 @@ export default function DownloadCTA() {
         <div className="mx-auto animate-bounce-subtle">
           <div className="relative inline-block">
             <Image
-              src="/logo.png"
+              src="/logo-icon.png"
               alt="Lotwaala"
               width={80}
               height={80}
-              className="mx-auto h-20 w-20 rounded-2xl object-contain drop-shadow-2xl"
+              className="mx-auto h-20 w-20 object-contain drop-shadow-2xl"
             />
             {/* Glow ring behind logo */}
             <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-[#6366f1]/20 via-[#a855f7]/20 to-[#06b6d4]/20 blur-xl -z-10 animate-glow-pulse" />
