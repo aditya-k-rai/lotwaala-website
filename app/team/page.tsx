@@ -51,7 +51,10 @@ const teamSchema = {
       name: "Manisha Parashar",
       jobTitle: "Co-Founder & Head of HR",
       url: "https://www.linkedin.com/in/manisha-parashar-217302100/",
-      sameAs: ["https://www.linkedin.com/in/manisha-parashar-217302100/"],
+      sameAs: [
+        "https://www.linkedin.com/in/manisha-parashar-217302100/",
+        "https://www.instagram.com/manisha1408_parashar/",
+      ],
       description:
         "Manisha Parashar is Co-Founder at Lotwaala with 8+ years of experience in recruitment management, global hiring, corporate HR administration, and organizational operations across India, Dubai, US, and UK markets.",
       worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
@@ -77,6 +80,8 @@ const teamSchema = {
       "@type": "Person",
       name: "Sachin Puri",
       jobTitle: "Operations & Platform Manager",
+      url: "https://www.instagram.com/gym_lover_goswami_boy?psln=NHVleHc4cDR2cnVy",
+      sameAs: ["https://www.instagram.com/gym_lover_goswami_boy?psln=NHVleHc4cDR2cnVy"],
       description:
         "Sachin Puri is the Operations & Platform Manager at Lotwaala, overseeing platform operations, buyer/seller onboarding, and dispute resolution.",
       worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
@@ -85,6 +90,8 @@ const teamSchema = {
       "@type": "Person",
       name: "Nandani Rastogi",
       jobTitle: "HR & Support Lead",
+      url: "https://www.instagram.com/nandini__rastogi___12?exln=MXBwOXh2a2Z6Y2Jybg==",
+      sameAs: ["https://www.instagram.com/nandini__rastogi___12?exln=MXBwOXh2a2Z6Y2Jybg=="],
       description:
         "Nandani Rastogi leads Human Resources and Customer Support operations at Lotwaala, managing team recruitment and buyer/seller assistance.",
       worksFor: { "@type": "Organization", name: "Lotwaala / Surplus Saga Pvt. Ltd." },
@@ -145,6 +152,7 @@ const LEADERSHIP = [
     ],
     links: [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/manisha-parashar-217302100/", platform: "linkedin" },
+      { label: "Instagram", href: "https://www.instagram.com/manisha1408_parashar/", platform: "instagram" },
     ],
     badge: "Co-Founder",
   },
@@ -209,7 +217,11 @@ const OPERATIONS_TEAM = [
       "Operations & Support Leadership",
     ],
     links: [
-      { label: "Instagram", href: "#", platform: "instagram", isPlaceholder: true },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/gym_lover_goswami_boy?psln=NHVleHc4cDR2cnVy",
+        platform: "instagram",
+      },
     ],
     badge: "Manager",
   },
@@ -228,7 +240,11 @@ const OPERATIONS_TEAM = [
       "Mon–Sat, 9 AM – 6 PM IST",
     ],
     links: [
-      { label: "Instagram", href: "#", platform: "instagram", isPlaceholder: true },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/nandini__rastogi___12?exln=MXBwOXh2a2Z6Y2Jybg==",
+        platform: "instagram",
+      },
     ],
     badge: "HR Lead",
   },
@@ -433,6 +449,8 @@ function TeamCard({ member }: { member: TeamMember }) {
                         ? "bg-[#24292e] hover:bg-[#1b1f23]"
                         : link.platform === "quora"
                         ? "bg-[#b92b27] hover:bg-[#961c19]"
+                        : link.platform === "instagram"
+                        ? "bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:opacity-95 shadow-pink-500/20"
                         : "bg-[#6366f1] hover:bg-[#4f46e5]"
                     }`}
                   >
