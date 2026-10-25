@@ -11,8 +11,8 @@ const NAV_LINKS = [
   { href: "/#features", label: "Features", color: "#ff007f" }, // Vivid pink
   { href: "/#markets", label: "Markets", color: "#00f0ff" }, // Electric cyan
   { href: "/how-to-use", label: "How to Use", color: "#10b981" }, // Emerald green
-  { href: "/about", label: "About", color: "#6366f1" }, // Indigo
   { href: "/contact", label: "Contact Us", color: "#f59e0b" }, // Warm Amber / Vibrant Gold
+  { href: "/about", label: "About", color: "#6366f1" }, // Indigo
 ];
 
 export default function Navbar() {
