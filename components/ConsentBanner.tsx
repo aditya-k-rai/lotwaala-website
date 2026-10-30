@@ -55,7 +55,7 @@ export default function ConsentBanner() {
       className="fixed inset-x-0 bottom-0 z-[60] border-t border-white/10 bg-[#1a2238]/95 px-3 py-2 backdrop-blur-md shadow-lg sm:px-4 sm:py-1.5"
     >
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-2 sm:min-h-10 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs leading-snug text-white/75 sm:text-sm">
+        <p className="text-xs leading-snug text-slate-100 sm:text-sm">
           We use cookies to understand how you use Lotwaala and improve the app
           experience. See our analytics policy for details.
         </p>
@@ -63,7 +63,7 @@ export default function ConsentBanner() {
           <button
             type="button"
             onClick={() => handle(false)}
-            className="flex-1 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/80 transition-all hover:bg-white/10 sm:flex-none sm:px-4"
+            className="flex-1 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white transition-all hover:bg-white/20 sm:flex-none sm:px-4"
           >
             Decline
           </button>

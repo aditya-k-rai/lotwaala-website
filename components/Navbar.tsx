@@ -132,7 +132,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.label)}
-                className="nav-link-codepen text-sm font-semibold text-white/70"
+                className="nav-link-codepen text-sm font-semibold text-slate-100 hover:text-white"
                 style={{ "--clr": link.color } as React.CSSProperties}
               >
                 {link.label}
@@ -155,14 +155,14 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-white/70 transition-all duration-300 hover:bg-white/10 hover:text-white md:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-white transition-all duration-300 hover:bg-white/10 md:hidden"
               aria-expanded={isMobileMenuOpen}
               aria-label="Toggle Menu"
             >
               {isMobileMenuOpen ? (
-                <X className="h-5 w-5 animate-scale-in" />
+                <X className="h-6 w-6 animate-scale-in" />
               ) : (
-                <Menu className="h-5 w-5 animate-scale-in" />
+                <Menu className="h-6 w-6 animate-scale-in" />
               )}
             </button>
           </div>
@@ -178,7 +178,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.label)}
-                className="flex w-full items-center justify-between rounded-lg border border-white/5 p-2.5 text-sm font-bold text-white/80 transition-all"
+                className="flex w-full items-center justify-between rounded-lg border border-white/5 p-2.5 text-sm font-bold text-white transition-all"
                 style={{ backgroundColor: `${link.color}15`, borderLeft: `4px solid ${link.color}` } as React.CSSProperties}
               >
                 {link.label}

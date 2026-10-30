@@ -328,15 +328,15 @@ export default function DeveloperPage() {
                   </svg>
                   Greater Noida, UP, India
                 </span>
-                <span className="text-[#94a3b8]">·</span>
-                <span className="text-[#94a3b8]">Originally from Kushinagar</span>
+                <span className="text-[#64748b]">·</span>
+                <span className="text-[#64748b]">Originally from Kushinagar</span>
               </div>
 
               {/* Bio */}
-              <p className="mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed text-[#475569] animate-fade-in-up delay-300 px-2 sm:px-0">
+              <p className="mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base lg:text-lg leading-relaxed text-[#334155] animate-fade-in-up delay-300 px-2 sm:px-0">
                 Also known as <strong>Aditya K. Rai</strong> or <strong>Aditya Rai</strong>.
                 He designed, developed, and marketed the entire{" "}
-                <span className="font-semibold text-[#6366f1]">{SITE_NAME}</span> web platform
+                <span className="font-semibold text-[#4338ca]">{SITE_NAME}</span> web platform
                 — from architecture and UI/UX to SEO, structured data, and digital marketing strategy.
               </p>
 
@@ -358,7 +358,7 @@ export default function DeveloperPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${DEV_NAME} on LinkedIn`}
-                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border-2 border-[#6366f1] px-4 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-bold text-[#6366f1] transition-all duration-300 hover:bg-[#6366f1] hover:text-white hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border-2 border-[#4338ca] px-4 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-bold text-[#4338ca] transition-all duration-300 hover:bg-[#4338ca] hover:text-white hover:-translate-y-0.5"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -373,7 +373,7 @@ export default function DeveloperPage() {
         {/* ── SECTION 2: What He Built ── */}
         <section className="mx-auto max-w-4xl px-4 py-10 sm:py-16 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#6366f1]">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#4338ca]">
               {SITE_NAME} Development
             </span>
             <h2 className="mt-2 text-xl font-extrabold text-[#0f172a] sm:text-3xl lg:text-4xl">
@@ -390,7 +390,7 @@ export default function DeveloperPage() {
               >
                 <div className="mb-2 sm:mb-3 text-2xl sm:text-3xl">{item.emoji}</div>
                 <h3 className="text-sm sm:text-base font-bold text-[#0f172a]">{item.title}</h3>
-                <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-relaxed text-[#64748b]">
+                <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-relaxed text-[#334155]">
                   {item.description}
                 </p>
               </div>
@@ -414,7 +414,7 @@ export default function DeveloperPage() {
         <section className="bg-[#f8fafc]">
           <div className="mx-auto max-w-4xl px-4 py-10 sm:py-16 sm:px-6 lg:px-8">
             <div className="text-center">
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#f59e0b]">
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#b45309]">
                 Digital Marketing & SEO
               </span>
               <h2 className="mt-2 text-xl font-extrabold text-[#0f172a] sm:text-3xl lg:text-4xl">
@@ -461,7 +461,7 @@ export default function DeveloperPage() {
             <h2 className="mt-2 text-xl font-extrabold text-[#0f172a] sm:text-3xl lg:text-4xl">
               Find {DEV_NAME} Online
             </h2>
-            <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-[#94a3b8]">
+            <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-[#475569]">
               Software Developer · Web Developer · Digital Marketer in Greater Noida
             </p>
             <div className="mx-auto mt-3 sm:mt-4 h-1 w-12 sm:w-16 rounded-full bg-gradient-to-r from-[#6366f1] to-[#06b6d4]" />
@@ -496,7 +496,7 @@ export default function DeveloperPage() {
                   <div className="text-xs sm:text-sm font-bold text-[#0f172a]">
                     {social.platform}
                   </div>
-                  <div className="mt-0.5 text-[10px] sm:text-xs text-[#94a3b8] truncate">
+                  <div className="mt-0.5 text-[10px] sm:text-xs text-[#475569] truncate">
                     {social.handle}
                   </div>
                 </div>
@@ -518,10 +518,10 @@ export default function DeveloperPage() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <p className="text-xs text-[#94a3b8]">
+              <p className="text-xs font-semibold text-[#475569]">
                 {DEV_NAME}
               </p>
-              <p className="max-w-lg text-[10px] leading-relaxed text-[#cbd5e1]">
+              <p className="max-w-lg text-[10px] leading-relaxed text-[#64748b]">
                 Software Developer in Greater Noida · Web Developer in Greater Noida · Digital Marketer in Greater Noida.{" "}
                 {SITE_NAME} website developed &amp; marketed by {DEV_NAME}.
               </p>

@@ -1,0 +1,18 @@
+# Lotwaala Robots.txt
+# Comprehensive Crawl Rules for Googlebot, Bingbot & Search Engine Spiders
+
+User-agent: *
+Allow: /
+Allow: /market/
+Allow: /market/category/
+Allow: /market/festival/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /account/
+Disallow: /dashboard/
+Disallow: /settings/
+
+# Sitemaps
+Sitemap: https://lotwaala.com/sitemap.xml
+Host: https://lotwaala.com
+

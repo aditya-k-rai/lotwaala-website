@@ -159,7 +159,7 @@ export default function CategoryBrowser() {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#6366f1]/15 bg-[#6366f1]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#6366f1]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#4338ca]/25 bg-[#4338ca]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#4338ca]">
             Browse Categories
           </div>
           <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-[#0f172a] sm:text-4xl">
@@ -168,7 +168,7 @@ export default function CategoryBrowser() {
               All Categories
             </span>
           </h2>
-          <p className="mt-4 text-lg text-[#475569]">
+          <p className="mt-4 text-lg text-[#334155]">
             From electronics to textiles, find wholesale products and bulk
             suppliers for every category on Lotwaala.
           </p>
@@ -207,12 +207,12 @@ export default function CategoryBrowser() {
                   <h3 className="mt-3.5 sm:mt-4 text-base font-bold text-[#0f172a]">
                     Wholesale {cat.name} Products
                   </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm text-[#64748b] leading-relaxed">
+                  <p className="mt-1.5 text-xs sm:text-sm text-[#334155] leading-relaxed">
                     {cat.description}
                   </p>
 
                   {/* Link — visible on mobile, hover-animated on desktop */}
-                  <div className="mt-3 sm:mt-4 flex items-center gap-1 text-xs sm:text-sm font-semibold text-[#6366f1] opacity-100 sm:opacity-0 transition-all duration-300 sm:group-hover:opacity-100 sm:group-hover:translate-x-1">
+                  <div className="mt-3 sm:mt-4 flex items-center gap-1 text-xs sm:text-sm font-semibold text-[#4338ca] opacity-100 sm:opacity-0 transition-all duration-300 sm:group-hover:opacity-100 sm:group-hover:translate-x-1">
                     <span>Browse wholesale products</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </div>

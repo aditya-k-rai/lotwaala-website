@@ -158,12 +158,12 @@ export default function HowToUsePage() {
             <div className="rounded-xl border border-[#6366f1]/30 bg-[#6366f1]/10 p-4 text-center">
               <div className="text-2xl">🛍️</div>
               <p className="mt-1 text-sm font-bold text-white">Buyers</p>
-              <p className="text-xs text-white/50">Browse & Order</p>
+              <p className="text-xs text-slate-200">Browse & Order</p>
             </div>
             <div className="rounded-xl border border-[#f59e0b]/30 bg-[#f59e0b]/10 p-4 text-center">
               <div className="text-2xl">📦</div>
               <p className="mt-1 text-sm font-bold text-white">Sellers</p>
-              <p className="text-xs text-white/50">List & Get Paid</p>
+              <p className="text-xs text-slate-200">List & Get Paid</p>
             </div>
           </div>
         </div>

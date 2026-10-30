@@ -176,7 +176,7 @@ export function EnquiryFormClient() {
               <div>
                 <label className="block text-sm font-semibold text-[#0f172a]" htmlFor="enq-gst">
                   GST Number{" "}
-                  <span className="text-xs font-normal text-[#94a3b8]">(Optional — required for sellers)</span>
+                  <span className="text-xs font-normal text-[#475569]">(Optional — required for sellers)</span>
                 </label>
                 <input
                   id="enq-gst"
@@ -253,7 +253,7 @@ export function EnquiryFormClient() {
             >
               Send Enquiry via WhatsApp →
             </button>
-            <p className="text-center text-xs text-[#94a3b8]">
+            <p className="text-center text-xs text-[#475569]">
               Your enquiry will be sent directly to our team on WhatsApp. We respond within 24 business hours (Mon–Sat, 9 AM – 6 PM IST).
             </p>
           </form>

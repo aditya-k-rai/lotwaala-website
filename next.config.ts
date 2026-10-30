@@ -45,6 +45,33 @@ const nextConfig: NextConfig = {
     ];
 
     return [
+      // Fast Crawl & Indexing — Instant response for robots.txt & sitemap.xml without serverless timeouts
+      {
+        source: "/robots.txt",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "text/plain; charset=utf-8",
+          },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        source: "/sitemap.xml",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "application/xml; charset=utf-8",
+          },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
       // Static image assets — long cache with stale-while-revalidate
       {
         source: "/:all*(svg|png|jpg|jpeg|webp|avif|ico)",

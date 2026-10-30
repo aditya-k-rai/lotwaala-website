@@ -247,34 +247,34 @@ export default function EnquiryPage() {
                   <div className="mt-4 space-y-3">
                     <a
                       href={`tel:${PRIMARY_PHONE_NUMBER}`}
-                      className="flex items-center gap-3 text-sm text-[#475569] hover:text-[#6366f1] transition-colors"
+                      className="flex items-center gap-3 text-sm text-[#334155] hover:text-[#4338ca] transition-colors"
                     >
-                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#6366f1]/10 text-[#6366f1]">📞</span>
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#6366f1]/10 text-[#4338ca]">📞</span>
                       <div>
                         <p className="font-semibold text-[#0f172a]">{PRIMARY_PHONE_DISPLAY}</p>
-                        <p className="text-xs text-[#94a3b8]">Primary Calling Line</p>
+                        <p className="text-xs text-[#475569]">Primary Calling Line</p>
                       </div>
                     </a>
                     <a
                       href={`https://wa.me/91${WHATSAPP_PHONE_NUMBER}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-sm text-[#475569] hover:text-[#10b981] transition-colors"
+                      className="flex items-center gap-3 text-sm text-[#334155] hover:text-[#047857] transition-colors"
                     >
-                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#10b981]/10 text-[#10b981]">💬</span>
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-[#047857]">💬</span>
                       <div>
                         <p className="font-semibold text-[#0f172a]">{WHATSAPP_PHONE_DISPLAY}</p>
-                        <p className="text-xs text-[#94a3b8]">Secondary WhatsApp Support</p>
+                        <p className="text-xs text-[#475569]">Secondary WhatsApp Support</p>
                       </div>
                     </a>
                     <a
                       href="mailto:support@lotwaala.com"
-                      className="flex items-center gap-3 text-sm text-[#475569] hover:text-[#6366f1] transition-colors"
+                      className="flex items-center gap-3 text-sm text-[#334155] hover:text-[#4338ca] transition-colors"
                     >
-                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#6366f1]/10 text-[#6366f1]">✉️</span>
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#6366f1]/10 text-[#4338ca]">✉️</span>
                       <div>
                         <p className="font-semibold text-[#0f172a]">support@lotwaala.com</p>
-                        <p className="text-xs text-[#94a3b8]">Business enquiries</p>
+                        <p className="text-xs text-[#475569]">Business enquiries</p>
                       </div>
                     </a>
                     <div className="flex items-start gap-3">
@@ -313,7 +313,7 @@ export default function EnquiryPage() {
                         <span style={{ color: s.color }}>{s.icon}</span>
                         <div>
                           <p className="text-sm font-semibold text-[#0f172a]">{s.label}</p>
-                          <p className="text-xs text-[#94a3b8]">{s.desc}</p>
+                          <p className="text-xs text-[#475569]">{s.desc}</p>
                         </div>
                       </a>
                     ))}

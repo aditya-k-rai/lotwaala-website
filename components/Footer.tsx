@@ -39,24 +39,24 @@ export default function Footer() {
                 {SITE_NAME}
               </span>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-[#64748b]">
+            <p className="mt-4 text-sm leading-relaxed text-[#334155]">
               India&apos;s #1 wholesale products marketplace, serving all of
               India. Buy wholesale products online from 10,000+ verified
               wholesalers — with hubs in 120+ cities in India and in-app
               delivery support through Big-Ship and other major delivery
               partners.
             </p>
-            <p className="mt-3 text-xs leading-relaxed text-[#64748b]">
+            <p className="mt-3 text-xs leading-relaxed text-[#334155]">
               Surplus Saga Pvt. Ltd. (Lotwaala), KH 58, Tigri Gol Chakkar,
               Plot no 2, Taj Hwy, Biharipura, Raghunathpuri, Nai Basti Dundahera,
               Chipyana Khurd Urf Tigri, Greater Noida, UP 201009
             </p>
-            <div className="mt-3.5 space-y-1.5 border-t border-[#e2e8f0]/80 pt-3 text-xs text-[#64748b]">
+            <div className="mt-3.5 space-y-1.5 border-t border-[#e2e8f0]/80 pt-3 text-xs text-[#334155]">
               <p className="flex items-center gap-1.5">
                 <span className="font-semibold text-[#0f172a]">Call (Primary):</span>
                 <a
                   href={`tel:${PRIMARY_PHONE_NUMBER}`}
-                  className="font-medium text-[#6366f1] hover:underline"
+                  className="font-medium text-[#4338ca] hover:underline"
                 >
                   {PRIMARY_PHONE_DISPLAY}
                 </a>
@@ -67,7 +67,7 @@ export default function Footer() {
                   href={`https://wa.me/91${WHATSAPP_PHONE_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-[#10b981] hover:underline"
+                  className="font-medium text-[#047857] hover:underline"
                 >
                   {WHATSAPP_PHONE_DISPLAY}
                 </a>
@@ -260,7 +260,7 @@ export default function Footer() {
           >
             Aditya Kumar Rai
           </Link>
-          <span className="text-white/30">|</span>
+          <span className="text-white/60">|</span>
           <a
             href={DEVELOPER_LINKEDIN}
             target="_blank"

@@ -135,7 +135,7 @@ export default async function CityHubPage({ params }: PageProps) {
               />
             </div>
 
-            <div className="flex items-center gap-2 text-sm text-white/50">
+            <div className="flex items-center gap-2 text-sm text-slate-200">
               <MapPin className="h-4 w-4" />
               <span>
                 {cit.name}, {cit.state}
@@ -146,7 +146,7 @@ export default async function CityHubPage({ params }: PageProps) {
             <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
               Wholesale Market in {cit.name} - Buy Wholesale Products Online
             </h1>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-200">
               {seoData?.description ??
                 `Connect with verified wholesale suppliers and bulk dealers in ${cit.name}. The ${SITE_NAME} app gives you access to thousands of wholesale listings across every category. Download free and start dealing.`}
               {" "}Browse wholesale products in {cit.name} by category, compare
@@ -191,7 +191,7 @@ export default async function CityHubPage({ params }: PageProps) {
             </div>
 
             {/* Rating */}
-            <div className="mt-6 flex items-center gap-2 text-sm text-white/50">
+            <div className="mt-6 flex items-center gap-2 text-sm text-slate-300">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -345,7 +345,7 @@ export default async function CityHubPage({ params }: PageProps) {
             <h2 className="text-2xl font-extrabold sm:text-3xl">
               Ready to Explore Wholesale Markets in {cit.name}?
             </h2>
-            <p className="mt-4 text-white/60">
+            <p className="mt-4 text-slate-200">
               Download {SITE_NAME} free and start browsing wholesale suppliers
               in {cit.name} now.
             </p>

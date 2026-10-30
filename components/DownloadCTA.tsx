@@ -33,7 +33,7 @@ export default function DownloadCTA() {
 
         <div className="mt-4 flex items-center justify-center gap-1.5 animate-fade-in-up delay-100">
           <Sparkles className="h-4 w-4 text-[#fbbf24]" />
-          <span className="text-sm font-semibold text-white/40">
+          <span className="text-sm font-semibold text-slate-200">
             50,000+ downloads
           </span>
           <Sparkles className="h-4 w-4 text-[#fbbf24]" />
@@ -45,7 +45,7 @@ export default function DownloadCTA() {
             Smarter
           </span>
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/40 animate-fade-in-up delay-300">
+        <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-200 animate-fade-in-up delay-300">
           Join 10,000+ wholesalers already using Lotwaala. Download the app and
           get access to India&apos;s largest wholesale marketplace — completely
           free.
@@ -86,7 +86,7 @@ export default function DownloadCTA() {
             eventParams={{ store: "play_store", source: "download_cta" }}
             className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-white px-8 py-4 text-base font-bold text-[#0f172a] shadow-xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:-translate-y-1 sm:w-auto"
           >
-            <Zap className="h-5 w-5 text-[#6366f1] transition-transform group-hover:rotate-12" />
+            <Zap className="h-5 w-5 text-[#4338ca] transition-transform group-hover:rotate-12" />
             Download for Android
             <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5" />
           </TrackedLink>
@@ -102,7 +102,7 @@ export default function DownloadCTA() {
           </TrackedLink>
         </div>
 
-        <p className="mt-8 text-sm text-white/25 animate-fade-in-up delay-500">
+        <p className="mt-8 text-sm text-slate-300 font-medium animate-fade-in-up delay-500">
           Free forever &middot; Available on Android &amp; iOS &middot; No ads
         </p>
       </div>

@@ -35,14 +35,14 @@ export default function FeatureGrid() {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="mx-auto max-w-2xl text-center animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#6366f1]/15 bg-[#6366f1]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#6366f1]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#4338ca]/25 bg-[#4338ca]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#4338ca]">
             Why Lotwaala
           </div>
           <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-[#0f172a] sm:text-4xl">
             Everything a Wholesaler Needs,{" "}
             <span className="gradient-text-primary">in One App</span>
           </h2>
-          <p className="mt-4 text-lg text-[#475569]">
+          <p className="mt-4 text-lg text-[#334155]">
             Built for India&apos;s wholesale marketplace — from verified sellers
             to Big-Ship and major delivery partner support.
           </p>
@@ -76,7 +76,7 @@ export default function FeatureGrid() {
                   <h3 className="mt-5 text-lg font-bold text-[#0f172a]">
                     {feature.title}
                   </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-[#64748b]">
+                  <p className="mt-2.5 text-sm leading-relaxed text-[#334155]">
                     {feature.description}
                   </p>
                 </div>

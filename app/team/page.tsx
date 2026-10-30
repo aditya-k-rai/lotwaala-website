@@ -396,17 +396,17 @@ function TeamCard({ member }: { member: TeamMember }) {
                   </span>
                 )}
               </div>
-              <p className="text-base sm:text-lg font-bold text-[#6366f1] mt-1">{member.role}</p>
-              <p className="text-xs font-bold uppercase tracking-widest text-[#94a3b8] mt-0.5">{member.department}</p>
+              <p className="text-base sm:text-lg font-bold text-[#4338ca] mt-1">{member.role}</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#475569] mt-0.5">{member.department}</p>
             </div>
           </div>
 
           {/* Bio */}
-          <p className="mt-5 text-sm sm:text-base leading-relaxed text-[#475569]">{member.bio}</p>
+          <p className="mt-5 text-sm sm:text-base leading-relaxed text-[#334155]">{member.bio}</p>
 
           {/* Key Highlights — Single-column smooth vertical flow */}
           <div className="mt-5 border-t border-[#f1f5f9] pt-4">
-            <p className="text-xs font-bold uppercase tracking-wider text-[#6366f1] mb-2.5">Key Highlights</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-[#4338ca] mb-2.5">Key Highlights</p>
             <ul className="space-y-2">
               {member.highlights.map((h) => (
                 <li key={h} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#334155] group/item">

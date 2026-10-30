@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { CATEGORIES, CITIES, FESTIVALS, SITE_LAST_MODIFIED, SITE_URL } from "@/lib/constants";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(SITE_LAST_MODIFIED);
 

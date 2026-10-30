@@ -237,14 +237,14 @@ export default function ContactPage() {
                     </span>
                   </div>
 
-                  <h3 className="mt-4 text-base font-bold text-[#0f172a] transition-colors group-hover:text-[#6366f1]">
+                  <h3 className="mt-4 text-base font-bold text-[#0f172a] transition-colors group-hover:text-[#4338ca]">
                     {channel.title}
                   </h3>
-                  <p className="mt-1 text-xs text-[#64748b] font-medium leading-relaxed">
+                  <p className="mt-1 text-xs text-[#334155] font-medium leading-relaxed">
                     {channel.detail}
                   </p>
 
-                  <div className="mt-5 flex items-center gap-1.5 text-xs font-bold text-[#6366f1] transition-all group-hover:translate-x-1 group-hover:text-[#4f46e5]">
+                  <div className="mt-5 flex items-center gap-1.5 text-xs font-bold text-[#4338ca] transition-all group-hover:translate-x-1 group-hover:text-[#312e81]">
                     <span>{channel.btnText}</span>
                     <ExternalLink className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
@@ -261,14 +261,14 @@ export default function ContactPage() {
               {/* Left Column: Headquarters & Information */}
               <div className="lg:col-span-5 space-y-8">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#6366f1]">
+                  <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#4338ca]">
                     <Headphones className="h-4 w-4" />
                     <span>Customer Support Desk</span>
                   </div>
                   <h2 className="mt-3 text-3xl font-extrabold text-[#0f172a]">
                     We&apos;re Here to Support Your Wholesale Business
                   </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-[#64748b]">
+                  <p className="mt-3 text-sm leading-relaxed text-[#334155]">
                     Lotwaala connects retailers, wholesalers, and liquidators across 120+ Indian cities. 
                     Whether you are negotiating a bulk price or resolving a shipping query, our team ensures rapid support.
                   </p>
@@ -314,10 +314,10 @@ export default function ContactPage() {
                       <h4 className="text-sm font-bold text-[#0f172a]">
                         Working Hours
                       </h4>
-                      <p className="mt-1 text-xs text-[#64748b]">
+                      <p className="mt-1 text-xs text-[#334155]">
                         Monday – Saturday: 9:00 AM – 6:00 PM IST
                       </p>
-                      <p className="text-xs text-[#94a3b8]">
+                      <p className="text-xs text-[#475569]">
                         Sunday: Closed (WhatsApp automated response active)
                       </p>
                     </div>

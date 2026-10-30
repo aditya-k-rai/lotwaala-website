@@ -30,14 +30,14 @@ export default function MarketExplorer() {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#6366f1]/20 bg-[#6366f1]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#a5b4fc]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#818cf8]/30 bg-[#6366f1]/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#e0e7ff]">
             Explore Markets
           </div>
           <h2 className="mt-6 text-3xl font-extrabold tracking-tight sm:text-4xl">
             Wholesale Market Pages Across{" "}
             <span className="gradient-text-light">India</span>
           </h2>
-          <p className="mt-4 text-lg text-white/50">
+          <p className="mt-4 text-lg text-slate-200">
             Lotwaala operates pan-India. Browse verified wholesalers in
             India&apos;s top wholesale hubs - these are part of our 120+ city
             markets, with delivery support available through our Big-Ship tie-up
@@ -64,7 +64,7 @@ export default function MarketExplorer() {
                 {/* City info */}
                 <div className="flex items-start justify-between">
                   <div>
-                    <div className="flex items-center gap-1.5 text-xs text-white/30">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-300">
                       <MapPin className="h-3 w-3" />
                       <span>{city.state}</span>
                     </div>
@@ -72,7 +72,7 @@ export default function MarketExplorer() {
                       Wholesale Market in {city.name}
                     </h3>
                   </div>
-                  <ArrowRight className="h-4 w-4 text-white/20 transition-all duration-300 group-hover:text-[#818cf8] group-hover:translate-x-1" />
+                  <ArrowRight className="h-4 w-4 text-slate-300 transition-all duration-300 group-hover:text-[#818cf8] group-hover:translate-x-1" />
                 </div>
 
                 {seoData && (
@@ -83,7 +83,7 @@ export default function MarketExplorer() {
                 )}
 
                 {seoData && (
-                  <p className="mt-2 text-xs text-white/20 truncate">
+                  <p className="mt-2 text-xs text-slate-300 truncate font-medium">
                     &ldquo;{seoData.targetKeyword}&rdquo;
                   </p>
                 )}
@@ -94,11 +94,11 @@ export default function MarketExplorer() {
 
         {/* View all CTA */}
         <div className="mt-10 text-center">
-          <p className="text-sm text-white/30">
-            Serving <strong className="text-white/60">all of India</strong> with
-            dedicated hubs in <strong className="text-white/60">120+ cities in India</strong>,{" "}
-            <strong className="text-white/60">1,00,000+ wholesale products</strong>{" "}
-            from <strong className="text-white/60">10,000+ verified wholesalers</strong>
+          <p className="text-sm text-slate-300">
+            Serving <strong className="text-white">all of India</strong> with
+            dedicated hubs in <strong className="text-white">120+ cities in India</strong>,{" "}
+            <strong className="text-white">1,00,000+ wholesale products</strong>{" "}
+            from <strong className="text-white">10,000+ verified wholesalers</strong>
           </p>
         </div>
       </div>

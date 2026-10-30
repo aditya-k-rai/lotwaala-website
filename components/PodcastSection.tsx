@@ -289,13 +289,13 @@ export default function PodcastSection() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h3 className="text-xl sm:text-2xl font-extrabold text-white">More Episodes</h3>
-              <p className="text-xs sm:text-sm text-white/60 mt-1">Explore all podcast episodes with Founder Anurag Sharma</p>
+              <p className="text-xs sm:text-sm text-slate-200 mt-1">Explore all podcast episodes with Founder Anurag Sharma</p>
             </div>
             <a
               href="https://www.youtube.com/@Lotwaala/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 text-xs font-bold text-[#f59e0b] hover:text-[#fbbf24] transition-colors"
+              className="hidden sm:inline-flex items-center gap-2 text-xs font-bold text-[#fbbf24] hover:text-white transition-colors"
             >
               View Channel on YouTube →
             </a>
@@ -318,14 +318,14 @@ export default function PodcastSection() {
                       <span className="rounded-full bg-[#f59e0b]/20 px-3 py-0.5 text-xs font-bold text-[#fbbf24] border border-[#f59e0b]/30">
                         {ep.episodeNumber}
                       </span>
-                      <span className="text-xs text-white/50">{ep.publishDate}</span>
+                      <span className="text-xs text-slate-300">{ep.publishDate}</span>
                     </div>
 
                     <h4 className="mt-3 text-lg font-bold leading-snug text-white group-hover:text-[#818cf8] transition-colors">
                       {ep.title}
                     </h4>
 
-                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-white/70 line-clamp-3">
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-200 line-clamp-3">
                       {ep.description}
                     </p>
 

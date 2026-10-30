@@ -14,9 +14,9 @@ interface BreadcrumbProps {
 }
 
 export default function Breadcrumb({ items, variant = "dark" }: BreadcrumbProps) {
-  const textColor = variant === "dark" ? "text-white/40" : "text-[#94a3b8]";
-  const hoverColor = variant === "dark" ? "hover:text-white/70" : "hover:text-[#2563eb]";
-  const activeColor = variant === "dark" ? "text-white/70" : "text-[#0f172a]";
+  const textColor = variant === "dark" ? "text-slate-300" : "text-[#334155]";
+  const hoverColor = variant === "dark" ? "hover:text-white" : "hover:text-[#4338ca]";
+  const activeColor = variant === "dark" ? "text-white font-semibold" : "text-[#0f172a] font-semibold";
 
   return (
     <nav

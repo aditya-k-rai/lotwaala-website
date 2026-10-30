@@ -23,14 +23,14 @@ export default function FAQSection({
       <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#6366f1]/15 bg-[#6366f1]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#6366f1]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#4338ca]/25 bg-[#4338ca]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#4338ca]">
             FAQ
           </div>
           <h2 className="mt-6 text-2xl font-extrabold tracking-tight text-[#0f172a] sm:text-3xl">
             {title}
           </h2>
           {subtitle && (
-            <p className="mt-3 text-base text-[#475569]">{subtitle}</p>
+            <p className="mt-3 text-base text-[#334155]">{subtitle}</p>
           )}
         </div>
 
@@ -45,7 +45,7 @@ export default function FAQSection({
                 boxShadow: '0 1px 3px rgba(0,0,0,0.02)',
               }}
             >
-              <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left text-base font-bold text-[#0f172a] select-none marker:hidden list-none [&::-webkit-details-marker]:hidden transition-colors group-hover:text-[#6366f1]">
+              <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left text-base font-bold text-[#0f172a] select-none marker:hidden list-none [&::-webkit-details-marker]:hidden transition-colors group-hover:text-[#4338ca]">
                 <span>{faq.question}</span>
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#6366f1] to-[#818cf8] text-white transition-transform duration-300 group-open:rotate-45 shadow-sm">
                   <svg
@@ -63,7 +63,7 @@ export default function FAQSection({
                   </svg>
                 </span>
               </summary>
-              <div className="px-6 pb-5 pt-0 text-sm leading-relaxed text-[#64748b]">
+              <div className="px-6 pb-5 pt-0 text-sm leading-relaxed text-[#334155]">
                 {faq.answer}
               </div>
             </details>

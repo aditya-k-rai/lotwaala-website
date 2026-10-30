@@ -28,8 +28,8 @@
   --color-bg-muted: #f1f5f9;
   --color-surface: #ffffff;
   --color-text: #0f172a;
-  --color-text-secondary: #475569;
-  --color-text-tertiary: #94a3b8;
+  --color-text-secondary: #334155;
+  --color-text-tertiary: #64748b;
   --color-border: #e2e8f0;
   --color-border-light: #f1f5f9;
 
@@ -394,6 +394,12 @@ body {
   .gradient-hero {
     animation: none !important;
     background-size: cover !important;
+  }
+  /* Avoid non-composited animations on smartphone viewports (prevents forced main-thread reflow) */
+  .animate-shimmer,
+  .animate-text-shimmer,
+  .animate-gradient {
+    animation: none !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {

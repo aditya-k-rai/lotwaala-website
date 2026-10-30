@@ -259,7 +259,7 @@ export default function AboutPage() {
                   >
                     {stat.number}
                   </div>
-                  <div className="mt-2 text-sm text-white/60">{stat.label}</div>
+                  <div className="mt-2 text-sm text-slate-200">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -270,7 +270,7 @@ export default function AboutPage() {
         <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8" aria-labelledby="story-heading">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <span className="text-sm font-bold uppercase tracking-widest text-[#6366f1]">Our Story</span>
+              <span className="text-sm font-bold uppercase tracking-widest text-[#4338ca]">Our Story</span>
               <h2 id="story-heading" className="mt-3 text-3xl font-extrabold text-[#0f172a] sm:text-4xl">
                 From Dubai to Noida — A Mission Born in the Market
               </h2>
@@ -302,7 +302,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-extrabold text-[#0f172a]">Anurag Sharma</h3>
-                  <p className="text-base font-bold text-[#6366f1] mt-0.5">Founder & CEO, Lotwaala</p>
+                  <p className="text-base font-bold text-[#4338ca] mt-0.5">Founder & CEO, Lotwaala</p>
                   <div className="mt-2.5 flex items-center gap-2 flex-wrap">
                     <span className="rounded-full bg-[#6366f1] px-3 py-0.5 text-xs font-bold text-white shadow-sm">
                       Founder
@@ -347,7 +347,7 @@ export default function AboutPage() {
         <section className="bg-[#f8fafc] py-20" aria-labelledby="problem-heading">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <span className="text-sm font-bold uppercase tracking-widest text-[#f59e0b]">The Problem</span>
+              <span className="text-sm font-bold uppercase tracking-widest text-[#b45309]">The Problem</span>
               <h2 id="problem-heading" className="mt-3 text-3xl font-extrabold text-[#0f172a] sm:text-4xl">
                 Why India&apos;s B2B Market Was Broken
               </h2>
@@ -463,7 +463,7 @@ export default function AboutPage() {
               <h2 id="comparison-heading" className="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
                 Lotwaala vs. The Market
               </h2>
-              <p className="mt-4 text-white/60">
+              <p className="mt-4 text-slate-300">
                 See exactly how Lotwaala differs from traditional B2B platforms
               </p>
             </div>
@@ -471,11 +471,11 @@ export default function AboutPage() {
               <table className="w-full min-w-[640px] text-sm">
                 <thead>
                   <tr className="border-b border-white/10">
-                    <th className="p-4 text-left text-white/50 font-medium">Feature</th>
-                    <th className="p-4 text-center font-bold text-[#6366f1]">Lotwaala</th>
-                    <th className="p-4 text-center text-white/50 font-medium">IndiaMart</th>
-                    <th className="p-4 text-center text-white/50 font-medium">TradeIndia</th>
-                    <th className="p-4 text-center text-white/50 font-medium">Udaan</th>
+                    <th className="p-4 text-left text-slate-300 font-medium">Feature</th>
+                    <th className="p-4 text-center font-bold text-[#a5b4fc]">Lotwaala</th>
+                    <th className="p-4 text-center text-slate-300 font-medium">IndiaMart</th>
+                    <th className="p-4 text-center text-slate-300 font-medium">TradeIndia</th>
+                    <th className="p-4 text-center text-slate-300 font-medium">Udaan</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -524,11 +524,11 @@ export default function AboutPage() {
                     },
                   ].map((row, i) => (
                     <tr key={row.feature} className={i % 2 === 0 ? "bg-white/5" : "bg-transparent"}>
-                      <td className="p-4 font-medium text-white/70">{row.feature}</td>
-                      <td className="p-4 text-center font-semibold text-[#6366f1]">{row.lotwaala}</td>
-                      <td className="p-4 text-center text-white/50">{row.indiamart}</td>
-                      <td className="p-4 text-center text-white/50">{row.tradeindia}</td>
-                      <td className="p-4 text-center text-white/50">{row.udaan}</td>
+                      <td className="p-4 font-medium text-slate-200">{row.feature}</td>
+                      <td className="p-4 text-center font-semibold text-[#a5b4fc]">{row.lotwaala}</td>
+                      <td className="p-4 text-center text-slate-300">{row.indiamart}</td>
+                      <td className="p-4 text-center text-slate-300">{row.tradeindia}</td>
+                      <td className="p-4 text-center text-slate-300">{row.udaan}</td>
                     </tr>
                   ))}
                 </tbody>

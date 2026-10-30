@@ -15,7 +15,7 @@ export default function PopularSearches({
   return (
     <section className="py-12 bg-bg-subtle">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-2 text-sm font-bold text-[#475569]">
+        <div className="flex items-center gap-2 text-sm font-bold text-[#1e293b]">
           <Search className="h-4 w-4" />
           <span>{title}</span>
         </div>
@@ -24,7 +24,7 @@ export default function PopularSearches({
             <Link
               key={search.href}
               href={search.href}
-              className="rounded-full border border-[#e2e8f0] bg-white px-4 py-2 text-sm font-medium text-[#475569] transition-all hover:border-[#2563eb]/30 hover:text-[#2563eb] hover:shadow-sm"
+              className="rounded-full border border-[#cbd5e1] bg-white px-4 py-2 text-sm font-semibold text-[#334155] transition-all hover:border-[#1d4ed8]/50 hover:text-[#1d4ed8] hover:shadow-sm"
             >
               {search.label}
             </Link>

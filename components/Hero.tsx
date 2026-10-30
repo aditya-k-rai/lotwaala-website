@@ -27,7 +27,7 @@ export default function Hero() {
           {/* ── Left column: Copy ── */}
           <div className="text-center lg:text-left">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#6366f1]/20 bg-[#6366f1]/10 px-4 py-2 text-sm font-semibold text-[#a5b4fc] shadow-sm backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#818cf8]/30 bg-[#6366f1]/20 px-4 py-2 text-sm font-semibold text-[#e0e7ff] shadow-sm backdrop-blur-sm">
               <Star className="h-4 w-4 fill-[#fbbf24] text-[#fbbf24] animate-bounce-subtle" />
               <span>Rated 4.8 on Play Store</span>
               <Sparkles className="h-3.5 w-3.5 text-[#fbbf24]" />
@@ -42,7 +42,7 @@ export default function Hero() {
               From 120+ Cities in India — Free App
             </h1>
 
-            <p className="mt-6 text-lg leading-relaxed text-white/70 sm:text-xl lg:max-w-lg">
+            <p className="mt-6 text-lg leading-relaxed text-slate-200 sm:text-xl lg:max-w-lg">
               India&apos;s #1 <strong className="text-white">wholesale products marketplace app</strong>. Connect with verified wholesalers in <strong className="text-white">Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Pune, Kolkata, Ahmedabad, Surat, Jaipur</strong> and 110+ more cities in India. Browse <strong className="text-white">100,000+ bulk inventory items</strong>, negotiate wholesale prices, and close deals — all from your phone. Delivery is supported in-app through our Big-Ship tie-up and other major delivery partners for transportation across India.
             </p>
 
@@ -50,7 +50,7 @@ export default function Hero() {
             <HeroButtons />
 
             {/* Trust line */}
-            <p className="mt-6 text-sm text-white/50">
+            <p className="mt-6 text-sm text-slate-300">
               Free download &middot; No credit card required &middot; 50K+
               businesses trust Lotwaala
             </p>
@@ -69,7 +69,7 @@ export default function Hero() {
               <p className="text-2xl font-extrabold text-white sm:text-3xl">
                 {stat.value}
               </p>
-              <p className="mt-1 text-sm font-medium text-white/40">
+              <p className="mt-1 text-sm font-medium text-slate-300">
                 {stat.label}
               </p>
             </div>

@@ -36,14 +36,14 @@ export default function AppShowcase() {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#6366f1]/15 bg-[#6366f1]/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#6366f1]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#4338ca]/25 bg-[#4338ca]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#4338ca]">
             App Preview
           </div>
           <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-[#0f172a] sm:text-4xl">
             See the App{" "}
             <span className="gradient-text-primary">in Action</span>
           </h2>
-          <p className="mt-4 text-lg text-[#475569]">
+          <p className="mt-4 text-lg text-[#334155]">
             Everything you need to run your wholesale business — from browsing
             products to managing orders.
           </p>
@@ -83,7 +83,7 @@ export default function AppShowcase() {
               <h3 className="mt-5 text-base font-bold text-[#0f172a]">
                 {screenshot.label}
               </h3>
-              <p className="mt-1.5 text-xs leading-relaxed text-[#64748b] px-2">
+              <p className="mt-1.5 text-xs leading-relaxed text-[#334155] px-2">
                 {screenshot.description}
               </p>
             </div>

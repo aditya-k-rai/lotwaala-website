@@ -233,7 +233,7 @@ export default function ContactFormClient() {
               href={`https://wa.me/91${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent("Hi! I have an inquiry for Lotwaala customer support.")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-[#10b981] hover:underline"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-[#047857] hover:underline"
             >
               <span>Or chat with our team on WhatsApp</span>
               <ArrowRight className="h-3 w-3" />
